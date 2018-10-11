@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"></script>
+        <script src="bootstrap/js/bootstrap.min.js"></script>
+
+        <link rel="stylesheet" href="style.css" />
+        <script src="javasript.js"></script>
+
+        <link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet">
+        <title>Modal-Fenster</title>
+    </head>
+    <body>
+        <main>
+
+
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bd-example-modal-lg">Large modal</button>
+
+            <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+              <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div id="carousel" class="carousel slide" data-ride="carousel">
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+                                <img class="d-block w-100" src="img/Dampfnudel_4.jpg" alt="First slide">
+                            </div>
+                            <div class="carousel-item">
+                                <img class="d-block w-100" src="img/Dampfnudel_5.jpg" alt="Second slide">
+                            </div>
+                            <div class="carousel-item">
+                                <img class="d-block w-100" src="img/Dampfnudel_3.jpg" alt="Third slide">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="PopUp_Text">
+                        <h1>Geschmackvoll, luftige Dampfnudeln nach Omas Rezept, mit feiner Vanillesoße aus echten Vanilleschoten</h1>
+                        <hr>
+                    </div>
+                    <div class="PopUp_Zutaten">
+
+                        <div class="Zutaten_Überschrift">
+                                <h1>Zutaten</h1>
+                                <h2> für
+                                    <select class="DropDown-Personen" id="DropDown"  onchange="init()">
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                        <option value="4">4</option>
+                                    </select>
+                                    Personen:
+                                </h2>
+                        </div>
+                    </div>
+
+                        <hr>
+
+                    <table class="table table-borderless">
+                      <thead class="Tabelle-Zutaten">
+                        <tr>
+                          <th class="Menge" scope="col">Menge</th>
+                          <th class="Zutat" scope="col">Zutat</th>
+                        </tr>
+                      </thead>
+                      <tbody class="tableBody">
+                        <tr>
+                          <td class="Menge" id="Z1"><span id="001">100</span>g</td>
+                          <td class="Zutat">Mehl</td>
+                        </tr>
+                        <tr>
+                          <td class="Menge" id="Z2"><span id="002">1</span>L</td>
+                          <td class="Zutat">Milch</td>
+                        </tr>
+                        <tr>
+                          <td class="Menge" id="Z3"><span id="003">2</span>L</td>
+                          <td class="Zutat">Wasser</td>
+                        </tr>
+                        <tr>
+                          <td class="Menge" id="Z4"><span id="004">100</span>g</td>
+                          <td class="Zutat">Zucker</td>
+                        </tr>
+                      </tbody>
+                    </table>
+
+                    <hr>
+
+                    <div class="Zubereitung">
+                        <h1 class="Zub_Überschrift">Die Zubereitung:</h1>
+                        <p class="Zub_Text">mit Vanillesoße. 1. Mehl und Hefe gut vermischen. Mit  Salz, Zucker, Sanella,
+                         Ei und lauwarmer Milch mit den Knethaken des Handrührers zu einem glatten Teig verarbeiten.
+                         Abgedeckt mit einem leicht feuchten Tuch an einem warmen Ort 1 Stunde gehen lassen.</p>
+                    </div>
+
+                    <div class="modal-footer">
+                    <button type="button" class="button2" id="DruckButton" onclick="window.print()" style="vertical-align:middle"><span>Rezept drucken </span></button>
+                      <button type="button" class="btn btn-seconda" data-dismiss="modal" id="button_close" style="vertical-align:middle"><span>Close</span></button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+
+
+        </main>
+    </body>
+</html>

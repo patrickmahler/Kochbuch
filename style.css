@@ -1,0 +1,153 @@
+#carousel img{
+    max-width: 50em;
+    max-height: 25em;
+    min-width: 50em;
+    min-height: 25em;
+    margin: auto;
+    margin-top: 20px;
+}
+.carousel {
+    overflow: hidden;
+  }
+
+.PopUp_Text{
+    margin: 20px;
+    text-align: center;
+}
+.Zutaten_Überschrift{
+    margin: 10px !important;
+    text-align: center;
+}
+.Menge{
+    padding: 20px;
+    text-align: right;
+}
+.Zutat{
+    padding: 20px;
+    text-align: left;
+}
+.Tabelle-Zutaten{
+    font-size: 2em;
+    table-layout: 20px;
+}
+.table table-borderless{
+    width: 100% !important;
+    table-layout: 20px !important;
+}
+
+.DropDown-Personen{
+    font-size: 1em;
+    font: bold;
+    background-color: transparent;
+    border: none;
+    color: black;
+}
+body{
+    font-family: 'Pacifico', cursive;
+    background-image: url(img/Background_2.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: black;
+}
+hr{
+    height: 2px;
+    color: red;
+    background-color: black;
+    border: 2px;
+    border-radius: 5px;
+    width: 60%;
+}
+#button_close {
+  display: inline-block;
+  border-radius: 4px;
+  background-color: transparent;
+
+  border: solid;
+  border-color: black;
+  border-radius: 30px;
+
+  color: black;
+  text-align: center;
+  font-size: 28px;
+  padding: 10px;
+  width: 400px;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin: 5px;
+}
+
+#button_close span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+#button_close span:after {
+  content: url("img/exit_symbol.png");
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -40px;
+  transition: 0.5s;
+}
+#button_close:hover span {
+  padding-right: 40px;
+}
+
+#button_close:hover span:after {
+  opacity: 1;
+  right: 0;
+}
+.button2 {
+  display: inline-block;
+  border-radius: 4px;
+  background-color: transparent;
+  margin-left: auto;
+  margin-right: auto;
+
+  border: solid;
+  border-color: black;
+  border-radius: 30px;
+
+  color: black;
+  text-align: center;
+  font-size: 28px;
+  padding: 10px;
+  width: 400px;
+  transition: all 0.5s;
+  cursor: pointer;
+}
+
+.button2 span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+.button2 span:after {
+  content: url("img/drucken_symbol2.png");
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -40px;
+  transition: 0.5s;
+}
+
+.button2:hover span {
+  padding-right: 40px;
+}
+
+.button2:hover span:after {
+  opacity: 1;
+  right: 0;
+}
+.Zubereitung .Zub_Text{
+    text-align: center;
+    margin: 30px;
+}
+.Zubereitung .Zub_Überschrift{
+    text-align: center;
+    margin-top: 20px;
+}
