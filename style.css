@@ -99,6 +99,48 @@ hr{
   opacity: 1;
   right: 0;
 }
+#button_save {
+  display: inline-block;
+  border-radius: 4px;
+  background-color: transparent;
+
+  border: solid;
+  border-color: black;
+  border-radius: 30px;
+
+  color: black;
+  text-align: center;
+  font-size: 28px;
+  padding: 10px;
+  width: 400px;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin: 5px;
+}
+
+#button_save span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+#button_save span:after {
+  content: url("img/save_symbol.png");
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -40px;
+  transition: 0.5s;
+}
+#button_save:hover span {
+  padding-right: 40px;
+}
+
+#button_save:hover span:after {
+  opacity: 1;
+  right: 0;
+}
 .button2 {
   display: inline-block;
   border-radius: 4px;
