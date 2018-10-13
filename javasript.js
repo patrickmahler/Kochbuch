@@ -1,4 +1,110 @@
+// Author: Philip Mayer
+// funcitonality on main body area and button onclick events
+/*
+window.addEventListener("load", () => {
 
+    // Hinzufügen-Button Navbar //
+    let hinzufuegen = document.querySelector(".neuesRezept");
+
+    // Hinzufügen-Karte //
+    let hinzufuegenCard = document.querySelector("#hinzufuegenButton");
+
+    // Fläche für das Einfügen von den Karten auswählen //
+    let uebersichtsSeite = document.querySelector(".images");
+
+    // Layout Switcher Button //
+    let layoutSwitcher = document.querySelector(".layout-switcher");
+
+    // Layout-Ansichten holen//
+    let cardLayout = document.querySelector(".cardLayout");
+    let carouselLayout = document.querySelector(".carouselLayout");
+
+
+    console.log("JavaScript Running");
+
+    function rezeptHinzufuegen() {
+        console.log("Rezept hinzufügen running");
+
+        // Leere Karte hinzufügen //
+        let cardElement = document.createElement("div");
+        cardElement.classList.add("card");
+        uebersichtsSeite.appendChild(cardElement);
+
+        // Beschriftungstext zu Karte hinzufügen
+        let cardText = document.createElement("div");
+        cardText.textContent = "Textfüller";                 // Muss später durch Lucas Elemente im Forumular befüllt werden
+        cardText.classList.add("bild-text");
+        cardElement.appendChild(cardText);
+
+        // Löschen-Button hinzufügen
+        let cardCloseButton = document.createElement("img");
+        cardCloseButton.classList.add("close");
+        cardCloseButton.setAttribute("src", "src/img/error.png");
+        cardElement.appendChild(cardCloseButton);
+
+        // Rezeptbild hinzufügen                                Muss später mit Lucas Bild befüllt werden
+        let rezeptBild = document.createElement("img");
+        rezeptBild.classList.add("rezeptbilder");
+        cardElement.appendChild(rezeptBild);
+
+        // Aktion für Klick auf das Close Symbol hinterlegen
+        cardCloseButton.addEventListener("click", () => {
+            cardElement.parentNode.removeChild(cardElement);
+        });
+    };
+
+    hinzufuegen.addEventListener("click", () => {
+        console.log("hinzufuegen hat funktioniert");
+        rezeptHinzufuegen();
+    });
+    hinzufuegenCard.addEventListener("click", () => {
+        console.log("Card-Button funktioniert");
+        rezeptHinzufuegen();
+    })
+
+// Experimental Layout-Switch
+
+    layoutSwitcher.addEventListener("click", () => {
+
+        //Log-Einträge zur besseren Nachverfolgung der Werte //
+        console.log("Layout-Switcher running");
+        console.log("War das Card-Layout aktiv?")
+        console.log(cardLayout.getAttribute("id") == "active");
+        console.log("War das Carousel-Layout aktiv?")
+        console.log(carouselLayout.getAttribute("id") == "active");
+
+        // Im Falle, dass das Card-Layout aktiv ist -> Carousel Layout aktiv setzen //
+        if ((cardLayout.getAttribute("id") == "active") == true ){
+            cardLayout.style.display = "none";
+            carouselLayout.style.display = "block";
+            carouselLayout.setAttribute("id", "active");
+            cardLayout.removeAttribute("id");
+            console.log("Carousel-Layout wurde hinzugefügt");
+        }
+
+        // Im Falle, dass das Carousel-Layout aktiv ist -> Card Layout aktiv setzen //
+        else if ((carouselLayout.getAttribute("id") == "active") == true) {
+            carouselLayout.style.display = "none";
+            cardLayout.style.display = "block";
+            cardLayout.setAttribute("id", "active");
+            carouselLayout.removeAttribute("id");
+            console.log("Card-Layout wurde hinzugefügt");
+        }
+
+        // Unerwarteter Fall ist eingetroffen //
+        else {
+            console.log("Unexpected case - No Layout Type selected");
+            return;
+        }
+    })
+});
+
+--------------auskommentiert bisher ------------------------------------------------------------------*/
+
+
+// Author: ???
+// funcitonality ???
+//
 window.onload = function(){
     aktDropDown = document.getElementById("DropDown").value;
     console.log(aktDropDown);
@@ -99,9 +205,4 @@ function addTableRow(){
       var cell2 = row.insertCell(1);
       cell1.innerHTML = "<td class='Menge' id=''><span id=''><div contenteditable>I'm editable</div></span>g</td>";
       cell2.innerHTML = "<td class='Zutat'><div contenteditable>enter here</div></td>";
-
-
-
-
-
 }
