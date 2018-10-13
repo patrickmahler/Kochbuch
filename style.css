@@ -159,7 +159,8 @@ nav > div > img {
 }
 
 /* Experimental Carousel Layout */
-.carousel-item > img {
+/* Carousel images haben neue Klasse picCar. Ansonsten carousel in Anzeige und Ändern überschrieben*/
+.picCar {
     width: 450px;
     height: 300px;
     margin-left: auto;
@@ -172,7 +173,7 @@ nav > div > img {
     display: none;
 }
 
-/* Author: ------ ---------------- */
+/* Author: Patrick Mahler */
 
 #carousel img{
     max-width: 50em;
