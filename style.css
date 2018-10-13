@@ -1,3 +1,179 @@
+/* Author: Philip Mayer | Date: 03.10.2018 */
+body {
+    background-image: url("img/Background_2.png");
+    background-color: black;
+    background-size: auto;
+    background-repeat: no-repeat;
+    background-size: cover;
+    font-family: 'Pacifico', cursive !important;            /* globale Schriftart */
+    font-size: 1.2em;
+}
+
+/*Header-Navbar-Hintergrund */
+.navbar {
+    background-color: grey;
+    margin: auto 0;
+}
+
+/* Navbar-Logo  - Firmenlogo*/
+.logo {
+    width: 100px;
+}
+
+/*Navbar-Buttons*/
+a#navbar-button {
+    background-color: white;
+    color: black;
+    border-color: white;
+    font-weight: bold;
+}
+a#navbar-button:hover {
+    background-color: green;
+    color: black;
+    border-color: white;
+    border-style: dashed;
+    font-weight: bold;
+}
+#navbar-layout-switcher {
+    width: 40px;
+}
+
+/*Header-Navbar-Logo */
+nav > div > img {
+    width: 180px;
+}
+
+/*Rezeptbilder-Übersicht*/
+.images {
+    display: flex;
+    flex-wrap: wrap; /* Bilder fließen auch nebeneinander bei variabler Fenstergröße */
+    justify-content: center; /* Setzt kontent in die Mitte. Mittig statt Linksbündig */
+}
+
+.images > .card {
+    width: 300px;
+    height: 300px;
+    background: rgba(255,255,255,0);
+    border: 4px solid black;
+    border-radius: 8px;
+    margin: 7px;
+    transition: transform 0.3s; /* um Hover effekt smooth zu machen */
+    position: relative;
+}
+.images > .card:hover {
+    transform: scale(1.05);
+}
+.images > .card > .rezeptbilder {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Füllt den Kasten aus statt das bild zu verzerren */
+}
+
+.images > .card > .neuesRezept {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Füllt den Kasten aus statt das bild zu verzerren */
+}
+
+/* Karte für "neues Rezept hinzufügen" - Plus Icon */
+.card-neuesRezept {
+    width: 300px;
+    height: 300px;
+    background: rgba(255,255,255,0);
+    margin: 7px;
+    transition: transform 0.3s;
+}
+.card-neuesRezept > a > img {    /* Analog dem normalen Rezeptbild */
+    width: 80%;
+    height: 80%;
+    object-fit: cover; /* Füllt den Kasten aus statt das bild zu verzerren */
+}
+.images > .card-neuesRezept:hover {
+    transform: scale(1.05);
+}
+
+/* Schließen/Löschen-Icon pro Karte */
+.card > .close {
+    width: 30px;
+    height: 30px;
+    margin-left: auto;
+    position: absolute;
+    top: 2%;
+    right: 1%;
+}
+
+/* Beschriftungstext der Karte */
+.card > .card-text {
+    display: inline-block;
+    font-weight: bold;
+}
+
+.bild-text {
+    position: absolute;
+    top: 2%;
+    color: white;
+    left: 2%;
+    font-family: 'Pacifico', cursive;
+    font-size: 1.2em;
+}
+/* Schwarze Schriftart je nach Bild                                                              ggf später löschen */
+.bild-text-black {
+    position: absolute;
+    top: 2%;
+    color: black;
+    left: 2%;
+    font-family: 'Pacifico', cursive;
+    font-size: 1.2em;
+}
+/* Dialogbox: Rezept anlegen bei Klick auf button oder Plus-Symbol */
+.rezeptAnlegen {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+.rezeptAnlegen-inhalt {
+    background-color: #fefefe;
+    margin: 15% auto; /* 15% from the top and centered */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%; /* Could be more or less, depending on screen size */
+}
+.closeButton {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.closeButton:hover,
+.closeButton:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* Experimental Carousel Layout */
+.carousel-item > img {
+    width: 450px;
+    height: 300px;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    object-fit: scale-down;
+}
+
+.carouselLayout {
+    display: none;
+}
+
+/* Author: ------ ---------------- */
+
 #carousel img{
     max-width: 50em;
     max-height: 25em;
@@ -42,13 +218,7 @@
     border: none;
     color: black;
 }
-body{
-    font-family: 'Pacifico', cursive;
-    background-image: url(img/Background_2.png);
-    background-repeat: no-repeat;
-    background-size: cover;
-    color: black;
-}
+
 hr{
     height: 2px;
     color: red;
