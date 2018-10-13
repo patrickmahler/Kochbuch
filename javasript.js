@@ -171,7 +171,7 @@ window.onload = function(){
 }
 
 
-
+/*--------------------------------------------------Patricks Teil ---------------------------------------------------*/
 function aktualisieren(){
     aktDropDown = document.getElementById("DropDown").value;
     console.log("Aktualisiert");
@@ -195,7 +195,7 @@ function aendern(){
     }
     aktualisieren();
 }
-
+/*---------------------------------------------------Lucas Teil-----------------------------------------------------------*/
 function addTableRow(){
   var tr = document.createElement("tr");
 
