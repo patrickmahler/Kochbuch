@@ -1,7 +1,11 @@
 // Author: Philip Mayer
 // funcitonality on main body area and button onclick events
-/*
-window.addEventListener("load", () => {
+
+// window.addEventListener("load", () => {
+window.onload = function(){
+
+    //JavaScript-Test für die Console
+    console.log("JavaScript Running");
 
     // Hinzufügen-Button Navbar //
     let hinzufuegen = document.querySelector(".neuesRezept");
@@ -19,15 +23,15 @@ window.addEventListener("load", () => {
     let cardLayout = document.querySelector(".cardLayout");
     let carouselLayout = document.querySelector(".carouselLayout");
 
-
-    console.log("JavaScript Running");
-
     function rezeptHinzufuegen() {
         console.log("Rezept hinzufügen running");
 
         // Leere Karte hinzufügen //
         let cardElement = document.createElement("div");
         cardElement.classList.add("card");
+        //Attribute für Modal-Funktionalität setzen
+        cardElement.setAttribute("data-toggle","modal");
+        cardElement.setAttribute("data-target", ".bd-example-modal-lg");
         uebersichtsSeite.appendChild(cardElement);
 
         // Beschriftungstext zu Karte hinzufügen
@@ -91,21 +95,20 @@ window.addEventListener("load", () => {
             console.log("Card-Layout wurde hinzugefügt");
         }
 
-        // Unerwarteter Fall ist eingetroffen //
+        // Unerwarteter Fall ist eingetreten //
         else {
             console.log("Unexpected case - No Layout Type selected");
             return;
         }
     })
-});
 
---------------auskommentiert bisher ------------------------------------------------------------------*/
+// --------------auskommentiert bisher ------------------------------------------------------------------
 
 
 // Author: ???
 // funcitonality ???
 //
-window.onload = function(){
+// window.onload = function(){  --> auskommentiert und vor Code Philip angefügt (PhM)
     aktDropDown = document.getElementById("DropDown").value;
     console.log(aktDropDown);
 
@@ -194,9 +197,6 @@ function aendern(){
 }
 
 function addTableRow(){
-
-
-
   var tr = document.createElement("tr");
 
   var table = document.getElementById("zutatentabelle");
