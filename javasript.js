@@ -244,3 +244,17 @@ function addTableRow(){
       cell1.innerHTML = "<td class='Menge' id=''><span id=''><div contenteditable>I'm editable</div></span>g</td>";
       cell2.innerHTML = "<td class='Zutat'><div contenteditable>enter here</div></td>";
 }
+//search
+
+window.onload = function(){
+  $(document).ready(function(){
+  $("#searchInput").on("keyup", function() {
+    var value = $(this).val().toLowerCase();
+    $("div[class='card']").filter(function() {
+      $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+
+
+    });
+  });
+});
+}
