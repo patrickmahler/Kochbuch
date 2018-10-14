@@ -26,7 +26,13 @@
                       <div class="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul class="navbar-nav mr-auto">
                           <li class="nav-item">
-                              <a href="#" class="btn btn-primary neuesRezept" id="navbar-button" role="button" aria-pressed="true">Neues Rezept anlegen</a>
+
+                              <!-- Neues Rezept anlegen in Navbar mit AddModal (Luca) toogle Funktionalität -->
+                              <a href="#" class="btn btn-primary neuesRezept" id="navbar-button"
+                              role="button" aria-pressed="true" data-toggle ="modal" data-target="#addModal">
+                                  Neues Rezept anlegen
+                              </a>
+                              
                           </li>
                           <li class="nav-item">
                             <a href="#" class="btn btn-primary" id="navbar-button" role="button">Alle Rezepte speichern</a>
@@ -287,7 +293,6 @@
                             <td class="Zutat"><div contenteditable>enter here</div></td>
                           </tr>
 
-
                         </tbody>
                       </table>
                     </section>
@@ -308,9 +313,6 @@
               </div>
             </div>
           </div>
-
-
-
         </main>
     </body>
 </html>
