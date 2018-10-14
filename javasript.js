@@ -3,6 +3,7 @@
 
 // window.addEventListener("load", () => {
 window.onload = function(){
+
     // safeButton Modal Luca
     let safeButton = document.querySelector("#button_save");
 
@@ -24,6 +25,9 @@ window.onload = function(){
     // Layout-Ansichten holen//
     let cardLayout = document.querySelector(".cardLayout");
     let carouselLayout = document.querySelector(".carouselLayout");
+
+    // Lucas Modal für das Hinzufügen
+    let addModal = document.querySelector("#addModal");
 
     function rezeptHinzufuegen() {
         console.log("Rezept hinzufügen running");
@@ -70,6 +74,7 @@ window.onload = function(){
     safeButton.addEventListener("click", () => {
         console.log("safeButton funktioniert");
         rezeptHinzufuegen();
+        $('#addModal').modal('toggle');
     })
 
 
