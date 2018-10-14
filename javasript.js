@@ -63,14 +63,19 @@ window.onload = function(){
         });
     };
 
+    // Navbar Rezept anlegen Button
     hinzufuegen.addEventListener("click", () => {
         console.log("hinzufuegen hat funktioniert");
-        rezeptHinzufuegen();
+        // rezeptHinzufuegen();
     });
+
+    // Plus-Karte für Rezept anlegen
     hinzufuegenCard.addEventListener("click", () => {
         console.log("Card-Button funktioniert");
-        /*rezeptHinzufuegen();*/
+        //rezeptHinzufuegen();
     })
+
+    // Lucas Modal Safebutton bei Save Changes klick
     safeButton.addEventListener("click", () => {
         console.log("safeButton funktioniert");
         rezeptHinzufuegen();
