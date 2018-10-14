@@ -67,7 +67,7 @@ window.onload = function(){
         console.log("Card-Button funktioniert");
         /*rezeptHinzufuegen();*/
     })
-    safeButton.addEventListener("onclick", () => {
+    safeButton.addEventListener("click", () => {
         console.log("safeButton funktioniert");
         rezeptHinzufuegen();
     })
