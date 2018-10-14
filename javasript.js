@@ -3,6 +3,8 @@
 
 // window.addEventListener("load", () => {
 window.onload = function(){
+    // safeButton Modal Luca
+    let safeButton = document.querySelector("#button_save");
 
     //JavaScript-Test für die Console
     console.log("JavaScript Running");
@@ -63,8 +65,13 @@ window.onload = function(){
     });
     hinzufuegenCard.addEventListener("click", () => {
         console.log("Card-Button funktioniert");
+        /*rezeptHinzufuegen();*/
+    })
+    safeButton.addEventListener("onclick", () => {
+        console.log("safeButton funktioniert");
         rezeptHinzufuegen();
     })
+
 
 // Experimental Layout-Switch
 
