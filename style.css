@@ -50,7 +50,7 @@ nav > div > img {
     justify-content: center; /* Setzt kontent in die Mitte. Mittig statt Linksbündig */
 }
 
-.images > .card {
+.card {
     width: 300px;
     height: 300px;
     background: rgba(255,255,255,0);
@@ -60,16 +60,16 @@ nav > div > img {
     transition: transform 0.3s; /* um Hover effekt smooth zu machen */
     position: relative;
 }
-.images > .card:hover {
+.card:hover {
     transform: scale(1.05);
 }
-.images > .card > .rezeptbilder {
+.card > .rezeptbilder {
     width: 100%;
     height: 100%;
     object-fit: cover; /* Füllt den Kasten aus statt das bild zu verzerren */
 }
 
-.images > .card > .neuesRezept {
+.card > .neuesRezept {
     width: 100%;
     height: 100%;
     object-fit: cover; /* Füllt den Kasten aus statt das bild zu verzerren */
@@ -79,6 +79,9 @@ nav > div > img {
 .card-neuesRezept {
     width: 300px;
     height: 300px;
+    display: flex;
+    align-items: center;
+    float: left;
     background: rgba(255,255,255,0);
     margin: 7px;
     transition: transform 0.3s;
@@ -86,9 +89,12 @@ nav > div > img {
 .card-neuesRezept > a > img {    /* Analog dem normalen Rezeptbild */
     width: 80%;
     height: 80%;
-    object-fit: cover; /* Füllt den Kasten aus statt das bild zu verzerren */
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    /*object-fit: cover; /* Füllt den Kasten aus statt das bild zu verzerren */
 }
-.images > .card-neuesRezept:hover {
+.card-neuesRezept:hover {
     transform: scale(1.05);
 }
 
