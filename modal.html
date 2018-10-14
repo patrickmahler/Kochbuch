@@ -53,7 +53,7 @@
 
 <!-- Author: Philip Mayer -->
             <div class="container cardLayout" id="active">
-                <div class="images">
+                <div id="images" class="images">
 
         <!-- Beispielinhalt: Bei Bedarf einkommentieren zu Testzwecken -->
                     <div class="card" data-toggle="modal" data-target=".bd-example-modal-lg">
@@ -247,7 +247,7 @@
                     <section class="container">
                       <div id="carousel" class="carousel slide" data-ride="carousel">
                           <div id="carouselInner" class="carousel-inner">
-
+                         
                           </div>
                           <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
                             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -310,7 +310,7 @@
                   </div>
                   <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal" id="button_close" style="vertical-align:middle"><span>Close</span></button>
-                    <button type="button" class="btn btn-primary"id="button_save" style="vertical-align:middle"><span>Save changes</span></button>
+                    <button onclick="addNewElement()" type="button" class="btn btn-primary"id="button_save" style="vertical-align:middle"><span>Save changes</span></button>
                   </div>
                 </div>
               </div>

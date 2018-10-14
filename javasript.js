@@ -122,10 +122,10 @@ window.onload = function(){
 // --------------auskommentiert bisher ------------------------------------------------------------------
 
 
-// Author: ???
-// funcitonality ???
+// Author: Luca
+// funcitonality carousel befüllen
 //
-// window.onload = function(){  --> auskommentiert und vor Code Philip angefügt (PhM)
+//window.onload = function(){  // auskommentiert und vor Code Philip angefügt (PhM)
     aktDropDown = document.getElementById("DropDown").value;
     console.log(aktDropDown);
 
@@ -257,4 +257,21 @@ window.onload = function(){
     });
   });
 });
+}
+
+
+
+
+
+//--------------------------------
+
+function addNewElement(){
+//get Elements
+var titel = $("#inputRezeptTitel").val();
+//get Elements
+var cardOverviewImages = document.getElementById("images");
+var div = document.createElement("div");
+div.className = "card";
+div.innerHTML = "<div class='bild-text-black'><span>"+titel+"</span></div><img class='close' src='test'/><img class='rezeptbilder' src='test'/>";
+cardOverviewImages.appendChild(div,null);
 }
