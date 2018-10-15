@@ -86,7 +86,13 @@ window.onload = function(){
 
     //Inhalt von div in Modal anzeigen
     showModal.addEventListener("click", () =>{
-        anzeigen();
+        console.log("Überschrift");
+        //Hier passiert noch ein Fehler
+        var PopUp_Überschrift = $(this).;
+        console.log(PopUp_Überschrift);
+        $(".PopUp_Text_Überschrift").innerHTML = PopUp_Überschrift;
+
+        //anzeigen();
     })
 
 
@@ -239,7 +245,7 @@ function anzeigen(){
     console.log("Überschrift");
     //Hier passiert noch ein Fehler
     var PopUp_Überschrift = $(this).children(":first").html();
-    consol.log(PopUp_Überschrift);
+    console.log(PopUp_Überschrift);
     $(".PopUp_Text_Überschrift").innerHTML = PopUp_Überschrift;
 
 }
