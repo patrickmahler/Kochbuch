@@ -87,6 +87,19 @@ window.onload = function(){
         }
     })
 
+
+// Search-Function on Main
+// Author: Luca Marmonti
+      $(document).ready(function(){
+      $("#searchInput").on("keyup", function() {
+        var value = $(this).val().toLowerCase();
+        $("div[class='card']").filter(function() {
+          $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+        });
+      });
+    });
+
+
 // --------------auskommentiert bisher ------------------------------------------------------------------
 
 
@@ -153,7 +166,8 @@ window.onload = function(){
     {
         console.log("Your browser does not support File API");
     }
-}
+
+} // End onload function
 
 
 /*--------------------------------------------------Patricks Teil ---------------------------------------------------*/
@@ -212,23 +226,6 @@ function addTableRow(){
       cell1.innerHTML = "<td class='Menge' id=''><div contenteditable>hier Menge eingeben</div></td>";
       cell2.innerHTML = "<td class='Zutat'><div contenteditable>Hier Zutat eingeben</div></td>";
 }
-//search
-
-//window.onload = function(){
-  $(document).ready(function(){
-  $("#searchInput").on("keyup", function() {
-    var value = $(this).val().toLowerCase();
-    $("div[class='card']").filter(function() {
-      $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
-
-
-    });
-  });
-});
-//}
-
-
-
 
 
 //--------------------------------
@@ -239,7 +236,6 @@ function addNewElement(){
 var titel = $("#inputRezeptTitel").val();
 var rezeptZubereitung = $('#rezeptAnleitung').val();
 //get Elements
-
 //create new card element
 var cardOverviewImages = document.getElementById("images");
 var div = document.createElement("div");
