@@ -29,6 +29,9 @@ window.onload = function(){
     // Lucas Modal für das Hinzufügen
     let addModal = document.querySelector("#addModal");
 
+    //Anzeige von div in Model bei klick
+    let showModal = document.querySelector(".card");
+
     function rezeptHinzufuegen() {
         console.log("Rezept hinzufügen running");
 
@@ -212,26 +215,10 @@ function aendern(){
     }
     aktualisieren();
 }
-
-
-/*Noch nicht ausgereift funktioniert noch nicht*/
-function search() {
-/* Es müsste noch id="searchForm" onchange="search()" beim Button oder der Suchleiste hinzugefügt werden*/
-   var name = document.getElementById("searchForm").elements["searchItem"].value;
-   console.log(name);
-   var pattern = name.toLowerCase();
-   var targetId = "";
-
-   var divs = document.getElementsByClassName("bild-text-black");
-   for (var i = 0; i < divs.length; i++) {
-      var para = divs[i].getElementsByTagName("span");
-      var index = para[0].innerText.toLowerCase().indexOf(pattern);
-      if (index != -1) {
-         targetId = divs[i].parentNode.id;
-         document.getElementById(targetId).scrollIntoView();
-         break;
-      }
-   }
+function anzeigen(){
+    //Überschrift holen
+    var PopUp_Überschrift = $(".bild-text").html();
+    $(".PopUp_Text_Überschrift") = PopUp_Überschrift;
 }
 /*---------------------------------------------------Lucas Teil-----------------------------------------------------------*/
 function addTableRow(){
