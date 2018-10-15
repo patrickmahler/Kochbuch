@@ -1,7 +1,6 @@
 // Author: Philip Mayer
 // funcitonality on main body area and button onclick events
 
-// window.addEventListener("load", () => {
 window.onload = function(){
 
     // safeButton Modal Luca
@@ -52,7 +51,6 @@ window.onload = function(){
 
 
 // Experimental Layout-Switch
-
     layoutSwitcher.addEventListener("click", () => {
 
         //Log-Einträge zur besseren Nachverfolgung der Werte //
@@ -103,9 +101,8 @@ window.onload = function(){
 // --------------auskommentiert bisher ------------------------------------------------------------------
 
 
-// Author: Luca
+// Author: Luca Marmonti
 // funcitonality carousel befüllen
-//
 //window.onload = function(){  // auskommentiert und vor Code Philip angefügt (PhM)
     aktDropDown = document.getElementById("DropDown").value;
     console.log(aktDropDown);
@@ -170,7 +167,8 @@ window.onload = function(){
 } // End onload function
 
 
-/*--------------------------------------------------Patricks Teil ---------------------------------------------------*/
+// Author: Patrick Mahler
+// Modal 
 function aktualisieren(){
     aktDropDown = document.getElementById("DropDown").value;
     console.log("Aktualisiert");
