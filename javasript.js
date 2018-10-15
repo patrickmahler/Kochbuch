@@ -233,12 +233,14 @@ function addNewElement(){
 //get Elements
 var titel = $("#inputRezeptTitel").val();
 var rezeptZubereitung = $('#rezeptAnleitung').val();
+var zutaten = $('#zutatentabelle').html();
+
 //get Elements
 //create new card element
 var cardOverviewImages = document.getElementById("images");
 var div = document.createElement("div");
 div.className = "card";
-div.innerHTML = "<div class='bild-text-black'><span>"+titel+"</span></div><img class='close' src='test'/><img class='rezeptbilder' src='test'/><div data-theme='{textRezept: '"+rezeptZubereitung+"', zutaten: 'Eier, Milch'}'></div>";
+div.innerHTML = "<div class='bild-text-black'><span>"+titel+"</span></div><img class='close' src='test'/><img class='rezeptbilder' src='test'/><div data-hidden='{textRezept: '"+rezeptZubereitung+"', zutaten: '"+zutaten+"'}'></div>";
 cardOverviewImages.appendChild(div,null);
 
 //close Modal
