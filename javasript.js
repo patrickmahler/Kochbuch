@@ -241,8 +241,8 @@ function addTableRow(){
       var row = table.insertRow(0);
       var cell1 = row.insertCell(0);
       var cell2 = row.insertCell(1);
-      cell1.innerHTML = "<td class='Menge' id=''><span id=''><div contenteditable>I'm editable</div></span>g</td>";
-      cell2.innerHTML = "<td class='Zutat'><div contenteditable>enter here</div></td>";
+      cell1.innerHTML = "<td class='Menge' id=''><div contenteditable>hier Menge eingeben</div></td>";
+      cell2.innerHTML = "<td class='Zutat'><div contenteditable>Hier Zutat eingeben</div></td>";
 }
 //search
 
@@ -266,12 +266,19 @@ window.onload = function(){
 //--------------------------------
 
 function addNewElement(){
+
 //get Elements
 var titel = $("#inputRezeptTitel").val();
+var rezeptZubereitung = $('#rezeptAnleitung').val();
 //get Elements
+
+//create new card element
 var cardOverviewImages = document.getElementById("images");
 var div = document.createElement("div");
 div.className = "card";
-div.innerHTML = "<div class='bild-text-black'><span>"+titel+"</span></div><img class='close' src='test'/><img class='rezeptbilder' src='test'/>";
+div.innerHTML = "<div class='bild-text-black'><span>"+titel+"</span></div><img class='close' src='test'/><img class='rezeptbilder' src='test'/><div data-theme='{textRezept: '"+rezeptZubereitung+"', zutaten: 'Eier, Milch'}'></div>";
 cardOverviewImages.appendChild(div,null);
+
+//close Modal
+$('#addModal').modal('toggle');
 }
