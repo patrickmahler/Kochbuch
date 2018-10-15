@@ -29,39 +29,7 @@ window.onload = function(){
     // Lucas Modal für das Hinzufügen
     let addModal = document.querySelector("#addModal");
 
-    function rezeptHinzufuegen() {
-        console.log("Rezept hinzufügen running");
 
-        // Leere Karte hinzufügen //
-        let cardElement = document.createElement("div");
-        cardElement.classList.add("card");
-        //Attribute für Modal-Funktionalität setzen
-        cardElement.setAttribute("data-toggle","modal");
-        cardElement.setAttribute("data-target", ".bd-example-modal-lg");
-        uebersichtsSeite.appendChild(cardElement);
-
-        // Beschriftungstext zu Karte hinzufügen
-        let cardText = document.createElement("div");
-        cardText.textContent = "Textfüller";                 // Muss später durch Lucas Elemente im Forumular befüllt werden
-        cardText.classList.add("bild-text");
-        cardElement.appendChild(cardText);
-
-        // Löschen-Button hinzufügen
-        let cardCloseButton = document.createElement("img");
-        cardCloseButton.classList.add("close");
-        cardCloseButton.setAttribute("src", "src/img/error.png");
-        cardElement.appendChild(cardCloseButton);
-
-        // Rezeptbild hinzufügen                                Muss später mit Lucas Bild befüllt werden
-        let rezeptBild = document.createElement("img");
-        rezeptBild.classList.add("rezeptbilder");
-        cardElement.appendChild(rezeptBild);
-
-        // Aktion für Klick auf das Close Symbol hinterlegen
-        cardCloseButton.addEventListener("click", () => {
-            cardElement.parentNode.removeChild(cardElement);
-        });
-    };
 
     // Navbar Rezept anlegen Button
     hinzufuegen.addEventListener("click", () => {
@@ -246,7 +214,7 @@ function addTableRow(){
 }
 //search
 
-window.onload = function(){
+//window.onload = function(){
   $(document).ready(function(){
   $("#searchInput").on("keyup", function() {
     var value = $(this).val().toLowerCase();
@@ -257,7 +225,7 @@ window.onload = function(){
     });
   });
 });
-}
+//}
 
 
 
@@ -282,3 +250,39 @@ cardOverviewImages.appendChild(div,null);
 //close Modal
 $('#addModal').modal('toggle');
 }
+
+// Rezept hinzufuegen Karte erstellen
+// Author: Philip Mayer
+function rezeptHinzufuegen() {
+    console.log("Rezept hinzufügen running");
+
+    // Leere Karte hinzufügen //
+    let cardElement = document.createElement("div");
+    cardElement.classList.add("card");
+    //Attribute für Modal-Funktionalität setzen
+    cardElement.setAttribute("data-toggle","modal");
+    cardElement.setAttribute("data-target", ".bd-example-modal-lg");
+    uebersichtsSeite.appendChild(cardElement);
+
+    // Beschriftungstext zu Karte hinzufügen
+    let cardText = document.createElement("div");
+    cardText.textContent = "Textfüller";                 // Muss später durch Lucas Elemente im Forumular befüllt werden
+    cardText.classList.add("bild-text");
+    cardElement.appendChild(cardText);
+
+    // Löschen-Button hinzufügen
+    let cardCloseButton = document.createElement("img");
+    cardCloseButton.classList.add("close");
+    cardCloseButton.setAttribute("src", "src/img/error.png");
+    cardElement.appendChild(cardCloseButton);
+
+    // Rezeptbild hinzufügen                                Muss später mit Lucas Bild befüllt werden
+    let rezeptBild = document.createElement("img");
+    rezeptBild.classList.add("rezeptbilder");
+    cardElement.appendChild(rezeptBild);
+
+    // Aktion für Klick auf das Close Symbol hinterlegen
+    cardCloseButton.addEventListener("click", () => {
+        cardElement.parentNode.removeChild(cardElement);
+    });
+};
