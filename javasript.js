@@ -28,7 +28,6 @@ window.onload = function(){
     // Lucas Modal für das Hinzufügen
     let addModal = document.querySelector("#addModal");
 
-<<<<<<< HEAD
     //Anzeige von div in Model bei klick
     let showModal = document.querySelector(".card");
 
@@ -65,9 +64,6 @@ window.onload = function(){
             cardElement.parentNode.removeChild(cardElement);
         });
     };
-=======
-
->>>>>>> 7241c54a4c0c3c48d4a0c45d0470a2554b69d3f9
 
     // Navbar Rezept anlegen Button
     hinzufuegen.addEventListener("click", () => {
@@ -87,6 +83,13 @@ window.onload = function(){
         rezeptHinzufuegen();
         $('#addModal').modal('toggle');
     })
+
+    //Inhalt von div in Modal anzeigen
+    showModal.addEventListener("click", () =>{
+        anzeigen();
+    })
+
+
 
 
 // Experimental Layout-Switch
@@ -233,8 +236,12 @@ function aendern(){
 }
 function anzeigen(){
     //Überschrift holen
-    var PopUp_Überschrift = $(".bild-text-black").html();
-    $(".PopUp_Text_Überschrift") = PopUp_Überschrift;
+    console.log("Überschrift");
+    //Hier passiert noch ein Fehler
+    var PopUp_Überschrift = $(this).children(":first").html();
+    consol.log(PopUp_Überschrift);
+    $(".PopUp_Text_Überschrift").innerHTML = PopUp_Überschrift;
+
 }
 /*---------------------------------------------------Lucas Teil-----------------------------------------------------------*/
 function addTableRow(){
