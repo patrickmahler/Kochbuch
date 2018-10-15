@@ -1,7 +1,6 @@
 // Author: Philip Mayer
 // funcitonality on main body area and button onclick events
 
-// window.addEventListener("load", () => {
 window.onload = function(){
 
     // safeButton Modal Luca
@@ -29,6 +28,7 @@ window.onload = function(){
     // Lucas Modal für das Hinzufügen
     let addModal = document.querySelector("#addModal");
 
+<<<<<<< HEAD
     //Anzeige von div in Model bei klick
     let showModal = document.querySelector(".card");
 
@@ -65,6 +65,9 @@ window.onload = function(){
             cardElement.parentNode.removeChild(cardElement);
         });
     };
+=======
+
+>>>>>>> 7241c54a4c0c3c48d4a0c45d0470a2554b69d3f9
 
     // Navbar Rezept anlegen Button
     hinzufuegen.addEventListener("click", () => {
@@ -87,7 +90,6 @@ window.onload = function(){
 
 
 // Experimental Layout-Switch
-
     layoutSwitcher.addEventListener("click", () => {
 
         //Log-Einträge zur besseren Nachverfolgung der Werte //
@@ -122,12 +124,24 @@ window.onload = function(){
         }
     })
 
+
+// Search-Function on Main
+// Author: Luca Marmonti
+      $(document).ready(function(){
+      $("#searchInput").on("keyup", function() {
+        var value = $(this).val().toLowerCase();
+        $("div[class='card']").filter(function() {
+          $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+        });
+      });
+    });
+
+
 // --------------auskommentiert bisher ------------------------------------------------------------------
 
 
-// Author: Luca
+// Author: Luca Marmonti
 // funcitonality carousel befüllen
-//
 //window.onload = function(){  // auskommentiert und vor Code Philip angefügt (PhM)
     aktDropDown = document.getElementById("DropDown").value;
     console.log(aktDropDown);
@@ -188,10 +202,12 @@ window.onload = function(){
     {
         console.log("Your browser does not support File API");
     }
-}
+
+} // End onload function
 
 
-/*--------------------------------------------------Patricks Teil ---------------------------------------------------*/
+// Author: Patrick Mahler
+// Modal
 function aktualisieren(){
     aktDropDown = document.getElementById("DropDown").value;
     console.log("Aktualisiert");
@@ -217,7 +233,7 @@ function aendern(){
 }
 function anzeigen(){
     //Überschrift holen
-    var PopUp_Überschrift = $(".bild-text").html();
+    var PopUp_Überschrift = $(".bild-text-black").html();
     $(".PopUp_Text_Überschrift") = PopUp_Überschrift;
 }
 /*---------------------------------------------------Lucas Teil-----------------------------------------------------------*/
@@ -231,23 +247,6 @@ function addTableRow(){
       cell1.innerHTML = "<td class='Menge' id=''><div contenteditable>hier Menge eingeben</div></td>";
       cell2.innerHTML = "<td class='Zutat'><div contenteditable>Hier Zutat eingeben</div></td>";
 }
-//search
-
-window.onload = function(){
-  $(document).ready(function(){
-  $("#searchInput").on("keyup", function() {
-    var value = $(this).val().toLowerCase();
-    $("div[class='card']").filter(function() {
-      $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
-
-
-    });
-  });
-});
-}
-
-
-
 
 
 //--------------------------------
@@ -257,15 +256,52 @@ function addNewElement(){
 //get Elements
 var titel = $("#inputRezeptTitel").val();
 var rezeptZubereitung = $('#rezeptAnleitung').val();
-//get Elements
+var zutaten = $('#zutatentabelle').html();
 
+//get Elements
 //create new card element
 var cardOverviewImages = document.getElementById("images");
 var div = document.createElement("div");
 div.className = "card";
-div.innerHTML = "<div class='bild-text-black'><span>"+titel+"</span></div><img class='close' src='test'/><img class='rezeptbilder' src='test'/><div data-theme='{textRezept: '"+rezeptZubereitung+"', zutaten: 'Eier, Milch'}'></div>";
+div.innerHTML = "<div class='bild-text-black'><span>"+titel+"</span></div><img class='close' src='test'/><img class='rezeptbilder' src='test'/><div data-hidden='{textRezept: '"+rezeptZubereitung+"', zutaten: '"+zutaten+"'}'></div>";
 cardOverviewImages.appendChild(div,null);
 
 //close Modal
 $('#addModal').modal('toggle');
 }
+
+// Rezept hinzufuegen Karte erstellen
+// Author: Philip Mayer
+function rezeptHinzufuegen() {
+    console.log("Rezept hinzufügen running");
+
+    // Leere Karte hinzufügen //
+    let cardElement = document.createElement("div");
+    cardElement.classList.add("card");
+    //Attribute für Modal-Funktionalität setzen
+    cardElement.setAttribute("data-toggle","modal");
+    cardElement.setAttribute("data-target", ".bd-example-modal-lg");
+    uebersichtsSeite.appendChild(cardElement);
+
+    // Beschriftungstext zu Karte hinzufügen
+    let cardText = document.createElement("div");
+    cardText.textContent = "Textfüller";                 // Muss später durch Lucas Elemente im Forumular befüllt werden
+    cardText.classList.add("bild-text");
+    cardElement.appendChild(cardText);
+
+    // Löschen-Button hinzufügen
+    let cardCloseButton = document.createElement("img");
+    cardCloseButton.classList.add("close");
+    cardCloseButton.setAttribute("src", "src/img/error.png");
+    cardElement.appendChild(cardCloseButton);
+
+    // Rezeptbild hinzufügen                                Muss später mit Lucas Bild befüllt werden
+    let rezeptBild = document.createElement("img");
+    rezeptBild.classList.add("rezeptbilder");
+    cardElement.appendChild(rezeptBild);
+
+    // Aktion für Klick auf das Close Symbol hinterlegen
+    cardCloseButton.addEventListener("click", () => {
+        cardElement.parentNode.removeChild(cardElement);
+    });
+};
