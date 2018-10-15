@@ -53,6 +53,39 @@ window.onload = function(){
         $('#addModal').modal('toggle');
     })
 
+    //Inhalt von div in Modal anzeigen
+    //Anzeige von div in Model bei klick
+    /* Experimental
+    let showModal = document.querySelectorAll(".card").forEch(function(){
+
+    });
+        console.log("Überschrift");
+        //Hier passiert noch ein Fehler
+        var PopUp_Überschrift = $(this).;
+        console.log(PopUp_Überschrift);
+        $(".PopUp_Text_Überschrift").innerHTML = PopUp_Überschrift;
+
+        //anzeigen();
+    })
+
+//mögliche Lösung
+    var cards = document.querySelectorAll(".card");
+for (var i = 0; i < cards.length; i++) {
+	var card = cards[i];
+	card.onclick = function () {
+		if (this.classList.contains("block")) {
+			this.classList.add("rotated");
+			this.classList.remove("block");
+		}
+		else {
+			this.classList.add("block");
+			this.classList.remove("rotated");
+		}
+	};
+}
+*/
+
+
 
 // Experimental Layout-Switch
     layoutSwitcher.addEventListener("click", () => {
@@ -197,26 +230,14 @@ function aendern(){
     }
     aktualisieren();
 }
+function anzeigen(){
+    //Überschrift holen
+    console.log("Überschrift");
+    //Hier passiert noch ein Fehler
+    var PopUp_Überschrift = $(this).children(":first").html();
+    console.log(PopUp_Überschrift);
+    $(".PopUp_Text_Überschrift").innerHTML = PopUp_Überschrift;
 
-
-/*Noch nicht ausgereift funktioniert noch nicht*/
-function search() {
-/* Es müsste noch id="searchForm" onchange="search()" beim Button oder der Suchleiste hinzugefügt werden*/
-   var name = document.getElementById("searchForm").elements["searchItem"].value;
-   console.log(name);
-   var pattern = name.toLowerCase();
-   var targetId = "";
-
-   var divs = document.getElementsByClassName("bild-text-black");
-   for (var i = 0; i < divs.length; i++) {
-      var para = divs[i].getElementsByTagName("span");
-      var index = para[0].innerText.toLowerCase().indexOf(pattern);
-      if (index != -1) {
-         targetId = divs[i].parentNode.id;
-         document.getElementById(targetId).scrollIntoView();
-         break;
-      }
-   }
 }
 /*---------------------------------------------------Lucas Teil-----------------------------------------------------------*/
 function addTableRow(){
