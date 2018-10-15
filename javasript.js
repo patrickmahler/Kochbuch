@@ -28,9 +28,6 @@ window.onload = function(){
     // Lucas Modal für das Hinzufügen
     let addModal = document.querySelector("#addModal");
 
-    //Anzeige von div in Model bei klick
-    let showModal = document.querySelector(".card");
-
     function rezeptHinzufuegen() {
         console.log("Rezept hinzufügen running");
 
@@ -85,7 +82,11 @@ window.onload = function(){
     })
 
     //Inhalt von div in Modal anzeigen
-    showModal.addEventListener("click", () =>{
+    //Anzeige von div in Model bei klick
+    /* Experimental
+    let showModal = document.querySelectorAll(".card").forEch(function(){
+
+    });
         console.log("Überschrift");
         //Hier passiert noch ein Fehler
         var PopUp_Überschrift = $(this).;
@@ -94,7 +95,7 @@ window.onload = function(){
 
         //anzeigen();
     })
-
+*/
 
 
 
