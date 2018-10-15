@@ -1,6 +1,7 @@
 // Author: Philip Mayer
 // funcitonality on main body area and button onclick events
 
+
 window.onload = function(){
 
     // safeButton Modal Luca
@@ -28,6 +29,8 @@ window.onload = function(){
     // Lucas Modal für das Hinzufügen
     let addModal = document.querySelector("#addModal");
 
+//modal clone
+ myBackup = "";
 
 
     // Navbar Rezept anlegen Button
@@ -44,6 +47,7 @@ window.onload = function(){
 
     // Lucas Modal Safebutton bei Save Changes klick
     safeButton.addEventListener("click", () => {
+     myBackup = $('#addModal').clone();
         console.log("safeButton funktioniert");
         rezeptHinzufuegen();
         $('#addModal').modal('toggle');
@@ -150,6 +154,7 @@ window.onload = function(){
 
                     carouselInner.appendChild(div,null);
                     $('#carouselInner div:first').addClass('active');
+                    $('#carouselInner div:first').attr('id', 'firstElement');
 
                 });
 
@@ -168,7 +173,7 @@ window.onload = function(){
 
 
 // Author: Patrick Mahler
-// Modal 
+// Modal
 function aktualisieren(){
     aktDropDown = document.getElementById("DropDown").value;
     console.log("Aktualisiert");
@@ -235,16 +240,24 @@ var titel = $("#inputRezeptTitel").val();
 var rezeptZubereitung = $('#rezeptAnleitung').val();
 var zutaten = $('#zutatentabelle').html();
 
+
+var imagePfad = $("#firstElement img:first").attr('src');
+
 //get Elements
 //create new card element
 var cardOverviewImages = document.getElementById("images");
 var div = document.createElement("div");
 div.className = "card";
-div.innerHTML = "<div class='bild-text-black'><span>"+titel+"</span></div><img class='close' src='test'/><img class='rezeptbilder' src='test'/><div data-hidden='{textRezept: '"+rezeptZubereitung+"', zutaten: '"+zutaten+"'}'></div>";
+div.innerHTML = "<div class='bild-text-black'><span>"+titel+"</span></div><img class='close' src='src/img/error.png'/><img class='rezeptbilder' src='"+imagePfad+"'/><div data-hidden='{textRezept: '"+rezeptZubereitung+"', zutaten: 'test'}'></div>";
 cardOverviewImages.appendChild(div,null);
 
 //close Modal
-$('#addModal').modal('toggle');
+//$('#addModal').modal('toggle');
+
+        $('#addModal').modal('hide').remove();
+        var myClone = myBackup.clone();
+        $('body').append(myClone);
+
 }
 
 // Rezept hinzufuegen Karte erstellen
