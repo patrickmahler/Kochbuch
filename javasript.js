@@ -1,8 +1,7 @@
-// Author: Philip Mayer
-// funcitonality on main body area and button onclick events
-
+// Start Window OnLoad Function
 window.onload = function(){
-
+    // Author: Philip Mayer
+    // funcitonality on main body area and button onclick events
     // safeButton Modal Luca
     let safeButton = document.querySelector("#button_save");
 
@@ -27,8 +26,6 @@ window.onload = function(){
 
     // Lucas Modal für das Hinzufügen
     let addModal = document.querySelector("#addModal");
-
-
 
     // Navbar Rezept anlegen Button
     hinzufuegen.addEventListener("click", () => {
@@ -168,7 +165,7 @@ window.onload = function(){
 
 
 // Author: Patrick Mahler
-// Modal 
+// Modal
 function aktualisieren(){
     aktDropDown = document.getElementById("DropDown").value;
     console.log("Aktualisiert");
