@@ -239,12 +239,16 @@ div.className = "card";
 div.innerHTML = "<div class='bild-text-black'><span>"+titel+"</span></div><img class='close' src='src/img/error.png'/><img class='rezeptbilder' src='"+imagePfad+"'/><div datatest = '"+rezeptZubereitung+"' data-hidden='{textRezept: '"+rezeptZubereitung+"'}'></div>";
 div.onclick = function () {
   var PopUp_Überschrift = $(this).first().text();
-  console.log(PopUp_Überschrift);
-  $(".PopUp_Text_Überschrift").text(PopUp_Überschrift);
-
+  //var PopUp_Bilder = $(this).children().class("rezeptbilder");
   var zubText = $(this).children().last().attr("datatest");
-  52
+
+
+  console.log(PopUp_Überschrift);
+  console.log(imagePfad);
   console.log(zubText);
+
+  $(".PopUp_Text_Überschrift").text(PopUp_Überschrift);
+  $('.carousel-inner').html('<img class="d-block w-100" src="+imagePfad+" alt="First slide">');
   $(".Zub_Text").text(zubText);
 
   $('#modalShow').modal('toggle');
