@@ -11,11 +11,14 @@ window.onload = function(){
     // Hinzufügen-Button Navbar //
     let hinzufuegen = document.querySelector(".neuesRezept");
 
+    //Alle Löschen Button in der Navbar
+    let deleteAllButton = document.querySelector(".deleteAll");
+
     // Hinzufügen-Karte //
     let hinzufuegenCard = document.querySelector("#hinzufuegenButton");
 
     // Fläche für das Einfügen von den Karten auswählen //
-    let uebersichtsSeite = document.querySelector(".images");
+    uebersichtsSeite = document.querySelector(".images");
 
     // Layout Switcher Button //
     let layoutSwitcher = document.querySelector(".layout-switcher");
@@ -26,6 +29,17 @@ window.onload = function(){
 
     // Lucas Modal für das Hinzufügen
     let addModal = document.querySelector("#addModal");
+
+    //Navbar alle Rezepte Löschen
+    deleteAllButton.addEventListener("click", () => {
+        console.log("DeleteAll-Method initiated");
+            var response = confirm("Are you sure that you want to delete all Cards?");
+            if  (response == true) {
+                $('.card').remove();
+                console.log("All Card-Elements performed");
+            }
+            console.log("All Card-Elements aborded");
+    })
 
     // Navbar Rezept anlegen Button
     hinzufuegen.addEventListener("click", () => {
@@ -39,6 +53,7 @@ window.onload = function(){
         //rezeptHinzufuegen();
     })
 
+
     // Lucas Modal Safebutton bei Save Changes klick
     safeButton.addEventListener("click", () => {
         console.log("safeButton funktioniert");
@@ -46,6 +61,67 @@ window.onload = function(){
         $('#addModal').modal('toggle');
     })
 
+    // Rezept hinzufuegen Karte erstellen
+    // Author: Philip Mayer
+    function rezeptHinzufuegen() {
+        console.log("rezeptHinzufuegen() running");
+
+        // Leere Karte hinzufügen //
+        let cardElement = document.createElement("div");
+        cardElement.classList.add("card");
+        //Attribute für Modal-Funktionalität setzen
+        cardElement.setAttribute("data-toggle","modal");
+        cardElement.setAttribute("data-target", ".bd-example-modal-lg");
+        uebersichtsSeite.appendChild(cardElement);
+
+        // Beschriftungstext zu Karte hinzufügen
+        let cardText = document.createElement("div");
+        cardText.textContent = "Textfüller";                 // Muss später durch Lucas Elemente im Forumular befüllt werden
+        cardText.classList.add("bild-text");
+        cardElement.appendChild(cardText);
+
+        // Löschen-Button hinzufügen
+        cardCloseButton = document.createElement("img");
+        cardCloseButton.classList.add("close");
+        cardCloseButton.setAttribute("src", "src/img/error.png");
+        cardElement.appendChild(cardCloseButton);
+
+        // Rezeptbild hinzufügen                                Muss später mit Lucas Bild befüllt werden
+        let rezeptBild = document.createElement("img");
+        rezeptBild.classList.add("rezeptbilder");
+        cardElement.appendChild(rezeptBild);
+
+
+        console.log("rezeptHinzufuegen() performed");
+
+        // Aktion für Klick auf das Close Symbol hinterlegen
+        cardCloseButton.addEventListener("click", () => {
+            cardElement.parentNode.removeChild(cardElement);
+            console.log("Close-Button-Action performed");
+        });
+    };
+
+
+    /* Experimental
+    // Author: Philip Mayer
+
+    function closeButtonActionPerformed () {
+        //Aufrufendes Object muss Child entfernen
+        $('.card').remove();
+        console.log("closeButtonActionPerformed: Card-Element deleted.")
+    }
+
+    let cardElements = document.querySelector("div.images").childNodes;
+
+    for (let i; i<cardElements.length; i++) {
+        if ()
+    //}
+
+
+    closeButton.addEventListener("click", () => {
+    closeButtonActionPerformed();
+    })
+    End Experimental Feature*/
 
 // Experimental Layout-Switch
     layoutSwitcher.addEventListener("click", () => {
@@ -237,45 +313,10 @@ var zutaten = $('#zutatentabelle').html();
 var cardOverviewImages = document.getElementById("images");
 var div = document.createElement("div");
 div.className = "card";
-div.innerHTML = "<div class='bild-text-black'><span>"+titel+"</span></div><img class='close' src='test'/><img class='rezeptbilder' src='test'/><div data-hidden='{textRezept: '"+rezeptZubereitung+"', zutaten: '"+zutaten+"'}'></div>";
+div.innerHTML = "<div class='bild-text-black'><span>"+titel+"</span></div><img class='rezeptbilder' src='test'/><div data-hidden='{textRezept: '"+rezeptZubereitung+"', zutaten: '"+zutaten+"'}'></div>";
+// div.innerHTML: removed <img class='close' src='test'/> for test
 cardOverviewImages.appendChild(div,null);
 
 //close Modal
 $('#addModal').modal('toggle');
 }
-
-// Rezept hinzufuegen Karte erstellen
-// Author: Philip Mayer
-function rezeptHinzufuegen() {
-    console.log("Rezept hinzufügen running");
-
-    // Leere Karte hinzufügen //
-    let cardElement = document.createElement("div");
-    cardElement.classList.add("card");
-    //Attribute für Modal-Funktionalität setzen
-    cardElement.setAttribute("data-toggle","modal");
-    cardElement.setAttribute("data-target", ".bd-example-modal-lg");
-    uebersichtsSeite.appendChild(cardElement);
-
-    // Beschriftungstext zu Karte hinzufügen
-    let cardText = document.createElement("div");
-    cardText.textContent = "Textfüller";                 // Muss später durch Lucas Elemente im Forumular befüllt werden
-    cardText.classList.add("bild-text");
-    cardElement.appendChild(cardText);
-
-    // Löschen-Button hinzufügen
-    let cardCloseButton = document.createElement("img");
-    cardCloseButton.classList.add("close");
-    cardCloseButton.setAttribute("src", "src/img/error.png");
-    cardElement.appendChild(cardCloseButton);
-
-    // Rezeptbild hinzufügen                                Muss später mit Lucas Bild befüllt werden
-    let rezeptBild = document.createElement("img");
-    rezeptBild.classList.add("rezeptbilder");
-    cardElement.appendChild(rezeptBild);
-
-    // Aktion für Klick auf das Close Symbol hinterlegen
-    cardCloseButton.addEventListener("click", () => {
-        cardElement.parentNode.removeChild(cardElement);
-    });
-};
