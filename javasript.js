@@ -53,39 +53,6 @@ window.onload = function(){
         $('#addModal').modal('toggle');
     })
 
-    //Inhalt von div in Modal anzeigen
-    //Anzeige von div in Model bei klick
-    /* Experimental
-    let showModal = document.querySelectorAll(".card").forEch(function(){
-
-    });
-        console.log("Überschrift");
-        //Hier passiert noch ein Fehler
-        var PopUp_Überschrift = $(this).;
-        console.log(PopUp_Überschrift);
-        $(".PopUp_Text_Überschrift").innerHTML = PopUp_Überschrift;
-
-        //anzeigen();
-    })
-*/
-//mögliche Lösung
-var cards = document.querySelectorAll(".card");
-for (var i = 0; i < cards.length; i++) {
-	var card = cards[i];
-	card.onclick = function () {
-    var PopUp_Überschrift = $(this).first().text();
-    console.log(PopUp_Überschrift);
-    $(".PopUp_Text_Überschrift").text(PopUp_Überschrift);
-
-    var zubText = $(this).first().attr("data-hidden");
-    $(".Zub_Text").text(zubText);
-
-    $('#modalShow').modal('toggle');
-	};
-}
-
-
-
 
 // Experimental Layout-Switch
     layoutSwitcher.addEventListener("click", () => {
@@ -276,7 +243,7 @@ div.onclick = function () {
   $(".PopUp_Text_Überschrift").text(PopUp_Überschrift);
 
   var zubText = $(this).children().last().attr("datatest");
-  
+  52
   console.log(zubText);
   $(".Zub_Text").text(zubText);
 
