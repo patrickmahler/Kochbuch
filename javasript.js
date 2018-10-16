@@ -30,7 +30,7 @@ window.onload = function(){
     let addModal = document.querySelector("#addModal");
 
 //modal clone
- myBackup = "";
+ //myBackup = "";
 
 
     // Navbar Rezept anlegen Button
@@ -47,9 +47,9 @@ window.onload = function(){
 
     // Lucas Modal Safebutton bei Save Changes klick
     safeButton.addEventListener("click", () => {
-     myBackup = $('#addModal').clone();
+    // myBackup = $('#addModal').clone();
         console.log("safeButton funktioniert");
-        rezeptHinzufuegen();
+        addNewElement();
         $('#addModal').modal('toggle');
     })
 
@@ -67,23 +67,23 @@ window.onload = function(){
 
         //anzeigen();
     })
-
+*/
 //mögliche Lösung
-    var cards = document.querySelectorAll(".card");
+var cards = document.querySelectorAll(".card");
 for (var i = 0; i < cards.length; i++) {
 	var card = cards[i];
 	card.onclick = function () {
-		if (this.classList.contains("block")) {
-			this.classList.add("rotated");
-			this.classList.remove("block");
-		}
-		else {
-			this.classList.add("block");
-			this.classList.remove("rotated");
-		}
+    var PopUp_Überschrift = $(this).first().text();
+    console.log(PopUp_Überschrift);
+    $(".PopUp_Text_Überschrift").text(PopUp_Überschrift);
+
+    var zubText = $(this).first().attr("data-hidden");
+    $(".Zub_Text").text(zubText);
+
+    $('#modalShow').modal('toggle');
 	};
 }
-*/
+
 
 
 
@@ -269,16 +269,31 @@ var imagePfad = $("#firstElement img:first").attr('src');
 var cardOverviewImages = document.getElementById("images");
 var div = document.createElement("div");
 div.className = "card";
-div.innerHTML = "<div class='bild-text-black'><span>"+titel+"</span></div><img class='close' src='src/img/error.png'/><img class='rezeptbilder' src='"+imagePfad+"'/><div data-hidden='{textRezept: '"+rezeptZubereitung+"', zutaten: 'test'}'></div>";
+div.innerHTML = "<div class='bild-text-black'><span>"+titel+"</span></div><img class='close' src='src/img/error.png'/><img class='rezeptbilder' src='"+imagePfad+"'/><div datatest = '"+rezeptZubereitung+"' data-hidden='{textRezept: '"+rezeptZubereitung+"'}'></div>";
+div.onclick = function () {
+  var PopUp_Überschrift = $(this).first().text();
+  console.log(PopUp_Überschrift);
+  $(".PopUp_Text_Überschrift").text(PopUp_Überschrift);
+
+  var zubText = $(this).children().last().attr("datatest");
+  
+  console.log(zubText);
+  $(".Zub_Text").text(zubText);
+
+  $('#modalShow').modal('toggle');
+};
+
+
+
 cardOverviewImages.appendChild(div,null);
 
 //close Modal
 //$('#addModal').modal('toggle');
 
-        $('#addModal').modal('hide').remove();
+      /*  $('#addModal').modal('hide').remove();
         var myClone = myBackup.clone();
         $('body').append(myClone);
-
+*/
 }
 
 // Rezept hinzufuegen Karte erstellen
