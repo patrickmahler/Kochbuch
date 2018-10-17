@@ -278,7 +278,7 @@ function rezeptHinzufuegen() {
 
     // Beschriftungstext zu Karte hinzufügen
     let cardText = document.createElement("div");
-    cardText.textContent = "Textfüller";                 // Muss später durch Lucas Elemente im Forumular befüllt werden
+    cardText.textContent = "Textfüller";       // Muss später durch Lucas Elemente im Forumular befüllt werden
     cardText.classList.add("bild-text");
     cardElement.appendChild(cardText);
 
