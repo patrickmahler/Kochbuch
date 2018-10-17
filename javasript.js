@@ -1,9 +1,7 @@
-// Author: Philip Mayer
-// funcitonality on main body area and button onclick events
-
-
+// Start Window OnLoad Function
 window.onload = function(){
-
+    // Author: Philip Mayer
+    // funcitonality on main body area and button onclick events
     // safeButton Modal Luca
     let safeButton = document.querySelector("#button_save");
 
@@ -13,11 +11,14 @@ window.onload = function(){
     // Hinzufügen-Button Navbar //
     let hinzufuegen = document.querySelector(".neuesRezept");
 
+    //Alle Löschen Button in der Navbar
+    let deleteAllButton = document.querySelector(".deleteAll");
+
     // Hinzufügen-Karte //
     let hinzufuegenCard = document.querySelector("#hinzufuegenButton");
 
     // Fläche für das Einfügen von den Karten auswählen //
-    let uebersichtsSeite = document.querySelector(".images");
+    uebersichtsSeite = document.querySelector(".images");
 
     // Layout Switcher Button //
     let layoutSwitcher = document.querySelector(".layout-switcher");
@@ -29,9 +30,16 @@ window.onload = function(){
     // Lucas Modal für das Hinzufügen
     let addModal = document.querySelector("#addModal");
 
-//modal clone
- //myBackup = "";
-
+    //Navbar alle Rezepte Löschen
+    deleteAllButton.addEventListener("click", () => {
+        console.log("DeleteAll-Method initiated");
+            var response = confirm("Are you sure that you want to delete all Cards?");
+            if  (response == true) {
+                $('.card').remove();
+                console.log("All Card-Elements performed");
+            }
+            console.log("All Card-Elements aborded");
+    })
 
     // Navbar Rezept anlegen Button
     hinzufuegen.addEventListener("click", () => {
@@ -45,14 +53,75 @@ window.onload = function(){
         //rezeptHinzufuegen();
     })
 
+
     // Lucas Modal Safebutton bei Save Changes klick
     safeButton.addEventListener("click", () => {
-    // myBackup = $('#addModal').clone();
         console.log("safeButton funktioniert");
         addNewElement();
         $('#addModal').modal('toggle');
     })
 
+    // Rezept hinzufuegen Karte erstellen
+    // Author: Philip Mayer
+    function rezeptHinzufuegen() {
+        console.log("rezeptHinzufuegen() running");
+
+        // Leere Karte hinzufügen //
+        let cardElement = document.createElement("div");
+        cardElement.classList.add("card");
+        //Attribute für Modal-Funktionalität setzen
+        cardElement.setAttribute("data-toggle","modal");
+        cardElement.setAttribute("data-target", ".bd-example-modal-lg");
+        uebersichtsSeite.appendChild(cardElement);
+
+        // Beschriftungstext zu Karte hinzufügen
+        let cardText = document.createElement("div");
+        cardText.textContent = "Textfüller";                 // Muss später durch Lucas Elemente im Forumular befüllt werden
+        cardText.classList.add("bild-text");
+        cardElement.appendChild(cardText);
+
+        // Löschen-Button hinzufügen
+        cardCloseButton = document.createElement("img");
+        cardCloseButton.classList.add("close");
+        cardCloseButton.setAttribute("src", "src/img/error.png");
+        cardElement.appendChild(cardCloseButton);
+
+        // Rezeptbild hinzufügen                                Muss später mit Lucas Bild befüllt werden
+        let rezeptBild = document.createElement("img");
+        rezeptBild.classList.add("rezeptbilder");
+        cardElement.appendChild(rezeptBild);
+
+
+        console.log("rezeptHinzufuegen() performed");
+
+        // Aktion für Klick auf das Close Symbol hinterlegen
+        cardCloseButton.addEventListener("click", () => {
+            cardElement.parentNode.removeChild(cardElement);
+            console.log("Close-Button-Action performed");
+        });
+    };
+
+
+    /* Experimental
+    // Author: Philip Mayer
+
+    function closeButtonActionPerformed () {
+        //Aufrufendes Object muss Child entfernen
+        $('.card').remove();
+        console.log("closeButtonActionPerformed: Card-Element deleted.")
+    }
+
+    let cardElements = document.querySelector("div.images").childNodes;
+
+    for (let i; i<cardElements.length; i++) {
+        if ()
+    //}
+
+
+    closeButton.addEventListener("click", () => {
+    closeButtonActionPerformed();
+    })
+    End Experimental Feature*/
 
 // Experimental Layout-Switch
     layoutSwitcher.addEventListener("click", () => {
@@ -154,7 +223,6 @@ window.onload = function(){
 
                     carouselInner.appendChild(div,null);
                     $('#carouselInner div:first').addClass('active');
-                    $('#carouselInner div:first').attr('id', 'firstElement');
 
                 });
 
@@ -197,14 +265,26 @@ function aendern(){
     }
     aktualisieren();
 }
-function anzeigen(){
-    //Überschrift holen
-    console.log("Überschrift");
-    //Hier passiert noch ein Fehler
-    var PopUp_Überschrift = $(this).children(":first").html();
-    console.log(PopUp_Überschrift);
-    $(".PopUp_Text_Überschrift").innerHTML = PopUp_Überschrift;
 
+
+/*Noch nicht ausgereift funktioniert noch nicht*/
+function search() {
+/* Es müsste noch id="searchForm" onchange="search()" beim Button oder der Suchleiste hinzugefügt werden*/
+   var name = document.getElementById("searchForm").elements["searchItem"].value;
+   console.log(name);
+   var pattern = name.toLowerCase();
+   var targetId = "";
+
+   var divs = document.getElementsByClassName("bild-text-black");
+   for (var i = 0; i < divs.length; i++) {
+      var para = divs[i].getElementsByTagName("span");
+      var index = para[0].innerText.toLowerCase().indexOf(pattern);
+      if (index != -1) {
+         targetId = divs[i].parentNode.id;
+         document.getElementById(targetId).scrollIntoView();
+         break;
+      }
+   }
 }
 /*---------------------------------------------------Lucas Teil-----------------------------------------------------------*/
 function addTableRow(){
@@ -228,23 +308,32 @@ var titel = $("#inputRezeptTitel").val();
 var rezeptZubereitung = $('#rezeptAnleitung').val();
 var zutaten = $('#zutatentabelle').html();
 
-
-var imagePfad = $("#firstElement img:first").attr('src');
-
 //get Elements
 //create new card element
 var cardOverviewImages = document.getElementById("images");
 var div = document.createElement("div");
 div.className = "card";
+
+//div.innerHTML = "<div class='bild-text-black'><span>"+titel+"</span></div><img class='rezeptbilder' src='test'/><div data-hidden='{textRezept: '"+rezeptZubereitung+"', zutaten: '"+zutaten+"'}'></div>";
+// div.innerHTML: removed <img class='close' src='test'/> for test
+cardOverviewImages.appendChild(div,null);
+
+//close Modal
+$('#addModal').modal('toggle');
+
 div.innerHTML = "<div class='bild-text-black'><span>"+titel+"</span></div><img class='close' src='src/img/error.png'/><img class='rezeptbilder' src='"+imagePfad+"'/><div datatest = '"+rezeptZubereitung+"' data-hidden='{textRezept: '"+rezeptZubereitung+"'}'></div>";
 div.onclick = function () {
   var PopUp_Überschrift = $(this).first().text();
-  console.log(PopUp_Überschrift);
-  $(".PopUp_Text_Überschrift").text(PopUp_Überschrift);
-
+  //var PopUp_Bilder = $(this).children().class("rezeptbilder");
   var zubText = $(this).children().last().attr("datatest");
-  52
+
+
+  console.log(PopUp_Überschrift);
+  console.log(imagePfad);
   console.log(zubText);
+
+  $(".PopUp_Text_Überschrift").text(PopUp_Überschrift);
+  $('.carousel-inner').html("<img class='d-block w-100' src='"+imagePfad+"' alt='First slide'/>");
   $(".Zub_Text").text(zubText);
 
   $('#modalShow').modal('toggle');
