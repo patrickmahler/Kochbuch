@@ -340,11 +340,10 @@ div.onclick = function () {
   $(".PopUp_Text_Überschrift").text(PopUp_Überschrift);
   $('#carouselInnerTarget').html("<div class = 'carousel-item active'><img class='d-block w-100' src='"+PopUp_Bilder+"' alt='First slide'/></div>");
   $(".Zub_Text").text(zubText);
-
-
   $(".tableBody").html(tabelle);
-
   $('#modalShow').modal('toggle');
+
+  setTableID(this);
 };
 
 
@@ -362,13 +361,22 @@ cardOverviewImages.appendChild(div,null);
 
 
 //function um IDs der Tabelle anzupassen
-function setTableID(){
-
-  document.querySelectorAll('.Menge span:first-child').forEach(function() {
-    /* Only works in Blink browsers and Firefox 50+
-       no Safari or IE/Edge support */
-  });
-
+function setTableID(aktObj){
+    //im Tabellenbody weiter runter nach Klasse Menge. Das darin liegende span auswählen
+    //Das Ergbnis ist ein Objekt mit span Elementen
+  var Test = $(".tableBody").find(".Menge span:first-child");
+  console.log(Test);
+  //Variable muss außen liegen
+  var x = 1;
+  //Schleife die das erhaltene Objekt durchläuft
+  //Bei jedem Durchlauf wird eine neue, fortlaufende  Id vergeben
+  //Wichtig für die Mengen Umrechnung
+  $.each(Test, function (key,value){
+      value.setAttribute("id","00" + x++);
+      console.log(x);
+      console.log(key);
+      console.log(value);
+  })
 
 }
 
