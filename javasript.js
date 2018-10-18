@@ -307,6 +307,7 @@ function addNewElement(){
 var titel = $("#inputRezeptTitel").val();
 var rezeptZubereitung = $('#rezeptAnleitung').val();
 var zutaten = $('#zutatentabelle').html();
+var imagePfad = $('#carouselInner').first().children().first().children().attr("src");
 
 //get Elements
 //create new card element
@@ -324,7 +325,8 @@ $('#addModal').modal('toggle');
 div.innerHTML = "<div class='bild-text-black'><span>"+titel+"</span></div><img class='close' src='src/img/error.png'/><img class='rezeptbilder' src='"+imagePfad+"'/><div datatest = '"+rezeptZubereitung+"' data-hidden='{textRezept: '"+rezeptZubereitung+"'}'></div>";
 div.onclick = function () {
   var PopUp_Überschrift = $(this).first().text();
-  //var PopUp_Bilder = $(this).children().class("rezeptbilder");
+  var PopUp_Bilder = $(this).children().eq(2).attr("src");
+
   var zubText = $(this).children().last().attr("datatest");
 
 
@@ -333,7 +335,7 @@ div.onclick = function () {
   console.log(zubText);
 
   $(".PopUp_Text_Überschrift").text(PopUp_Überschrift);
-  $('.carousel-inner').html("<img class='d-block w-100' src='"+imagePfad+"' alt='First slide'/>");
+  $('#carouselInnerTarget').html("<div class = 'carousel-item active'><img class='d-block w-100' src='"+PopUp_Bilder+"' alt='First slide'/></div>");
   $(".Zub_Text").text(zubText);
 
   $('#modalShow').modal('toggle');
