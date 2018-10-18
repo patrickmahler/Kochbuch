@@ -170,6 +170,27 @@ window.onload = function(){
       });
     });
 
+    $(document).ready(function() {
+    $('.link-sort-list').click(function(e) {
+        var $sort = this;
+        var $list = $('#images');
+        var $listLi = $('div',$list);
+        $listLi.sort(function(a, b){
+            var keyA = $(a).text();
+            var keyB = $(b).text();
+            if($($sort).hasClass('asc')){
+                return (keyA > keyB) ? 1 : 0;
+            } else {
+                return (keyA < keyB) ? 1 : 0;
+            }
+        });
+        $.each($listLi, function(index, row){
+            $list.append(row);
+        });
+        e.preventDefault();
+    });
+});
+
 
 // --------------auskommentiert bisher ------------------------------------------------------------------
 
@@ -322,21 +343,25 @@ cardOverviewImages.appendChild(div,null);
 //close Modal
 $('#addModal').modal('toggle');
 
-div.innerHTML = "<div class='bild-text-black'><span>"+titel+"</span></div><img class='close' src='src/img/error.png'/><img class='rezeptbilder' src='"+imagePfad+"'/><div datatest = '"+rezeptZubereitung+"' data-hidden='{textRezept: '"+rezeptZubereitung+"'}'></div>";
+div.innerHTML = "<div class='bild-text-black'><span>"+titel+"</span></div><img class='close' src='src/img/error.png'/><img class='rezeptbilder' src='"+imagePfad+"'/><div datatest = '"+rezeptZubereitung+"' zutatenTabelle = '"+zutaten+"' data-hidden='{textRezept: '"+rezeptZubereitung+"'}'></div>";
 div.onclick = function () {
   var PopUp_Überschrift = $(this).first().text();
   var PopUp_Bilder = $(this).children().eq(2).attr("src");
 
   var zubText = $(this).children().last().attr("datatest");
-
+  var tabelle = $(this).children().last().attr("zutatenTabelle");
 
   console.log(PopUp_Überschrift);
   console.log(imagePfad);
   console.log(zubText);
+  console.log(tabelle);
 
   $(".PopUp_Text_Überschrift").text(PopUp_Überschrift);
   $('#carouselInnerTarget').html("<div class = 'carousel-item active'><img class='d-block w-100' src='"+PopUp_Bilder+"' alt='First slide'/></div>");
   $(".Zub_Text").text(zubText);
+
+
+  $(".tableBody").html(tabelle);
 
   $('#modalShow').modal('toggle');
 };
