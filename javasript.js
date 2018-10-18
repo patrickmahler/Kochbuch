@@ -379,6 +379,18 @@ cardOverviewImages.appendChild(div,null);
 */
 }
 
+
+//function um IDs der Tabelle anzupassen
+function setTableID(){
+
+  document.querySelectorAll('.Menge span:first-child').forEach(function() {
+    /* Only works in Blink browsers and Firefox 50+
+       no Safari or IE/Edge support */
+  });
+
+
+}
+
 // Rezept hinzufuegen Karte erstellen
 // Author: Philip Mayer
 function rezeptHinzufuegen() {
