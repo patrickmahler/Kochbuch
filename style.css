@@ -21,13 +21,14 @@ body {
 }
 
 /*Navbar-Buttons*/
-a#navbar-button {
+#navbar-button {
     background-color: white;
     color: black;
     border-color: white;
     font-weight: bold;
+    margin: 0 5px;
 }
-a#navbar-button:hover {
+#navbar-button:hover {
     background-color: green;
     color: black;
     border-color: white;
@@ -37,6 +38,8 @@ a#navbar-button:hover {
 #navbar-layout-switcher {
     width: 40px;
 }
+
+/* Navbar Neues Rezept Buttons */
 
 /*Header-Navbar-Logo */
 nav > div > img {

@@ -30,7 +30,6 @@ window.onload = function(){
     // Lucas Modal für das Hinzufügen
     let addModal = document.querySelector("#addModal");
 
-<<<<<<< HEAD
     //Navbar alle Rezepte Löschen
     deleteAllButton.addEventListener("click", () => {
         console.log("DeleteAll-Method initiated");
@@ -41,11 +40,9 @@ window.onload = function(){
             }
             console.log("All Card-Elements aborded");
     })
-=======
 //modal clone
  //myBackup = "";
 
->>>>>>> 13962755cf42f0e1be99a386b10226cd52e5ef4b
 
     // Navbar Rezept anlegen Button
     hinzufuegen.addEventListener("click", () => {
@@ -62,16 +59,12 @@ window.onload = function(){
 
     // Lucas Modal Safebutton bei Save Changes klick
     safeButton.addEventListener("click", () => {
-<<<<<<< HEAD
-=======
     // myBackup = $('#addModal').clone();
->>>>>>> 13962755cf42f0e1be99a386b10226cd52e5ef4b
         console.log("safeButton funktioniert");
         addNewElement();
         $('#addModal').modal('toggle');
     })
 
-<<<<<<< HEAD
     // Rezept hinzufuegen Karte erstellen
     // Author: Philip Mayer
     function rezeptHinzufuegen() {
@@ -133,8 +126,7 @@ window.onload = function(){
     closeButtonActionPerformed();
     })
     End Experimental Feature*/
-=======
->>>>>>> 13962755cf42f0e1be99a386b10226cd52e5ef4b
+
 
 // Experimental Layout-Switch
     layoutSwitcher.addEventListener("click", () => {
@@ -326,14 +318,12 @@ var zutaten = $('#zutatentabelle').html();
 var cardOverviewImages = document.getElementById("images");
 var div = document.createElement("div");
 div.className = "card";
-<<<<<<< HEAD
 div.innerHTML = "<div class='bild-text-black'><span>"+titel+"</span></div><img class='rezeptbilder' src='test'/><div data-hidden='{textRezept: '"+rezeptZubereitung+"', zutaten: '"+zutaten+"'}'></div>";
 // div.innerHTML: removed <img class='close' src='test'/> for test
 cardOverviewImages.appendChild(div,null);
 
 //close Modal
 $('#addModal').modal('toggle');
-=======
 div.innerHTML = "<div class='bild-text-black'><span>"+titel+"</span></div><img class='close' src='src/img/error.png'/><img class='rezeptbilder' src='"+imagePfad+"'/><div datatest = '"+rezeptZubereitung+"' data-hidden='{textRezept: '"+rezeptZubereitung+"'}'></div>";
 div.onclick = function () {
   var PopUp_Überschrift = $(this).first().text();
@@ -363,5 +353,4 @@ cardOverviewImages.appendChild(div,null);
         var myClone = myBackup.clone();
         $('body').append(myClone);
 */
->>>>>>> 13962755cf42f0e1be99a386b10226cd52e5ef4b
 }
