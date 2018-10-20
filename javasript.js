@@ -29,6 +29,10 @@ window.onload = function(){
 
     // Lucas Modal für das Hinzufügen
     let addModal = document.querySelector("#addModal");
+    // Modal hide test
+    let originalModal = $('#addModal').clone();
+
+
 
     //Navbar alle Rezepte Löschen
     deleteAllButton.addEventListener("click", () => {
@@ -60,6 +64,12 @@ window.onload = function(){
         console.log("safeButton funktioniert");
         addNewElement();
         $('#addModal').modal('toggle');
+
+/*
+        $('#addModal').remove();
+        $('main').append(originalModal);
+*/
+
     })
 
 
@@ -310,9 +320,11 @@ function addNewElement(){
     localStorage.setItem(titel, JSON.stringify(newObject));
 
     rezeptHinzufuegen(newObject);
-
-
     setTableID(this);
+
+    // Temp-Reload um das Modal zu resetten
+    // location.reload();
+
 }
 
 
