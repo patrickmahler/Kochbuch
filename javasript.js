@@ -33,10 +33,11 @@ window.onload = function(){
     //Navbar alle Rezepte Löschen
     deleteAllButton.addEventListener("click", () => {
         console.log("DeleteAll-Method initiated");
-            var response = confirm("Are you sure that you want to delete all Cards?");
+            var response = confirm("Wollen Sie wirklich alle Rezepte löschen?");
             if  (response == true) {
                 $('.card').remove();
-                console.log("All Card-Elements performed");
+                localStorage.clear();   // Local Storage leeren
+                location.refresh();     // Page-Refresh.log("All Card-Elements performed");
             }
             console.log("All Card-Elements aborded");
     })
