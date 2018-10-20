@@ -63,7 +63,7 @@ window.onload = function(){
 
     // Rezept hinzufuegen Karte erstellen
     // Author: Philip Mayer
-    function rezeptHinzufuegen() {
+  /*  function rezeptHinzufuegen() {
         console.log("rezeptHinzufuegen() running");
 
         // Leere Karte hinzufügen //
@@ -100,7 +100,7 @@ window.onload = function(){
             console.log("Close-Button-Action performed");
         });
     };
-
+*/
 
     /* Experimental
     // Author: Philip Mayer
@@ -125,7 +125,10 @@ window.onload = function(){
 
 //check if storage empty or filled
 for ( var i = 0, len = localStorage.length; i < len; ++i ) {
-  console.log( localStorage.getItem( localStorage.key( i ) ) );
+    var objfürPhillip = localStorage.getItem(localStorage.key( i ));
+
+  console.log("pass an phillip " + objfürPhillip);
+  rezeptHinzufuegen(JSON.parse(objfürPhillip));
 }
 
 // Experimental Layout-Switch
@@ -379,6 +382,12 @@ function setTableID(aktObj){
 function rezeptHinzufuegen(newObject) {
     console.log("Rezept hinzufügen running");
 
+    //Attribute des Objects auslesen
+    let title = newObject.Titel;
+    console.log(title);
+    let img = newObject.ImagePfad;
+    console.log(img);
+
     // Leere Karte hinzufügen //
     let cardElement = document.createElement("div");
     cardElement.classList.add("card");
@@ -389,7 +398,7 @@ function rezeptHinzufuegen(newObject) {
 
     // Beschriftungstext zu Karte hinzufügen
     let cardText = document.createElement("div");
-    cardText.textContent = "Textfüller";       // Muss später durch Lucas Elemente im Forumular befüllt werden
+    cardText.textContent = title;
     cardText.classList.add("bild-text");
     cardElement.appendChild(cardText);
 
@@ -399,9 +408,10 @@ function rezeptHinzufuegen(newObject) {
     cardCloseButton.setAttribute("src", "src/img/error.png");
     cardElement.appendChild(cardCloseButton);
 
-    // Rezeptbild hinzufügen                                Muss später mit Lucas Bild befüllt werden
+    // Rezeptbild hinzufügen
     let rezeptBild = document.createElement("img");
     rezeptBild.classList.add("rezeptbilder");
+    rezeptBild.setAttribute("src", img);
     cardElement.appendChild(rezeptBild);
 
     // Aktion für Klick auf das Close Symbol hinterlegen
@@ -409,7 +419,7 @@ function rezeptHinzufuegen(newObject) {
         cardElement.parentNode.removeChild(cardElement);
     });
 
-    cardElement.onclick = function(){
+  /*  cardElement.onclick = function(){
       //patricksModalAufruf()
       var titel = $(this).first().text();
       var obj = localStorage.getItem(titel);
@@ -422,5 +432,5 @@ function rezeptHinzufuegen(newObject) {
 
 
 
-    }
+    }*/
 };
