@@ -329,28 +329,26 @@ function addTableRow(){
 
 function addNewElement(){
 
-//get Elements
-var titel = $("#inputRezeptTitel").val();
-var rezeptZubereitung = $('#rezeptAnleitung').val();
-var zutaten = $('#zutatentabelle').html();
-var imagePfad = $('#carouselInner').first().children().first().children().attr("src");
-var dropdown = $('#DropDown').val();
+    //get Elements
+    var titel = $("#inputRezeptTitel").val();
+    var rezeptZubereitung = $('#rezeptAnleitung').val();
+    var zutaten = $('#zutatentabelle').html();
+    var imagePfad = $('#carouselInner').first().children().first().children().attr("src");
+    var dropdown = $('#DropDown').val();
 
 
-//close Modal
-$('#addModal').modal('toggle');
+    //close Modal
+    $('#addModal').modal('toggle');
 
-//to local storage
-var newObject = { 'Titel': titel, 'Zubereitung': rezeptZubereitung, 'ImagePfad': imagePfad, 'Zutatenliste': zutaten, 'AnzahlPersonen' : dropdown };
-console.log("object "+newObject.Zutatenliste);
-localStorage.setItem(titel, JSON.stringify(newObject));
+    //to local storage
+    var newObject = { 'Titel': titel, 'Zubereitung': rezeptZubereitung, 'ImagePfad': imagePfad, 'Zutatenliste': zutaten, 'AnzahlPersonen' : dropdown };
+    console.log("object "+newObject.Zutatenliste);
+    localStorage.setItem(titel, JSON.stringify(newObject));
 
-rezeptHinzufuegen(newObject);
+    rezeptHinzufuegen(newObject);
 
 
-setTableID(this);
-};
-
+    setTableID(this);
 }
 
 
@@ -415,12 +413,30 @@ function rezeptHinzufuegen(newObject) {
       var obj = localStorage.getItem(titel);
 
       $(".PopUp_Text_Überschrift").text(obj.Titel);
-      $('#carouselInnerTarget').html("<div class = 'carousel-item active'><img class='d-block w-100' src='"+newObject.ImagePfad+"' alt='First slide'/></div>");
-      $(".Zub_Text").text(newObject.Zubereitung);
+      $('#carouselInnerTarget').html("<div class = 'carousel-item active'><img class='d-block w-100' src='"+obj.ImagePfad+"' alt='First slide'/></div>");
+      $(".Zub_Text").text(obj.Zubereitung);
       $(".tableBody").html(obj.Zutaten);
       $('#modalShow').modal('toggle');
 
+      //ändern der Zutaten Anzahl
+      function init(){
+        array = [];
+        for(i=1; i<2; i++){
+            var tableObj = obj.getElementById("00"+i).value;
+            array[i-1]= tableObj;
+            console.log(tableObj);
+            }
+        obj.getElementById("DropDown").addEventListener('onchange', aendern());
+       }
 
-
+      function aendern(){
+          var neuDropDown = obj.getElementById("DropDown").value;
+          for (var i = 0; i <= array.length; i++) {
+              aktZutatenWert = array[i];
+              neuZutatenWert = ((aktZutatenWert/aktDropDown)* neuDropDown);
+              obj.getElementById("00"+(i+1)).innerHTML = neuZutatenWert;
+          }
+          aktualisieren();
+      }
     }
 };
