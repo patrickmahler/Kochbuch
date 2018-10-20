@@ -249,7 +249,7 @@ console.log('retrievedObject: ', JSON.parse(retrievedObject));
 
 // Author: Patrick Mahler
 // Modal
-function aktualisieren(){
+/*function aktualisieren(){
 
     aktDropDown = document.getElementById("DropDown").value;
     console.log("Aktualisiert");
@@ -257,10 +257,10 @@ function aktualisieren(){
 function init(){
     //ZutatenAnz = 3;
     array = [];
-/*    for (var i = 0; i <= ZutatenAnz; i++) {
+   for (var i = 0; i <= ZutatenAnz; i++) {
        array[i] =document.getElementById("00"+(i+1)).innerHTML;
        console.log(array[i]);
-   }*/
+   }
 
    var tableObj = $(".tableBody").find(".Menge span:first-child");
    console.log(tableObj);
@@ -289,7 +289,7 @@ function aendern(){
         //document.getElementById("00"+(i+1)).innerHTML = neuZutatenWert;
     }
     aktualisieren();
-}
+}*/
 
 
 /*Noch nicht ausgereift funktioniert noch nicht*/
@@ -419,6 +419,10 @@ function rezeptHinzufuegen(newObject) {
       $('#modalShow').modal('toggle');
 
       //ändern der Zutaten Anzahl
+      function aktualisieren(){
+          aktDropDown = obj.getElementById("DropDown").value;
+          console.log("Aktualisiert");
+      }
       function init(){
         array = [];
         for(i=1; i<2; i++){
