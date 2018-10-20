@@ -123,10 +123,10 @@ window.onload = function(){
     })
     End Experimental Feature*/
 
-
-var retrievedObject = localStorage.getItem('testObject');
-
-console.log('retrievedObject: ', JSON.parse(retrievedObject));
+//check if storage empty or filled
+for ( var i = 0, len = localStorage.length; i < len; ++i ) {
+  console.log( localStorage.getItem( localStorage.key( i ) ) );
+}
 
 // Experimental Layout-Switch
     layoutSwitcher.addEventListener("click", () => {
@@ -351,7 +351,7 @@ rezeptHinzufuegen(newObject);
 setTableID(this);
 };
 
-}
+
 
 
 //function um IDs der Tabelle anzupassen
