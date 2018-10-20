@@ -418,15 +418,17 @@ function rezeptHinzufuegen(newObject) {
         cardElement.parentNode.removeChild(cardElement);
     });
 
-  /*  cardElement.onclick = function(){
+   cardElement.onclick = function(){
       //patricksModalAufruf()
       var titel = $(this).first().text();
-      var obj = localStorage.getItem(titel);
+      var objJSON = localStorage.getItem(titel);
+      var obj = JSON.parse(objJSON);
 
-      $(".PopUp_Text_Überschrift").text(obj.Titel);
+      $(".PopUp_Text").text(obj.Titel);
+      console.log(obj.Titel);
       $('#carouselInnerTarget').html("<div class = 'carousel-item active'><img class='d-block w-100' src='"+obj.ImagePfad+"' alt='First slide'/></div>");
       $(".Zub_Text").text(obj.Zubereitung);
-      $(".tableBody").html(obj.Zutaten);
+      $(".tableBody").html(obj.Zutatenliste);
       $('#modalShow').modal('toggle');
 
       //ändern der Zutaten Anzahl
