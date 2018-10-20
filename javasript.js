@@ -278,11 +278,15 @@ function init(){
 
 function aendern(){
     var neuDropDown = document.getElementById("DropDown").value;
+    console.log(neuDropDown);
     for (var i = 0; i <= array.length; i++) {
         aktZutatenWert = array[i];
         neuZutatenWert = ((aktZutatenWert/aktDropDown)* neuDropDown);
+        console.log(neuZutatenWert);
+        console.log("bis hier hin klappt es");
         //Der folgende Befehl ist noch nicht richtig und muss durch JQuery ersetzt werden.
-        document.getElementById("00"+(i+1)).innerHTML = neuZutatenWert;
+        $(".tableBody").find(".Menge span:first-child").attr("id", "00" + i).innerText = neuZutatenWert;
+        //document.getElementById("00"+(i+1)).innerHTML = neuZutatenWert;
     }
     aktualisieren();
 }
