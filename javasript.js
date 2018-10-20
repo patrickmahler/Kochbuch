@@ -351,7 +351,6 @@ rezeptHinzufuegen(newObject);
 setTableID(this);
 };
 
-}
 
 
 //function um IDs der Tabelle anzupassen
@@ -379,6 +378,12 @@ function setTableID(aktObj){
 function rezeptHinzufuegen(newObject) {
     console.log("Rezept hinzufügen running");
 
+    //Attribute des Objects auslesen
+    let title = newObject.Titel;
+    console.log(title);
+    let img = newObject.ImagePfad;
+    console.log(img);
+
     // Leere Karte hinzufügen //
     let cardElement = document.createElement("div");
     cardElement.classList.add("card");
@@ -389,7 +394,7 @@ function rezeptHinzufuegen(newObject) {
 
     // Beschriftungstext zu Karte hinzufügen
     let cardText = document.createElement("div");
-    cardText.textContent = "Textfüller";       // Muss später durch Lucas Elemente im Forumular befüllt werden
+    cardText.textContent = title;                   // Muss später durch Lucas Elemente im Forumular befüllt werden
     cardText.classList.add("bild-text");
     cardElement.appendChild(cardText);
 
@@ -399,9 +404,10 @@ function rezeptHinzufuegen(newObject) {
     cardCloseButton.setAttribute("src", "src/img/error.png");
     cardElement.appendChild(cardCloseButton);
 
-    // Rezeptbild hinzufügen                                Muss später mit Lucas Bild befüllt werden
+    // Rezeptbild hinzufügen
     let rezeptBild = document.createElement("img");
     rezeptBild.classList.add("rezeptbilder");
+    rezeptBild.setAttribute("src", img);
     cardElement.appendChild(rezeptBild);
 
     // Aktion für Klick auf das Close Symbol hinterlegen
