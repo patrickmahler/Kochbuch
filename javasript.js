@@ -413,5 +413,5 @@ function rezeptHinzufuegen(newObject) {
           }
           aktualisieren();
       }
-    }
+  } */
 };
