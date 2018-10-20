@@ -245,24 +245,38 @@ window.onload = function(){
 // Author: Patrick Mahler
 // Modal
 function aktualisieren(){
+
     aktDropDown = document.getElementById("DropDown").value;
     console.log("Aktualisiert");
 }
 function init(){
-    ZutatenAnz = 3;
-    array = ["1","2","3","4"];
-    for (var i = 0; i <= ZutatenAnz; i++) {
-       array[i] = document.getElementById("00"+(i+1)).innerHTML;
+    //ZutatenAnz = 3;
+    array = [];
+/*    for (var i = 0; i <= ZutatenAnz; i++) {
+       array[i] =document.getElementById("00"+(i+1)).innerHTML;
        console.log(array[i]);
-   }
+   }*/
+
+   var tableObj = $(".tableBody").find(".Menge span:first-child");
+   console.log(tableObj);
+   var x = 0;
+   $.each(tableObj, function (key,value){
+       array[x] = value.innerText;
+       console.log(array[x]);
+       x++;
+       //gibt im Moment 2x Mal den selben Wert aus
+       //bis dahin funktioniert es, jetzt muss aendern function noch angepasst werden.
+   })
+
     document.getElementById("DropDown").addEventListener('onchange', aendern());
 }
 
 function aendern(){
     var neuDropDown = document.getElementById("DropDown").value;
-    for (var i = 0; i <= ZutatenAnz; i++) {
+    for (var i = 0; i <= array[].length; i++) {
         aktZutatenWert = array[i];
         neuZutatenWert = ((aktZutatenWert/aktDropDown)* neuDropDown);
+        //Der folgende Befehl ist noch nicht richtig und muss durch JQuery ersetzt werden.
         document.getElementById("00"+(i+1)).innerHTML = neuZutatenWert;
     }
     aktualisieren();
@@ -364,14 +378,14 @@ cardOverviewImages.appendChild(div,null);
 function setTableID(aktObj){
     //im Tabellenbody weiter runter nach Klasse Menge. Das darin liegende span auswählen
     //Das Ergbnis ist ein Objekt mit span Elementen
-  var Test = $(".tableBody").find(".Menge span:first-child");
-  console.log(Test);
+  var spanObj = $(".tableBody").find(".Menge span:first-child");
+  console.log(spanObj);
   //Variable muss außen liegen
   var x = 1;
   //Schleife die das erhaltene Objekt durchläuft
   //Bei jedem Durchlauf wird eine neue, fortlaufende  Id vergeben
   //Wichtig für die Mengen Umrechnung
-  $.each(Test, function (key,value){
+  $.each(spanObj, function (key,value){
       value.setAttribute("id","00" + x++);
       console.log(x);
       console.log(key);
