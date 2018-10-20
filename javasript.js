@@ -123,6 +123,11 @@ window.onload = function(){
     })
     End Experimental Feature*/
 
+
+var retrievedObject = localStorage.getItem('testObject');
+
+console.log('retrievedObject: ', JSON.parse(retrievedObject));
+
 // Experimental Layout-Switch
     layoutSwitcher.addEventListener("click", () => {
 
@@ -273,7 +278,7 @@ function init(){
 
 function aendern(){
     var neuDropDown = document.getElementById("DropDown").value;
-    for (var i = 0; i <= array[].length; i++) {
+    for (var i = 0; i <= array.length; i++) {
         aktZutatenWert = array[i];
         neuZutatenWert = ((aktZutatenWert/aktDropDown)* neuDropDown);
         //Der folgende Befehl ist noch nicht richtig und muss durch JQuery ersetzt werden.
@@ -315,6 +320,7 @@ function addTableRow(){
 }
 
 
+
 //--------------------------------
 
 function addNewElement(){
@@ -324,53 +330,23 @@ var titel = $("#inputRezeptTitel").val();
 var rezeptZubereitung = $('#rezeptAnleitung').val();
 var zutaten = $('#zutatentabelle').html();
 var imagePfad = $('#carouselInner').first().children().first().children().attr("src");
+var dropdown = $('#DropDown').val();
 
-//get Elements
-//create new card element
-var cardOverviewImages = document.getElementById("images");
-var div = document.createElement("div");
-div.className = "card";
-
-//div.innerHTML = "<div class='bild-text-black'><span>"+titel+"</span></div><img class='rezeptbilder' src='test'/><div data-hidden='{textRezept: '"+rezeptZubereitung+"', zutaten: '"+zutaten+"'}'></div>";
-// div.innerHTML: removed <img class='close' src='test'/> for test
-cardOverviewImages.appendChild(div,null);
 
 //close Modal
 $('#addModal').modal('toggle');
 
-div.innerHTML = "<div class='bild-text-black'><span>"+titel+"</span></div><img class='close' src='src/img/error.png'/><img class='rezeptbilder' src='"+imagePfad+"'/><div datatest = '"+rezeptZubereitung+"' zutatenTabelle = '"+zutaten+"' data-hidden='{textRezept: '"+rezeptZubereitung+"'}'></div>";
-div.onclick = function () {
-  var PopUp_Überschrift = $(this).first().text();
-  var PopUp_Bilder = $(this).children().eq(2).attr("src");
+//to local storage
+var newObject = { 'Titel': titel, 'Zubereitung': rezeptZubereitung, 'ImagePfad': imagePfad, 'Zutatenliste': zutaten, 'AnzahlPersonen' : dropdown };
+console.log("object "+newObject.Zutatenliste);
+localStorage.setItem(titel, JSON.stringify(newObject));
 
-  var zubText = $(this).children().last().attr("datatest");
-  var tabelle = $(this).children().last().attr("zutatenTabelle");
+rezeptHinzufuegen(newObject);
 
-  console.log(PopUp_Überschrift);
-  console.log(imagePfad);
-  console.log(zubText);
-  console.log(tabelle);
 
-  $(".PopUp_Text_Überschrift").text(PopUp_Überschrift);
-  $('#carouselInnerTarget').html("<div class = 'carousel-item active'><img class='d-block w-100' src='"+PopUp_Bilder+"' alt='First slide'/></div>");
-  $(".Zub_Text").text(zubText);
-  $(".tableBody").html(tabelle);
-  $('#modalShow').modal('toggle');
-
-  setTableID(this);
+setTableID(this);
 };
 
-
-
-cardOverviewImages.appendChild(div,null);
-
-//close Modal
-//$('#addModal').modal('toggle');
-
-      /*  $('#addModal').modal('hide').remove();
-        var myClone = myBackup.clone();
-        $('body').append(myClone);
-*/
 }
 
 
@@ -396,7 +372,7 @@ function setTableID(aktObj){
 
 // Rezept hinzufuegen Karte erstellen
 // Author: Philip Mayer
-function rezeptHinzufuegen() {
+function rezeptHinzufuegen(newObject) {
     console.log("Rezept hinzufügen running");
 
     // Leere Karte hinzufügen //
@@ -428,4 +404,19 @@ function rezeptHinzufuegen() {
     cardCloseButton.addEventListener("click", () => {
         cardElement.parentNode.removeChild(cardElement);
     });
+
+    cardElement.onclick = function(){
+      //patricksModalAufruf()
+      var titel = $(this).first().text();
+      var obj = localStorage.getItem(titel);
+
+      $(".PopUp_Text_Überschrift").text(obj.Titel);
+      $('#carouselInnerTarget').html("<div class = 'carousel-item active'><img class='d-block w-100' src='"+newObject.ImagePfad+"' alt='First slide'/></div>");
+      $(".Zub_Text").text(newObject.Zubereitung);
+      $(".tableBody").html(obj.Zutaten);
+      $('#modalShow').modal('toggle');
+
+
+
+    }
 };
