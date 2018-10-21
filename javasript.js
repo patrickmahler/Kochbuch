@@ -397,13 +397,15 @@ function rezeptHinzufuegen(newObject) {
     //ändern der Zutaten Anzahl
 
     function aendern(obj){
-        var array;
+        let temp = document.createElement("div");
+        temp.innerHTML = obj.Zutatenliste;
+        console.log(temp);
+        var array = [];
         console.log(obj.Titel);
-        for(i=0; i<=2; i++){
-            //.html funktioniert nicht!!
-            var tableInner = obj.Zutatenliste.span.innerText;
-            console.log(tableInner);
+        for(i=0; i<=3; i++){
+            var tableInner = temp.children[i].innerHTML;
             array[i]= tableInner;
+            i++;
         }
         console.log(array)
         var aktDropDown = obj.AnzahlPersonen;
