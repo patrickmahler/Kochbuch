@@ -389,34 +389,29 @@ function rezeptHinzufuegen(newObject) {
       $(".Zub_Text").text(obj.Zubereitung);
       $(".tableBody").html(obj.Zutatenliste);
       $('#modalShow').modal('toggle');
-      aktualisieren(obj);
-      init(obj)
 
+      document.getElementById("DropDown").addEventListener('onchange', aendern(obj));
   }
 };
 
     //ändern der Zutaten Anzahl
-    function aktualisieren(obj){
-        aktDropDown = obj.AnzahlPersonen;
-        console.log(aktDropDown);
-        console.log("Aktualisiert");
-    }
-    function init(obj){
-      array = [];
-      for(i=1; i<2; i++){
-          var tableObj = obj.Zutatenliste.firstChild;
-          array[i-1]= tableObj;
-          console.log(tableObj);
-          }
-      obj.getElementById("DropDown").addEventListener('onchange', aendern(obj));
-     }
 
     function aendern(obj){
-        var neuDropDown = obj.getElementById("DropDown").value;
+        var array;
+        console.log(obj.Titel);
+        for(i=0; i<=2; i++){
+            //.html funktioniert nicht!!
+            var tableInner = obj.Zutatenliste.span.innerText;
+            console.log(tableInner);
+            array[i]= tableInner;
+        }
+        console.log(array)
+        var aktDropDown = obj.AnzahlPersonen;
+        var neuDropDown = document.getElementById("DropDown").value;
         for (var i = 0; i <= array.length; i++) {
             aktZutatenWert = array[i];
             neuZutatenWert = ((aktZutatenWert/aktDropDown)* neuDropDown);
-            obj.getElementById("00"+(i+1)).innerHTML = neuZutatenWert;
+            document.getElementById("00"+(i+1)).innerHTML = neuZutatenWert;
         }
         aktualisieren();
     }
