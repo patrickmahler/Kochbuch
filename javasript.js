@@ -413,7 +413,9 @@ function rezeptHinzufuegen(newObject) {
         for (var i = 0; i <= array.length; i++) {
             aktZutatenWert = array[i];
             neuZutatenWert = ((aktZutatenWert/aktDropDown)* neuDropDown);
-            document.getElementById("00"+(i+1)).innerHTML = neuZutatenWert;
+            //Tabellenwerte der temp Struktur werden überschrieben
+            temp.children[i].innerHTML= neuZutatenWert;
+            //temp Struktur als neues Tabellen Struktur übernehmen
+            $(".tableBody").html(temp);
         }
-        aktualisieren();
     }
