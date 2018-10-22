@@ -293,6 +293,7 @@ function addTableRow(){
       var row = table.insertRow(0);
       var cell1 = row.insertCell(0);
       var cell2 = row.insertCell(1);
+      cell
       cell1.innerHTML = "<td class='Menge' id=''><div contenteditable>hier Menge eingeben</div></td>";
       cell2.innerHTML = "<td class='Zutat'><div contenteditable>Hier Zutat eingeben</div></td>";
 }
@@ -388,6 +389,8 @@ function rezeptHinzufuegen(newObject) {
     // Aktion für Klick auf das Close Symbol hinterlegen
     cardCloseButton.addEventListener("click", () => {
         cardElement.parentNode.removeChild(cardElement);
+        localStorage.removeItem(title);
+        $("#showModal").toggle();
     });
 
     cardElement.onclick = function(){
