@@ -293,16 +293,13 @@ function addTableRow(){
       var row = table.insertRow(0);
       var cell1 = row.insertCell(0);
       var cell2 = row.insertCell(1);
-<<<<<<< HEAD
-      cell
-      cell1.innerHTML = "<td class='Menge' id=''><div contenteditable>hier Menge eingeben</div></td>";
-      cell2.innerHTML = "<td class='Zutat'><div contenteditable>Hier Zutat eingeben</div></td>";
-=======
-      cell1.setAttribute("class","Menge");
-      cell2.setAttribute("class", "Zutat");
-      cell1.innerHTML = "<div contenteditable>Hier Menge eingeben</div>";
-      cell2.innerHTML = "<div contenteditable>Hier Zutat eingeben</div>";
->>>>>>> 6511e7485e94361c622f1d9f02bb56536a5557d2
+
+      // Werte aus den Input-Feldern auslesen
+      let mengeValue = document.querySelector("#mengenVal").value;
+      let zutatenValue = document.querySelector("#zuzatenVal").value;
+      // Werte an das Inner-HTMl bei jeden öffnen des Modals befüllen
+      cell1.innerHTML = "<td class='Menge' id=''>" + mengenValue + "</td>";
+      cell2.innerHTML = "<td class='Zutat'>" + zuzatenValue +"</td>";
 }
 
 
@@ -328,7 +325,7 @@ function addNewElement(){
     localStorage.setItem(titel, JSON.stringify(newObject));
 
     rezeptHinzufuegen(newObject);
-    //setTableID(this);
+    setTableID(this);
 
     // Temp-Reload um das Modal zu resetten
     // location.reload();
@@ -397,7 +394,7 @@ function rezeptHinzufuegen(newObject) {
     cardCloseButton.addEventListener("click", () => {
         cardElement.parentNode.removeChild(cardElement);
         localStorage.removeItem(title);
-        $("#showModal").toggle();
+        //("#showModal").toggle();
     });
 
     cardElement.onclick = function(){
@@ -421,7 +418,6 @@ function rezeptHinzufuegen(newObject) {
     function aendern(obj){
         let temp = document.createElement("div");
         temp.innerHTML = obj.Zutatenliste;
-        console.log(obj.Zutatenliste);
         console.log(temp);
         var array = [];
         console.log(obj.Titel);
