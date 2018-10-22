@@ -413,10 +413,7 @@ function rezeptHinzufuegen(newObject) {
     function aendern(obj){
         let temp = document.createElement("div");
         temp.innerHTML = obj.Zutatenliste;
-        console.log(obj.Zutatenliste);
-        console.log(temp);
         var array = [];
-        console.log(obj.Titel);
         for(i=0; i<=3; i++){
             var tableInner = temp.children[i].innerHTML;
             array[i]= tableInner;
