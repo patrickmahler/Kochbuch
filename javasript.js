@@ -41,7 +41,8 @@ window.onload = function(){
             if  (response == true) {
                 $('.card').remove();
                 localStorage.clear();   // Local Storage leeren
-                location.refresh();     // Page-Refresh.log("All Card-Elements performed");
+                location.refresh();     // Page-Refresh
+                console.log("All Card-Elements performed");
             }
             console.log("All Card-Elements aborded");
     })
@@ -52,12 +53,12 @@ window.onload = function(){
         // rezeptHinzufuegen();
     });
 
+/* Code obsolete? - phm
     // Plus-Karte für Rezept anlegen
     hinzufuegenCard.addEventListener("click", () => {
         console.log("Card-Button funktioniert");
         //rezeptHinzufuegen();
-    })
-
+    }) */
 
     // Lucas Modal Safebutton bei Save Changes klick
     safeButton.addEventListener("click", () => {
@@ -293,10 +294,18 @@ function addTableRow(){
       var row = table.insertRow(0);
       var cell1 = row.insertCell(0);
       var cell2 = row.insertCell(1);
-      cell1.setAttribute("class","Menge");
+
+      // Setting attributes for table-cells inside the table row
+      cell1.setAttribute("class", "Menge");
       cell2.setAttribute("class", "Zutat");
-      cell1.innerHTML = "<div contenteditable>Hier Menge eingeben</div>";
-      cell2.innerHTML = "<div contenteditable>Hier Zutat eingeben</div>";
+
+      // Reading Values form form to set variables
+      let mengeValue = document.querySelector("#mengenVal").value;
+      let zutatenValue = document.querySelector("#zuzatenVal").value;
+
+      // Transfer values to inner-html with each opening of showModal
+      cell1.innerHTML = "<td class='Menge' id=''>" + mengenValue + "</td>";
+      cell2.innerHTML = "<td class='Zutat'>" + zuzatenValue +"</td>";
 }
 
 
@@ -322,7 +331,7 @@ function addNewElement(){
     localStorage.setItem(titel, JSON.stringify(newObject));
 
     rezeptHinzufuegen(newObject);
-    //setTableID(this);
+    setTableID(this);
 
     // Temp-Reload um das Modal zu resetten
     // location.reload();
@@ -390,7 +399,20 @@ function rezeptHinzufuegen(newObject) {
     // Aktion für Klick auf das Close Symbol hinterlegen
     cardCloseButton.addEventListener("click", () => {
         cardElement.parentNode.removeChild(cardElement);
+        localStorage.removeItem(title);
+
+        // Modal die Klasse hide hinzufügen
+        document.getElementById("modalShow").style.display = "none";
+
+        // For close-button funcitonality - needs to be at the end of the method
+        stopOverlapOfElements(this.event);
     });
+
+    // Click close-button without showModal Method
+    function stopOverlapOfElements(evt){
+        evt.stopPropagation();
+        evt.cancelBubble = true;
+    }
 
     cardElement.onclick = function(){
       //patricksModalAufruf()
@@ -405,6 +427,9 @@ function rezeptHinzufuegen(newObject) {
       $('#modalShow').modal('toggle');
 
       document.getElementById("DropDown").addEventListener('onchange', aendern(obj));
+
+      // For close-button funcitonality - needs to be at the end of the method
+      stopOverlapOfElements(this.event);
   }
 };
 
@@ -413,6 +438,10 @@ function rezeptHinzufuegen(newObject) {
     function aendern(obj){
         let temp = document.createElement("div");
         temp.innerHTML = obj.Zutatenliste;
+<<<<<<< HEAD
+=======
+        console.log(temp);
+>>>>>>> c81614db0b686db21ab7854c2783d8a4dc9abc9f
         var array = [];
         for(i=0; i<=3; i++){
             var tableInner = temp.children[i].innerHTML;
