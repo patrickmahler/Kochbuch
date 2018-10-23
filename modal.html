@@ -2,26 +2,40 @@
 <html lang="en" dir="ltr">
     <head>
         <meta charset="utf-8">
+
+        <!-- Bootstrap -->
         <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
         <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"></script>
         <script src="bootstrap/js/bootstrap.min.js"></script>
 
+        <!-- Favicon -->
+        <link rel="icon" type="image/x-icon" href="src/img/favicon.png">
+
+        <!-- Own Stylesheet -->
         <link rel="stylesheet" href="style.css" />
+
+        <!-- Own JavaScript -->
         <script src="javasript.js"></script>
 
+        <!-- Google-Fonts styling -->
         <link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet">
-        <title>Rezeptbuch</title>
+
+        <!-- Title element -->
+        <title>Ihr persönliches Rezeptebuch</title>
+
     </head>
     <body>
         <header>
-            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <nav class="navbar navbar-expand-lg navbar-light bg-dark">
                 <div class="container">
                       <!-- <a class="navbar-brand" href="#">MyRecipe</a> -->
                       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
                       </button>
+                      <!-- Site-Logo top right -->
                       <img class="logo" src="src/img/favicon.png" />
+
                     <!-- Hauptbereich Navbar -->
                       <div class="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul class="navbar-nav mr-auto">
@@ -34,20 +48,18 @@
                               </a>
 
                           </li>
-                          <li class="nav-item">
-                            <a href="#" class="btn btn-primary" id="navbar-button" role="button">Alle Rezepte speichern</a>
-                          </li>
                           <li>
+                              <!-- Delete all recipes button -->
                               <a href="#" class="btn btn-primary deleteAll" id="navbar-button"
                               role="button" aria-pressed="true">Alle Rezepte löschen</a>
                           </li>
                           <li>
-                              <a href="#" class="btn btn-primary layout-switcher" id="navbar-button" role="button">Layout wechseln</a>
+                            <!-- Layout Changer button -->
+                            <a href="#" class="btn btn-primary layout-switcher" id="navbar-button" role="button">Layout wechseln</a>
                           </li>
                         </ul>
                         <form class="form-inline my-2 my-lg-0">
                           <input id="searchInput"class="form-control mr-sm-2"  type="search" placeholder="Suchen" aria-label="Search">
-                          <button class="btn btn-outline-success my-2 my-sm-0" id="navbar-button" type="submit">Suchen</button>
                         </form>
                       </div>
                 </div>

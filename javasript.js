@@ -398,12 +398,16 @@ function rezeptHinzufuegen(newObject) {
 
     // Aktion für Klick auf das Close Symbol hinterlegen
     cardCloseButton.addEventListener("click", () => {
-        cardElement.parentNode.removeChild(cardElement);
-        localStorage.removeItem(title);
 
-        // Modal die Klasse hide hinzufügen
-        document.getElementById("modalShow").style.display = "none";
-
+        console.log("DeleteAll-Method initiated");
+            var dialog = confirm("Wollen Sie das Rezept wirklich löschen?");
+        if  (dialog == true) {
+            cardElement.parentNode.removeChild(cardElement);
+            localStorage.removeItem(title);
+            console.log("Card-Element deleted.");
+        }
+        console.log("Card-Element delete canceled. Not performed.");
+        
         // For close-button funcitonality - needs to be at the end of the method
         stopOverlapOfElements(this.event);
     });
