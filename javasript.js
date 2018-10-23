@@ -330,8 +330,6 @@ function addNewElement(){
     //get Elements
     var titel = $("#inputRezeptTitel").val();
     var rezeptZubereitung = $('#rezeptAnleitung').val();
-
-
     var zutaten = $('#zutatentabelle').html();
     var imagePfad = $('#carouselInner').first().children().first().children().attr("src");
     var dropdown = $('#DropDown').val();
@@ -347,6 +345,14 @@ function addNewElement(){
 
     rezeptHinzufuegen(newObject);
     setTableID(this);
+
+    // Reset von Werten ausführen
+    $("#inputRezeptTitel").val("");
+    $('#rezeptAnleitung').val("");
+    //Not working yet
+    $('#zutatentabelle').removeData();
+    $('#carouselInner').first().children().first().children().removeData();
+
 
     // Temp-Reload um das Modal zu resetten
     // location.reload();
