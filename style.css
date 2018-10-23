@@ -13,7 +13,9 @@ body {
 
 /*Header-Navbar-Hintergrund */
 .navbar {
-    background-color: brown;
+    background-image: url("src/img/wood_optics1.jpg");
+    background-size: cover;
+    background-attachment: fixed;
     margin: auto 0;
     border-radius: 25px;
     width: 75%;
@@ -22,7 +24,8 @@ body {
     margin-right: auto;
     margin-top: 1em;
     margin-bottom: 1em;
-    box-shadow: 5px 10px 10px;
+    box-shadow: 5px 10px 10px rgba(0,0,0,0.4);
+    border: .25px solid grey;
 }
 
 
@@ -39,6 +42,7 @@ body {
     border-color: white;
     font-weight: bold;
     margin: 0 5px;
+    box-shadow: 5px 10px 10px;
 }
 #navbar-button:hover {
     background-color: green;
@@ -51,7 +55,10 @@ body {
     width: 40px;
 }
 
-/* Navbar Neues Rezept Buttons */
+/* Styling of Search Bar in Navbar */
+#searchInput {
+    box-shadow: 5px 10px 10px rgba(0,0,0,0.4);
+}
 
 /*Header-Navbar-Logo */
 nav > div > img {
@@ -92,8 +99,8 @@ nav > div > img {
 
 /* Karte für "neues Rezept hinzufügen" - Plus Icon */
 .card-neuesRezept {
-    width: 300px;
-    height: 300px;
+    width: 200px;
+    height: 200px;
     display: flex;
     align-items: center;
     float: left;
@@ -399,7 +406,7 @@ hr{
 
 [contenteditable=false]{
     display: block;
-    
+
 }
 
 div[contenteditable=true] {
