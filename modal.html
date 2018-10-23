@@ -27,14 +27,16 @@
     </head>
     <body>
         <header>
-            <nav class="navbar navbar-expand-lg navbar-light bg-dark">
+            <nav class="navbar navbar-expand-lg navbar-dark ">
                 <div class="container">
                       <!-- <a class="navbar-brand" href="#">MyRecipe</a> -->
+                        <!-- Hamburger-Icon when screensize low -->
                       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
+                        <span class="navbar-toggler-icon navbar-dark"></span>
                       </button>
+
                       <!-- Site-Logo top right -->
-                      <img class="logo" src="src/img/favicon.png" />
+                      <img class="logo" src="src/img/logo.png" />
 
                     <!-- Hauptbereich Navbar -->
                       <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -182,7 +184,7 @@
 
                     <div class="Zubereitung">
                         <h1 class="Zub_Überschrift">Die Zubereitung:</h1>
-                        <p class="Zub_Text">mit Vanillesoße. 1. Mehl und Hefe gut vermischen. Mit  Salz, Zucker, Sanella,
+                        <p class="Zub_Text" contenteditable="false">mit Vanillesoße. 1. Mehl und Hefe gut vermischen. Mit  Salz, Zucker, Sanella,
                          Ei und lauwarmer Milch mit den Knethaken des Handrührers zu einem glatten Teig verarbeiten.
                          Abgedeckt mit einem leicht feuchten Tuch an einem warmen Ort 1 Stunde gehen lassen.</p>
                     </div>
@@ -260,8 +262,8 @@
                         </thead>
                         <tbody id="zutatentabelle" class="tableBody">
                           <tr>
-                            <td class="Menge"><input type='text' class='form-control' id='mengenVal' placeholder='Bitte Menge eingeben'></td>
-                            <td class="Zutat"><input type='text' class='form-control' id='zuzatenVal' placeholder='Bitte Zutat eingeben'></td>
+                            <td class="Menge"> <div contenteditable="true" placeholder="Bitte geben Sie die Menge ein"></div> </td>
+                            <td class="Zutat"> <div contenteditable="true" placeholder="Bitte geben Sie die Zutat ein"></div> </td>
                           </tr>
                         </tbody>
                       </table>
