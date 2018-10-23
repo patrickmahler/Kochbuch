@@ -5,9 +5,6 @@ window.onload = function(){
     // safeButton Modal Luca
     let safeButton = document.querySelector("#button_save");
 
-    //JavaScript-Test für die Console
-    console.log("JavaScript Running");
-
     // Hinzufügen-Button Navbar //
     let hinzufuegen = document.querySelector(".neuesRezept");
 
@@ -36,20 +33,16 @@ window.onload = function(){
 
     //Navbar alle Rezepte Löschen
     deleteAllButton.addEventListener("click", () => {
-        console.log("DeleteAll-Method initiated");
             var response = confirm("Wollen Sie wirklich alle Rezepte löschen?");
             if  (response == true) {
                 $('.card').remove();
                 localStorage.clear();   // Local Storage leeren
                 location.refresh();     // Page-Refresh
-                console.log("All Card-Elements performed");
             }
-            console.log("All Card-Elements aborded");
     })
 
     // Navbar Rezept anlegen Button
     hinzufuegen.addEventListener("click", () => {
-        console.log("hinzufuegen hat funktioniert");
         // rezeptHinzufuegen();
     });
 
@@ -195,8 +188,6 @@ for ( var i = 0, len = localStorage.length; i < len; ++i ) {
             {
                 check = i;
                 var file = files[i];
-                console.log(files.length);
-                console.log(files);
                 //Only pics
                 if(!file.type.match('image'))
                   continue;
@@ -209,7 +200,6 @@ for ( var i = 0, len = localStorage.length; i < len; ++i ) {
 
                     var div = document.createElement("div");
 
-                      console.log("restliche items ");
                     div.className = "carousel-item";
 
 
@@ -217,15 +207,12 @@ for ( var i = 0, len = localStorage.length; i < len; ++i ) {
                     div.innerHTML = "<img class='d-block w-100' src='" + picFile.result + "'" +
                             "title='test'/>";
 
-                            console.log("item anhängen");
-
                     carouselInner.appendChild(div,null);
                     $('#carouselInner div:first').addClass('active');
 
                 });
 
                  //Read the image
-                 console.log("read image");
                 picReader.readAsDataURL(file);
             }
         });
@@ -240,47 +227,6 @@ for ( var i = 0, len = localStorage.length; i < len; ++i ) {
 
 // Author: Patrick Mahler
 // Modal
-/*function aktualisieren(){
-
-    aktDropDown = document.getElementById("DropDown").value;
-    console.log("Aktualisiert");
-}
-function init(){
-    //ZutatenAnz = 3;
-    array = [];
-   for (var i = 0; i <= ZutatenAnz; i++) {
-       array[i] =document.getElementById("00"+(i+1)).innerHTML;
-       console.log(array[i]);
-   }
-
-   var tableObj = $(".tableBody").find(".Menge span:first-child");
-   console.log(tableObj);
-   var x = 0;
-   $.each(tableObj, function (key,value){
-       array[x] = value.innerText;
-       console.log(array[x]);
-       x++;
-       //gibt im Moment 2x Mal den selben Wert aus
-       //bis dahin funktioniert es, jetzt muss aendern function noch angepasst werden.
-   })
-
-    document.getElementById("DropDown").addEventListener('onchange', aendern());
-}
-
-function aendern(){
-    var neuDropDown = document.getElementById("DropDown").value;
-    console.log(neuDropDown);
-    for (var i = 0; i <= array.length; i++) {
-        aktZutatenWert = array[i];
-        neuZutatenWert = ((aktZutatenWert/aktDropDown)* neuDropDown);
-        console.log(neuZutatenWert);
-        console.log("bis hier hin klappt es");
-        //Der folgende Befehl ist noch nicht richtig und muss durch JQuery ersetzt werden.
-        $(".tableBody").find(".Menge span:first-child").attr("id", "00" + i).innerText = neuZutatenWert;
-        //document.getElementById("00"+(i+1)).innerHTML = neuZutatenWert;
-    }
-    aktualisieren();
-}*/
 
 
 /*Noch nicht ausgereift funktioniert noch nicht*/
@@ -373,9 +319,6 @@ function setTableID(aktObj){
   //Wichtig für die Mengen Umrechnung
   $.each(spanObj, function (key,value){
       value.setAttribute("id","00" + x++);
-      console.log(x);
-      console.log(key);
-      console.log(value);
   })
 
 }
@@ -387,9 +330,7 @@ function rezeptHinzufuegen(newObject) {
 
     //Attribute des Objects auslesen
     let title = newObject.Titel;
-    console.log(title);
     let img = newObject.ImagePfad;
-    console.log(img);
 
     // Leere Karte hinzufügen //
     let cardElement = document.createElement("div");
@@ -463,9 +404,7 @@ function rezeptHinzufuegen(newObject) {
     function aendern(obj){
         let temp = document.createElement("div");
         temp.innerHTML = obj.Zutatenliste;
-        console.log(temp);
         var array = [];
-        console.log(obj.Titel);
         for(i=0; i<=3; i++){
             var tableInner = temp.children[i].innerHTML;
             array[i]= tableInner;
