@@ -390,3 +390,27 @@ hr{
 .hidden {
     display: hidden;
 }
+
+/* Div-Editable Styling */
+[contenteditable=true]:empty:before{
+  content: attr(placeholder);
+  display: block; /* For Firefox */
+}
+
+[contenteditable=false]{
+    display: block;
+    
+}
+
+div[contenteditable=true] {
+    border: .25px solid black;
+    color: #777;
+    width: 290px;
+    padding: 5px;
+}
+
+pre {
+  background:#EEE;
+  padding:5px;
+  width: 290px;
+}
