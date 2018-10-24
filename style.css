@@ -373,3 +373,8 @@ hr{
     text-align: center;
     margin-top: 20px;
 }
+
+/* Hide-Class for Modal */
+.hidden {
+    display: hidden;
+}

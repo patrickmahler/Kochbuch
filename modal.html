@@ -133,7 +133,7 @@
                         </div>
                     </div>
                     <div class="PopUp_Text">
-                        <h1>Geschmackvoll, luftige Dampfnudeln nach Omas Rezept, mit feiner Vanillesoße aus echten Vanilleschoten</h1>
+                        <h1></h1>
                         <hr>
                     </div>
                     <div class="PopUp_Zutaten">
@@ -141,7 +141,7 @@
                         <div class="Zutaten_Überschrift">
                                 <h1>Zutaten</h1>
                                 <h2> für
-                                    <select class="DropDown-Personen" id="DropDown"  onchange="init()">
+                                    <select class="DropDown-Personen" id="DropDown">
                                         <option value="1">1</option>
                                         <option value="2">2</option>
                                         <option value="3">3</option>
@@ -162,22 +162,7 @@
                         </tr>
                       </thead>
                       <tbody class="tableBody">
-                        <tr>
-                          <td class="Menge" id="Z1"><span id="001">100</span>g</td>
-                          <td class="Zutat">Mehl</td>
-                        </tr>
-                        <tr>
-                          <td class="Menge" id="Z2"><span id="002">1</span>L</td>
-                          <td class="Zutat">Milch</td>
-                        </tr>
-                        <tr>
-                          <td class="Menge" id="Z3"><span id="003">2</span>L</td>
-                          <td class="Zutat">Wasser</td>
-                        </tr>
-                        <tr>
-                          <td class="Menge" id="Z4"><span id="004">100</span>g</td>
-                          <td class="Zutat">Zucker</td>
-                        </tr>
+                        <!--Hier kommen die Zutaten und Mengen rein-->
                       </tbody>
                     </table>
 
@@ -262,10 +247,9 @@
                         </thead>
                         <tbody id="zutatentabelle" class="tableBody">
                           <tr>
-                            <td class="Menge" id="Z1"><span id="001"><div contenteditable>Hier Menge eingeben</div></td>
-                            <td class="Zutat"><div contenteditable>Hier Zutat eingeben</div></td>
+                            <td class="Menge"><input type='text' class='form-control' id='mengenVal' placeholder='Bitte Menge eingeben'></td>
+                            <td class="Zutat"><input type='text' class='form-control' id='zuzatenVal' placeholder='Bitte Zutat eingeben'></td>
                           </tr>
-
                         </tbody>
                       </table>
                     </section>
