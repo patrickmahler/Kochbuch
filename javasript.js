@@ -63,6 +63,8 @@ window.onload = function(){
     // Lucas Modal Safebutton bei Save Changes klick
     safeButton.addEventListener("click", () => {
         console.log("safeButton funktioniert");
+
+        removeEditableDiv();
         addNewElement();
         $('#addModal').modal('toggle');
 
@@ -72,6 +74,20 @@ window.onload = function(){
 */
 
     })
+
+    function removeEditableDiv() {
+        console.log("Removed Editable");
+        $("div[contenteditable=true]").attr('contenteditable', 'false');
+        console.log("Removed Editable");
+
+    }
+
+    function addEditableDiv() {
+        console.log("Removed Editable");
+        $("div[contenteditable=false]").attr('contenteditable', 'true');
+        console.log("Removed Editable");
+
+    }
 
 
     /* Experimental
@@ -287,6 +303,7 @@ function search() {
    }
 }
 /*---------------------------------------------------Lucas Teil-----------------------------------------------------------*/
+// Add new ingredient
 function addTableRow(){
   var tr = document.createElement("tr");
 
@@ -299,13 +316,9 @@ function addTableRow(){
       cell1.setAttribute("class", "Menge");
       cell2.setAttribute("class", "Zutat");
 
-      // Reading Values form form to set variables
-      let mengeValue = document.querySelector("#mengenVal").value;
-      let zutatenValue = document.querySelector("#zuzatenVal").value;
-
       // Transfer values to inner-html with each opening of showModal
-      cell1.innerHTML = "<td class='Menge' id=''>" + mengenValue + "</td>";
-      cell2.innerHTML = "<td class='Zutat'>" + zuzatenValue +"</td>";
+      cell1.innerHTML = "<div contenteditable='true' placeholder='Bitte geben Sie die Menge ein'></div>";
+      cell2.innerHTML = "<div contenteditable='true' placeholder='Bitte geben Sie die Zutat ein'></div>";
 }
 
 
@@ -332,6 +345,14 @@ function addNewElement(){
 
     rezeptHinzufuegen(newObject);
     setTableID(this);
+
+    // Reset von Werten ausführen
+    $("#inputRezeptTitel").val("");
+    $('#rezeptAnleitung').val("");
+    //Not working yet...
+    $('#zutatentabelle').removeData();
+    $('#carouselInner').first().children().first().children().removeData();
+
 
     // Temp-Reload um das Modal zu resetten
     // location.reload();
@@ -398,11 +419,15 @@ function rezeptHinzufuegen(newObject) {
 
     // Aktion für Klick auf das Close Symbol hinterlegen
     cardCloseButton.addEventListener("click", () => {
-        cardElement.parentNode.removeChild(cardElement);
-        localStorage.removeItem(title);
 
-        // Modal die Klasse hide hinzufügen
-        document.getElementById("modalShow").style.display = "none";
+        console.log("DeleteAll-Method initiated");
+            var dialog = confirm("Wollen Sie das Rezept wirklich löschen?");
+        if  (dialog == true) {
+            cardElement.parentNode.removeChild(cardElement);
+            localStorage.removeItem(title);
+            console.log("Card-Element deleted.");
+        }
+        console.log("Card-Element delete canceled. Not performed.");
 
         // For close-button funcitonality - needs to be at the end of the method
         stopOverlapOfElements(this.event);
