@@ -331,6 +331,7 @@ function addNewElement(){
     var titel = $("#inputRezeptTitel").val();
     var rezeptZubereitung = $('#rezeptAnleitung').val();
     var zutaten = $('#zutatentabelle').html();
+    var imageCar = $('#carouselInner');
     var imagePfad = $('#carouselInner').first().children().first().children().attr("src");
     var dropdown = $('#DropDown').val();
 
@@ -339,7 +340,7 @@ function addNewElement(){
     $('#addModal').modal('toggle');
 
     //to local storage
-    var newObject = { 'Titel': titel, 'Zubereitung': rezeptZubereitung, 'ImagePfad': imagePfad, 'Zutatenliste': zutaten, 'AnzahlPersonen' : dropdown };
+    var newObject = { 'Titel': titel, 'Zubereitung': rezeptZubereitung, 'ImagePfad': imagePfad, 'Zutatenliste': zutaten, 'imgeCar': imageCar, 'AnzahlPersonen' : dropdown };
     console.log("object "+newObject.Zutatenliste);
     localStorage.setItem(titel, JSON.stringify(newObject));
 
@@ -446,7 +447,8 @@ function rezeptHinzufuegen(newObject) {
       var obj = JSON.parse(objJSON);
 
       $(".PopUp_Text").text(obj.Titel);
-      $('#carouselInnerTarget').html("<div class = 'carousel-item active'><img class='d-block w-100' src='"+obj.ImagePfad+"' alt='First slide'/></div>");
+      $("#carouselInner").html(obj.imageCar);
+      //$('#carouselInnerTarget').html("<div class = 'carousel-item active'><img class='d-block w-100' src='"+obj.ImagePfad+"' alt='First slide'/></div>");
       $(".Zub_Text").text(obj.Zubereitung);
       $(".tableBody").html(obj.Zutatenliste);
       $('#modalShow').modal('toggle');
@@ -462,14 +464,14 @@ function rezeptHinzufuegen(newObject) {
 
     function aendern(obj){
         let temp = document.createElement("div");
+        console.log(temp)
         temp.innerHTML = obj.Zutatenliste;
-        console.log(temp);
+        console.log(temp.innerHTML);
         var array = [];
-        console.log(obj.Titel);
         for(i=0; i<=3; i++){
+            // das i von children muss immer ein ungerader Wert sein. (1,3,5,7)
             var tableInner = temp.children[i].innerHTML;
             array[i]= tableInner;
-            i++;
         }
         console.log(array)
         var aktDropDown = obj.AnzahlPersonen;
