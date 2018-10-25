@@ -458,6 +458,7 @@ function rezeptHinzufuegen(newObject) {
       // For close-button funcitonality - needs to be at the end of the method
       stopOverlapOfElements(this.event);
   }
+
 };
 
     //ändern der Zutaten Anzahl
@@ -468,13 +469,35 @@ function rezeptHinzufuegen(newObject) {
         temp.innerHTML = obj.Zutatenliste;
         console.log(temp.innerHTML);
         var array = [];
+        var tableInner;
+        var j = 1;
         for(i=0; i<=3; i++){
-            // das i von children muss immer ein ungerader Wert sein. (1,3,5,7)
-            var tableInner = temp.children[i].innerHTML;
-            array[i]= tableInner;
+        // das j von childNodes muss immer ein ungerader Wert sein. (1,3,5,7)
+        //Hier muss die maximale Anzahl an Tabellenreihen stehen
+        if(i == 3){
+            tableInner = temp.childNodes[j+1].nextSibling.innerHTML;
+            array[i] = tableInner;
+            j++;
+            console.log("letztes Element");
         }
-        console.log(array)
-        var aktDropDown = obj.AnzahlPersonen;
+        else{
+                if ( j%2 == 0){
+                    j++;
+                    tableInner = temp.childNodes[j].innerHTML;
+                    array[i] = tableInner;
+                    j++;
+                    //console.log("gerade");
+                }
+                else if(j%2 != 0){
+                    tableInner = temp.childNodes[j].innerHTML;
+                    j++;
+                    array[i] = tableInner;
+                    //console.log("ungerade");
+                }
+            }
+        }
+        console.log(array);
+        /*var aktDropDown = obj.AnzahlPersonen;
         var neuDropDown = document.getElementById("DropDown").value;
         for (var i = 0; i <= array.length; i++) {
             aktZutatenWert = array[i];
@@ -483,5 +506,5 @@ function rezeptHinzufuegen(newObject) {
             temp.children[i].innerHTML= neuZutatenWert;
             //temp Struktur als neues Tabellen Struktur übernehmen
             $(".tableBody").html(temp);
-        }
+        }*/
     }
