@@ -1,5 +1,6 @@
 // Start Window OnLoad Function
-window.onload = function(){
+window.onload = function(){     // Wait for page to finish loading before running any JS code
+
     // Author: Philip Mayer
     // funcitonality on main body area and button onclick events
     // safeButton Modal Luca
