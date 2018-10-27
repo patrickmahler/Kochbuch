@@ -466,9 +466,7 @@ function rezeptHinzufuegen(newObject) {
 
     function aendern(obj){
         let temp = document.createElement("div");
-        console.log(temp)
         temp.innerHTML = obj.Zutatenliste;
-        console.log(temp.innerHTML);
         var array = [];
         var tableInner;
         var j = 1;
@@ -498,14 +496,20 @@ function rezeptHinzufuegen(newObject) {
             }
         }
         console.log(array);
-        /*var aktDropDown = obj.AnzahlPersonen;
+        var aktDropDown = obj.AnzahlPersonen;
         var neuDropDown = document.getElementById("DropDown").value;
-        for (var i = 0; i <= array.length; i++) {
+        var index=0;
+        for (var i = 0; i < array.length; i++) {
+            if (i!=0){
+                index++;
+            }
             aktZutatenWert = array[i];
             neuZutatenWert = ((aktZutatenWert/aktDropDown)* neuDropDown);
             //Tabellenwerte der temp Struktur werden überschrieben
-            temp.children[i].innerHTML= neuZutatenWert;
-            //temp Struktur als neues Tabellen Struktur übernehmen
-            $(".tableBody").html(temp);
-        }*/
+            temp.children[index].innerHTML= neuZutatenWert;
+            index++;
+        }
+        //temp Struktur als neue Tabellen Struktur übernehmen
+        console.log(temp);
+        $(".tableBody").html(temp.innerHTML);
     }
