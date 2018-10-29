@@ -5,6 +5,7 @@ window.onload = function(){     // Wait for page to finish loading before runnin
     // funcitonality on main body area and button onclick events
     // safeButton Modal Luca
     let safeButton = document.querySelector("#button_save");
+    var obj;
 
     //JavaScript-Test für die Console
     console.log("JavaScript Running");
@@ -445,7 +446,7 @@ function rezeptHinzufuegen(newObject) {
       //patricksModalAufruf()
       var titel = $(this).first().text();
       var objJSON = localStorage.getItem(titel);
-      var obj = JSON.parse(objJSON);
+      obj = JSON.parse(objJSON);
 
       $(".PopUp_Text").text(obj.Titel);
       $("#carouselInner").html(obj.imageCar);
@@ -454,19 +455,19 @@ function rezeptHinzufuegen(newObject) {
       $(".tableBody").html(obj.Zutatenliste);
       $('#modalShow').modal('toggle');
 
-      document.getElementById("DropDown").addEventListener('onchange', aendern(obj));
-
+     // $("dropdown").on("change", "select", aendern(obj));
+     console.log(obj);
       // For close-button funcitonality - needs to be at the end of the method
       stopOverlapOfElements(this.event);
   }
-
 };
 
     //ändern der Zutaten Anzahl
 
-    function aendern(obj){
+    function aendern(){
+        var objtemp = obj;
         let temp = document.createElement("div");
-        temp.innerHTML = obj.Zutatenliste;
+        temp.innerHTML = objtemp.Zutatenliste;
         var array = [];
         var tableInner;
         var j = 1;
@@ -496,9 +497,11 @@ function rezeptHinzufuegen(newObject) {
             }
         }
         console.log(array);
-        var aktDropDown = obj.AnzahlPersonen;
+        var aktDropDown = objtemp.AnzahlPersonen;
+        console.log(aktDropDown);
         var neuDropDown = document.getElementById("DropDown").value;
         var index=0;
+        console.log(neuDropDown);
         for (var i = 0; i < array.length; i++) {
             if (i!=0){
                 index++;
