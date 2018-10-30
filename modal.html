@@ -9,6 +9,12 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"></script>
         <script src="bootstrap/js/bootstrap.min.js"></script>
 
+        <!-- Print-Layout -->
+            <!-- not created yet -->
+            <!--
+            <link rel="stylesheet" media="print" href="print.css"/>
+            -->
+
         <!-- Favicon -->
         <link rel="icon" type="image/x-icon" href="src/img/favicon.png">
 
@@ -155,7 +161,7 @@
                         <div class="Zutaten_Überschrift">
                                 <h1>Zutaten</h1>
                                 <h2> für
-                                    <select class="DropDown-Personen" id="DropDown">
+                                    <select class="DropDown-Personen" id="DropDown" onchange="aendern()">
                                         <option value="1">1</option>
                                         <option value="2">2</option>
                                         <option value="3">3</option>
@@ -184,9 +190,9 @@
 
                     <div class="Zubereitung">
                         <h1 class="Zub_Überschrift">Die Zubereitung:</h1>
-                        <p class="Zub_Text" contenteditable="false">mit Vanillesoße. 1. Mehl und Hefe gut vermischen. Mit  Salz, Zucker, Sanella,
-                         Ei und lauwarmer Milch mit den Knethaken des Handrührers zu einem glatten Teig verarbeiten.
-                         Abgedeckt mit einem leicht feuchten Tuch an einem warmen Ort 1 Stunde gehen lassen.</p>
+                        <p class="Zub_Text" contenteditable="false">
+                            <!--Hier kommt die Zubereitung rein-->
+                        </p>
                     </div>
 
                     <div class="modal-footer">

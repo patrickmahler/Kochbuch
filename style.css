@@ -3,13 +3,34 @@ body {
     background-image: url("img/Background_2.png");
     background-color: black;
     font-family: 'Pacifico', cursive !important;            /* globale Schriftart */
-    font-size: 1.2em;
+    font-size: 2.5vmin;
     width: 100%;
     height: 100%;
     background-size: cover;
     background-position: center center;
     background-repeat: no-repeat;
 }
+
+/* Start Media-Queries */
+
+@media (min-width: 40em) {                /* Für das mobile Layout angepasste abfrage für Display mit 40em */
+    body {
+        font-size: 2.3vmin;
+        background-size: cover;
+        background-position: center center;
+        background-repeat: no-repeat;
+        font-family: 'Pacifico', cursive !important;
+    }
+}
+
+@media print {                            /* Für das Druckerlayout --> Muss noch ausgelagert werden */
+    main {
+        display: block;
+        background: none;
+        color: black;
+    }
+}
+
 
 /*Header-Navbar-Hintergrund */
 .navbar {
@@ -20,12 +41,9 @@ body {
     border-radius: 25px;
     width: 75%;
     align-items: center;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 1em;
-    margin-bottom: 1em;
-    box-shadow: 5px 10px 10px rgba(0,0,0,0.4);
-    border: .25px solid grey;
+    margin: 1em auto 1em auto;                    /* top, right, bottom, left */
+    box-shadow: 0 10px 20px rgba(0,0,0,0.19),     /* X-Richtung/Y-Richtung/Weichzeichnung/Farbe */
+                0 6px 6px rgba(0,0,0,0.23);       /* X-Richtung/Y-Richtung/Weichzeichnung/Farbe */
 }
 
 
@@ -77,10 +95,11 @@ nav > div > img {
     height: 300px;
     background: rgba(255,255,255,0);
     border: 4px solid black;
-    border-radius: 8px;
+    border-radius: 8px;        /* Runde Ecken der Card-Div Box */
     margin: 7px;
     transition: transform 0.3s; /* um Hover effekt smooth zu machen */
     position: relative;
+    cursor: pointer;
 }
 .card:hover {
     transform: scale(1.05);
