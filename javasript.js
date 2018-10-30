@@ -10,35 +10,32 @@ window.onload = function(){     // Wait for page to finish loading before runnin
     //JavaScript-Test für die Console
     console.log("JavaScript Running");
 
-    // Hinzufügen-Button Navbar //
+    // Add-Card-Element in navbar
     let hinzufuegen = document.querySelector(".neuesRezept");
 
-    //Alle Löschen Button in der Navbar
+    // Delete all button in navbar
     let deleteAllButton = document.querySelector(".deleteAll");
 
-    // Hinzufügen-Karte //
+    // Add-Card-Plus-Icon-Element
     let hinzufuegenCard = document.querySelector("#hinzufuegenButton");
 
-    // Fläche für das Einfügen von den Karten auswählen //
+    // Space for images to insert the card elements --> required in method rezepteHinzufuegen
     uebersichtsSeite = document.querySelector(".images");
 
-    // Layout Switcher Button //
+    // Layout Switcher Button
     let layoutSwitcher = document.querySelector(".layout-switcher");
 
-    // Layout-Ansichten holen//
+    // Layout-Ansichten holen
     let cardLayout = document.querySelector(".cardLayout");
     let carouselLayout = document.querySelector(".carouselLayout");
 
-    // Lucas Modal für das Hinzufügen
+    // get addModal to insert items
     let addModal = document.querySelector("#addModal");
-    // Modal hide test
-    let originalModal = $('#addModal').clone();
-
-
 
     //Navbar alle Rezepte Löschen
     deleteAllButton.addEventListener("click", () => {
         console.log("DeleteAll-Method initiated");
+            // User-Confirm Message to approve delete operation
             var response = confirm("Wollen Sie wirklich alle Rezepte löschen?");
             if  (response == true) {
                 $('.card').remove();
@@ -46,15 +43,19 @@ window.onload = function(){     // Wait for page to finish loading before runnin
                 location.refresh();     // Page-Refresh
                 console.log("All Card-Elements performed");
             }
-            console.log("All Card-Elements aborded");
+            // Log if not deleted - User input canceled
+            else {
+                console.log("All Card-Elements canceled - Not deleted.");
+            }
     })
 
     // Navbar Rezept anlegen Button
+    /* Code obsolete? -> Check for action -phm
     hinzufuegen.addEventListener("click", () => {
         console.log("hinzufuegen hat funktioniert");
         // rezeptHinzufuegen();
     });
-
+    */
 /* Code obsolete? - phm
     // Plus-Karte für Rezept anlegen
     hinzufuegenCard.addEventListener("click", () => {
@@ -69,12 +70,6 @@ window.onload = function(){     // Wait for page to finish loading before runnin
         removeEditableDiv();
         addNewElement();
         $('#addModal').modal('toggle');
-
-/*
-        $('#addModal').remove();
-        $('main').append(originalModal);
-*/
-
     })
     /* Experimental
     // Author: Philip Mayer
@@ -90,8 +85,6 @@ window.onload = function(){     // Wait for page to finish loading before runnin
     for (let i; i<cardElements.length; i++) {
         if ()
     //}
-
-
     closeButton.addEventListener("click", () => {
     closeButtonActionPerformed();
     })
@@ -152,20 +145,12 @@ for ( var i = 0, len = localStorage.length; i < len; ++i ) {
       });
     });
 
-
-
-
-// --------------auskommentiert bisher ------------------------------------------------------------------
-
-
 // Author: Luca Marmonti
 // funcitonality carousel befüllen
 //window.onload = function(){  // auskommentiert und vor Code Philip angefügt (PhM)
     aktDropDown = document.getElementById("DropDown").value;
     console.log(aktDropDown);
 
-
-    /*LUCAS TEIL*/
     if(window.File && window.FileList && window.FileReader)
     {
         var filesInput = document.getElementById("files");
@@ -222,7 +207,6 @@ for ( var i = 0, len = localStorage.length; i < len; ++i ) {
     }
 
 } // End onload function
-
 
 // Author: Patrick Mahler
 // Modal
@@ -293,22 +277,21 @@ function search() {
 function addTableRow(){
   var tr = document.createElement("tr");
 
-  var table = document.getElementById("zutatentabelle");
-      var row = table.insertRow(0);
-      var cell1 = row.insertCell(0);
-      var cell2 = row.insertCell(1);
+  // Get Zutatentabelle from HTML(DOM)
+    var table = document.getElementById("zutatentabelle");
+    var row = table.insertRow(0);
+    var cell1 = row.insertCell(0);
+    var cell2 = row.insertCell(1);
 
       // Setting attributes for table-cells inside the table row
       cell1.setAttribute("class", "Menge");
       cell2.setAttribute("class", "Zutat");
 
+      console.log("addTableRow-Action performed");
       // Transfer values to inner-html with each opening of showModal
       cell1.innerHTML = "<div contenteditable='true' placeholder='Bitte geben Sie die Menge ein'></div>";
       cell2.innerHTML = "<div contenteditable='true' placeholder='Bitte geben Sie die Zutat ein'></div>";
 }
-
-
-
 //--------------------------------
 
 function addNewElement(){
@@ -333,13 +316,10 @@ function addNewElement(){
     rezeptHinzufuegen(newObject);
     setTableID(this);
 
-    // Reset von Werten ausführen
-    $("#inputRezeptTitel").val("");
-    $('#rezeptAnleitung').val("");
-    //Not working yet...
-    $('#zutatentabelle').removeData();
-    $('#carouselInner').first().children().first().children().removeData();
-
+    // perform reset of values to start without values when creating new card item in modal
+    $("#inputRezeptTitel").val(""); // title reset
+    $('#rezeptAnleitung').val("");  // description reset
+    $('#carouselInner').remove(); // remove image item
 
     // Temp-Reload um das Modal zu resetten
     location.reload();
@@ -370,60 +350,68 @@ function setTableID(aktObj){
 // Rezept hinzufuegen Karte erstellen
 // Author: Philip Mayer
 function rezeptHinzufuegen(newObject) {
-    console.log("Rezept hinzufügen running");
 
-    //Attribute des Objects auslesen
-    let title = newObject.Titel;
-    console.log(title);
-    let img = newObject.ImagePfad;
-    console.log(img);
+    console.log("rezeptHinzufügen-Method running");
 
-    // Leere Karte hinzufügen //
+    // get attributes of object
+    let title = newObject.Titel;    // titles of object and save to variable
+    let img = newObject.ImagePfad;  // image path of object
+    //console.log("current object Title: " +titles " " + img);
+
+    // Creation of empty card element
     let cardElement = document.createElement("div");
-    cardElement.classList.add("card");
-    //Attribute für Modal-Funktionalität setzen
+    cardElement.classList.add("card");  // add class="card" to newly created div-box
+
+    // set attribute for bootstrap mod
     cardElement.setAttribute("data-toggle","modal");
     cardElement.setAttribute("data-target", ".bd-example-modal-lg");
+    // setting new div-card-item to images partent class
     uebersichtsSeite.appendChild(cardElement);
 
-    // Beschriftungstext zu Karte hinzufügen
+    // add the title to the card element
     let cardText = document.createElement("div");
     cardText.textContent = title;
-    cardText.classList.add("bild-text");
+    cardText.classList.add("bild-text");    // adding class bild-text to overlap on the card --> CSS-Styling
+    // setting the card-title-text to the div-card-element
     cardElement.appendChild(cardText);
 
-    // Löschen-Button hinzufügen
+    // add delete-button
     let cardCloseButton = document.createElement("img");
-    cardCloseButton.classList.add("close");
-    cardCloseButton.setAttribute("src", "src/img/error.png");
-    cardElement.appendChild(cardCloseButton);
+    cardCloseButton.classList.add("close"); // add styling to overlap the card-image
+    cardCloseButton.setAttribute("src", "src/img/error.png");   // set the image as html-attribute
+    cardElement.appendChild(cardCloseButton);   // add element to card-item
 
-    // Rezeptbild hinzufügen
+    // add recipe picture
     let rezeptBild = document.createElement("img");
-    rezeptBild.classList.add("rezeptbilder");
-    rezeptBild.setAttribute("src", img);
+    rezeptBild.classList.add("rezeptbilder");   // add class rezeptbilder to get styling from css
+    rezeptBild.setAttribute("src", img);    // setting attribute with img out of object
     cardElement.appendChild(rezeptBild);
 
-    // Aktion für Klick auf das Close Symbol hinterlegen
+    // action click for the close element
     cardCloseButton.addEventListener("click", () => {
-
         console.log("DeleteAll-Method initiated");
-            var dialog = confirm("Wollen Sie das Rezept wirklich löschen?");
-        if  (dialog == true) {
-            cardElement.parentNode.removeChild(cardElement);
-            localStorage.removeItem(title);
+        // User input dialog to make sure user really wants to delete the selected item
+        var dialog = confirm("Wollen Sie das Rezept wirklich löschen?");
+
+        if  (dialog == true) {      // if user presses ok - delete item
+            cardElement.parentNode.removeChild(cardElement);    // delete from html
+            localStorage.removeItem(title);                     // delete title (id for object) from local storage
             console.log("Card-Element deleted.");
         }
-        console.log("Card-Element delete canceled. Not performed.");
-
-        // For close-button funcitonality - needs to be at the end of the method
+        else {  // else-case just for loggin purposes
+            console.log("Card-Element delete canceled. Not performed.");
+        }
+        // For close-button functionality - needs to be at the end of the method
+        // ensures that onclick on this item does not open the modal for onclick on card-image
         stopOverlapOfElements(this.event);
     });
 
-    // Click close-button without showModal Method
-    function stopOverlapOfElements(evt){
-        evt.stopPropagation();
-        evt.cancelBubble = true;
+    // Method in order to stop overlapping conflicts in dom tree
+    // prevents parent element from being notified by the event
+    // internet explorer v8 or newer!
+    function stopOverlapOfElements(evt) {
+        evt.stopPropagation();          // internet explorer v9 and other browsers
+        evt.cancelBubble = true;        // for ie8 or lower
     }
 
     cardElement.onclick = function(){
@@ -441,13 +429,14 @@ function rezeptHinzufuegen(newObject) {
 
      // $("dropdown").on("change", "select", aendern(obj));
      console.log(obj);
-      // For close-button funcitonality - needs to be at the end of the method
+
+     // For close-button functionality - needs to be at the end of the method
+     // ensures that onclick on this item does not open the modal for onclick on card-image
       stopOverlapOfElements(this.event);
   }
 };
 
     //ändern der Zutaten Anzahl
-
     function aendern(){
         var objtemp = obj;
         let temp = document.createElement("div");
