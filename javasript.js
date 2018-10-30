@@ -376,7 +376,7 @@ function rezeptHinzufuegen(newObject) {
 
       $(".PopUp_Text").text(obj.Titel);
       $("#carouselInner").html(obj.imageCar);
-      //$('#carouselInnerTarget').html("<div class = 'carousel-item active'><img class='d-block w-100' src='"+obj.ImagePfad+"' alt='First slide'/></div>");
+      $('#carouselInnerTarget').html("<div class = 'carousel-item active'><img class='d-block w-100' src='"+obj.ImagePfad+"' alt='First slide'/></div>");
       $(".Zub_Text").text(obj.Zubereitung);
       $(".tableBody").html(obj.Zutatenliste);
       $('#modalShow').modal('toggle');
