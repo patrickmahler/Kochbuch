@@ -198,6 +198,7 @@
                     <div class="modal-footer">
                     <button type="button" class="button2" id="DruckButton" onclick="window.print()" style="vertical-align:middle"><span>Rezept drucken </span></button>
                       <button type="button" class="btn btn-seconda" data-dismiss="modal" id="button_close" style="vertical-align:middle"><span>Close</span></button>
+                      <button type="button" class="btn btn-seconda" data-dismiss="modal" id="button_change" onclick="changeElement()" style="vertical-align:middle"><span>Change</span></button>
                   </div>
                 </div>
               </div>
@@ -212,8 +213,8 @@
                 <div class="modal-content">
                   <div class="modal-header">
 
-                    <div class="PopUp_Text">
-                    <input type="rezeptTitel" class="form-control" id="inputRezeptTitel" aria-describedby="rezeptHelp" placeholder="Rezept Titel eingeben">
+                    <div class="PopUp_TextLM">
+                        <div type="rezeptTitel" contenteditable="true" id="inputRezeptTitel" aria-describedby="rezeptHelp"></div>
                     </div>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                       <span aria-hidden="true">&times;</span>
@@ -286,6 +287,7 @@
                   <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal" id="button_close" style="vertical-align:middle"><span>Close</span></button>
                     <button type="button" class="btn btn-primary"id="button_save" style="vertical-align:middle"><span>Save</span></button>
+
                   </div>
                 </div>
               </div>

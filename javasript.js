@@ -76,22 +76,6 @@ window.onload = function(){     // Wait for page to finish loading before runnin
 */
 
     })
-
-    function removeEditableDiv() {
-        console.log("Removed Editable");
-        $("div[contenteditable=true]").attr('contenteditable', 'false');
-        console.log("Removed Editable");
-
-    }
-
-    function addEditableDiv() {
-        console.log("Removed Editable");
-        $("div[contenteditable=false]").attr('contenteditable', 'true');
-        console.log("Removed Editable");
-
-    }
-
-
     /* Experimental
     // Author: Philip Mayer
 
@@ -330,7 +314,7 @@ function addTableRow(){
 function addNewElement(){
 
     //get Elements
-    var titel = $("#inputRezeptTitel").val();
+    var titel = $("#inputRezeptTitel").html();
     var rezeptZubereitung = $('#rezeptAnleitung').val();
     var zutaten = $('#zutatentabelle').html();
     var imageCar = $('#carouselInner');
@@ -358,7 +342,7 @@ function addNewElement(){
 
 
     // Temp-Reload um das Modal zu resetten
-    // location.reload();
+    location.reload();
 
 }
 
@@ -515,4 +499,38 @@ function rezeptHinzufuegen(newObject) {
         //temp Struktur als neue Tabellen Struktur übernehmen
         console.log(temp);
         $(".tableBody").html(temp.innerHTML);
+    }
+
+
+// Change function Luca Patrick
+    function changeElement(){
+      //$('#modalShow').modal('toggle');
+      $('#addModal').modal('toggle');
+      console.log("weg mit Patricks Modal- her mit Lucas Modal");
+      var localObject = obj;
+
+      var titelFeld =   $('#inputRezeptTitel');
+      titelFeld.html(localObject.Titel)
+
+      //set data from current object in editable fields
+      $('#carouselInner').html("<div class = 'carousel-item active'><img class='d-block w-100' src='"+obj.ImagePfad+"' alt='First slide'/></div>");
+      $("#rezeptAnleitung").text(obj.Zubereitung);
+      $(".tableBody").html(obj.Zutatenliste);
+
+      addEditableDiv();
+      titelFeld.attr('contenteditable', 'false');
+    }
+
+    function removeEditableDiv() {
+        console.log("Removed Editable");
+        $("div[contenteditable=true]").attr('contenteditable', 'false');
+        console.log("Removed Editable");
+
+    }
+
+    function addEditableDiv() {
+        console.log("Removed Editable");
+        $("div[contenteditable=false]").attr('contenteditable', 'true');
+        console.log("Removed Editable");
+
     }
