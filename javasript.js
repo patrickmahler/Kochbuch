@@ -208,52 +208,6 @@ for ( var i = 0, len = localStorage.length; i < len; ++i ) {
 
 } // End onload function
 
-// Author: Patrick Mahler
-// Modal
-/*function aktualisieren(){
-
-    aktDropDown = document.getElementById("DropDown").value;
-    console.log("Aktualisiert");
-}
-function init(){
-    //ZutatenAnz = 3;
-    array = [];
-   for (var i = 0; i <= ZutatenAnz; i++) {
-       array[i] =document.getElementById("00"+(i+1)).innerHTML;
-       console.log(array[i]);
-   }
-
-   var tableObj = $(".tableBody").find(".Menge span:first-child");
-   console.log(tableObj);
-   var x = 0;
-   $.each(tableObj, function (key,value){
-       array[x] = value.innerText;
-       console.log(array[x]);
-       x++;
-       //gibt im Moment 2x Mal den selben Wert aus
-       //bis dahin funktioniert es, jetzt muss aendern function noch angepasst werden.
-   })
-
-    document.getElementById("DropDown").addEventListener('onchange', aendern());
-}
-
-function aendern(){
-    var neuDropDown = document.getElementById("DropDown").value;
-    console.log(neuDropDown);
-    for (var i = 0; i <= array.length; i++) {
-        aktZutatenWert = array[i];
-        neuZutatenWert = ((aktZutatenWert/aktDropDown)* neuDropDown);
-        console.log(neuZutatenWert);
-        console.log("bis hier hin klappt es");
-        //Der folgende Befehl ist noch nicht richtig und muss durch JQuery ersetzt werden.
-        $(".tableBody").find(".Menge span:first-child").attr("id", "00" + i).innerText = neuZutatenWert;
-        //document.getElementById("00"+(i+1)).innerHTML = neuZutatenWert;
-    }
-    aktualisieren();
-}*/
-
-
-/*Noch nicht ausgereift funktioniert noch nicht*/
 function search() {
 /* Es müsste noch id="searchForm" onchange="search()" beim Button oder der Suchleiste hinzugefügt werden*/
    var name = document.getElementById("searchForm").elements["searchItem"].value;
@@ -479,15 +433,13 @@ function rezeptHinzufuegen(newObject) {
             if (i!=0){
                 index++;
             }
-            aktZutatenWert = array[i];
-            neuZutatenWert = ((aktZutatenWert/aktDropDown)* neuDropDown);
-            //Tabellenwerte der temp Struktur werden überschrieben
-            temp.children[index].innerHTML= neuZutatenWert;
+            aktZutatenWert = array[i];                                                      //aktueller Wert wird in die Variable geschrieben
+            neuZutatenWert = ((aktZutatenWert/aktDropDown)* neuDropDown);                   // neuer Zutatenwert wird berechnet
+            temp.children[index].innerHTML= neuZutatenWert;                                 //Tabellenwerte der temp Struktur werden überschrieben
             index++;
         }
-        //temp Struktur als neue Tabellen Struktur übernehmen
         console.log(temp);
-        $(".tableBody").html(temp.innerHTML);
+        $(".tableBody").html(temp.innerHTML);                                               //temp Struktur als neue Tabellen Struktur übernehmen
     }
 
 
