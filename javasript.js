@@ -40,7 +40,7 @@ window.onload = function(){     // Wait for page to finish loading before runnin
             if  (response == true) {
                 $('.card').remove();
                 localStorage.clear();   // Local Storage leeren
-                location.refresh();     // Page-Refresh
+                location.reload();     // Page-Refresh
                 console.log("All Card-Elements performed");
             }
             // Log if not deleted - User input canceled
@@ -99,6 +99,7 @@ for ( var i = 0, len = localStorage.length; i < len; ++i ) {
 }
 
 // Experimental Layout-Switch
+// Author: Philip Mayer
     layoutSwitcher.addEventListener("click", () => {
 
         //Log-Einträge zur besseren Nachverfolgung der Werte //
@@ -360,13 +361,6 @@ function rezeptHinzufuegen(newObject) {
         stopOverlapOfElements(this.event);
     });
 
-    // Method in order to stop overlapping conflicts in dom tree
-    // prevents parent element from being notified by the event
-    // internet explorer v8 or newer!
-    function stopOverlapOfElements(evt) {
-        evt.stopPropagation();          // internet explorer v9 and other browsers
-        evt.cancelBubble = true;        // for ie8 or lower
-    }
 
     cardElement.onclick = function(){
       //patricksModalAufruf()
@@ -474,4 +468,12 @@ function rezeptHinzufuegen(newObject) {
         $("div[contenteditable=false]").attr('contenteditable', 'true');
         console.log("Removed Editable");
 
+    }
+
+    // Method in order to stop overlapping conflicts in dom tree
+    // prevents parent element from being notified by the event
+    // internet explorer v8 or newer!
+    function stopOverlapOfElements(evt) {
+        evt.stopPropagation();          // internet explorer v9 and other browsers
+        evt.cancelBubble = true;        // for ie8 or lower
     }

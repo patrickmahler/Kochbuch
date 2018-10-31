@@ -425,12 +425,11 @@ hr{
 /* Div-Editable Styling */
 [contenteditable=true]:empty:before{
   content: attr(placeholder);
-  display: block; /* For Firefox */
+  display: block;                     /* For Firefox */
 }
 
 [contenteditable=false]{
     display: block;
-
 }
 
 div[contenteditable=true] {
