@@ -234,7 +234,7 @@ function addNewElement(){
     localStorage.setItem(titel, JSON.stringify(newObject));
     //add object as new recepie
     rezeptHinzufuegen(newObject);
-    //set ID`s 
+    //set ID`s
     setTableID(this);
 
     // perform reset of values to start without values when creating new card item in modal
@@ -421,14 +421,14 @@ function rezeptHinzufuegen(newObject) {
       addEditableDiv();
       titelFeld.attr('contenteditable', 'false');
     }
-
+    //remove editable tag for all contenteditable divs
     function removeEditableDiv() {
         console.log("Removed Editable");
         $("div[contenteditable=true]").attr('contenteditable', 'false');
         console.log("Removed Editable");
 
     }
-
+    //set contenteditable to true
     function addEditableDiv() {
         console.log("Removed Editable");
         $("div[contenteditable=false]").attr('contenteditable', 'true');
