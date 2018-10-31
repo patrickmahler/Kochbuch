@@ -49,20 +49,6 @@ window.onload = function(){     // Wait for page to finish loading before runnin
             }
     })
 
-    // Navbar Rezept anlegen Button
-    /* Code obsolete? -> Check for action -phm
-    hinzufuegen.addEventListener("click", () => {
-        console.log("hinzufuegen hat funktioniert");
-        // rezeptHinzufuegen();
-    });
-    */
-/* Code obsolete? - phm
-    // Plus-Karte für Rezept anlegen
-    hinzufuegenCard.addEventListener("click", () => {
-        console.log("Card-Button funktioniert");
-        //rezeptHinzufuegen();
-    }) */
-
     // Lucas Modal Safebutton bei Save Changes klick
     safeButton.addEventListener("click", () => {
         console.log("safeButton funktioniert");
@@ -71,24 +57,7 @@ window.onload = function(){     // Wait for page to finish loading before runnin
         addNewElement();
         $('#addModal').modal('toggle');
     })
-    /* Experimental
-    // Author: Philip Mayer
 
-    function closeButtonActionPerformed () {
-        //Aufrufendes Object muss Child entfernen
-        $('.card').remove();
-        console.log("closeButtonActionPerformed: Card-Element deleted.")
-    }
-
-    let cardElements = document.querySelector("div.images").childNodes;
-
-    for (let i; i<cardElements.length; i++) {
-        if ()
-    //}
-    closeButton.addEventListener("click", () => {
-    closeButtonActionPerformed();
-    })
-    End Experimental Feature*/
 
 //check if storage empty or filled
 for ( var i = 0, len = localStorage.length; i < len; ++i ) {
@@ -149,28 +118,29 @@ for ( var i = 0, len = localStorage.length; i < len; ++i ) {
 
 // Author: Luca Marmonti
 // funcitonality carousel befüllen
-//window.onload = function(){  // auskommentiert und vor Code Philip angefügt (PhM)
+ // auskommentiert und vor Code Philip angefügt (PhM)
     aktDropDown = document.getElementById("DropDown").value;
     console.log(aktDropDown);
-
+    //bootstrap image picker
     if(window.File && window.FileList && window.FileReader)
     {
         var filesInput = document.getElementById("files");
-
+        //add listener for "Add image" button
         filesInput.addEventListener("change", function(event){
-
+            //get all picked images
             var files = event.target.files; //FileList object
+            //get carousel inner as destination for images
             var carouselInner = document.getElementById("carouselInner");
             var check = 0;
             i = 0;
-
+            //for each image
             for(i = 0; i< files.length; i++)
             {
                 check = i;
                 var file = files[i];
                 console.log(files.length);
                 console.log(files);
-                //Only pics
+                //Only pics - check if file is image
                 if(!file.type.match('image'))
                   continue;
 
@@ -179,26 +149,20 @@ for ( var i = 0, len = localStorage.length; i < len; ++i ) {
                 picReader.addEventListener("load",function(event){
 
                     var picFile = event.target;
-
+                    //create new div container for image
                     var div = document.createElement("div");
-
-                      console.log("restliche items ");
                     div.className = "carousel-item";
-
-
-
+                    //build html img tag for current image
                     div.innerHTML = "<img class='d-block w-100' src='" + picFile.result + "'" +
                             "title='test'/>";
-
-                            console.log("item anhängen");
-
+                    //add image to carousenInner
                     carouselInner.appendChild(div,null);
+                    //change class of frist element to active to show it in carousel
                     $('#carouselInner div:first').addClass('active');
 
                 });
 
                  //Read the image
-                 console.log("read image");
                 picReader.readAsDataURL(file);
             }
         });
@@ -264,12 +228,13 @@ function addNewElement(){
     //close Modal
     $('#addModal').modal('toggle');
 
-    //to local storage
+    //to local storage - create new object for local storage
     var newObject = { 'Titel': titel, 'Zubereitung': rezeptZubereitung, 'ImagePfad': imagePfad, 'Zutatenliste': zutaten, 'imgeCar': imageCar, 'AnzahlPersonen' : dropdown };
-    console.log("object "+newObject.Zutatenliste);
+    //set item to local storage
     localStorage.setItem(titel, JSON.stringify(newObject));
-
+    //add object as new recepie
     rezeptHinzufuegen(newObject);
+    //set ID`s
     setTableID(this);
 
     // perform reset of values to start without values when creating new card item in modal
@@ -456,14 +421,14 @@ function rezeptHinzufuegen(newObject) {
       addEditableDiv();
       titelFeld.attr('contenteditable', 'false');
     }
-
+    //remove editable tag for all contenteditable divs
     function removeEditableDiv() {
         console.log("Removed Editable");
         $("div[contenteditable=true]").attr('contenteditable', 'false');
         console.log("Removed Editable");
 
     }
-
+    //set contenteditable to true
     function addEditableDiv() {
         console.log("Removed Editable");
         $("div[contenteditable=false]").attr('contenteditable', 'true');
