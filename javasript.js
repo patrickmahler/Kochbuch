@@ -100,6 +100,7 @@ for ( var i = 0, len = localStorage.length; i < len; ++i ) {
 
 // Experimental Layout-Switch
 // Author: Philip Mayer
+/*  took Layout-Switcher out of code for now - 31.10.2018 - phm
     layoutSwitcher.addEventListener("click", () => {
 
         //Log-Einträge zur besseren Nachverfolgung der Werte //
@@ -132,7 +133,7 @@ for ( var i = 0, len = localStorage.length; i < len; ++i ) {
             console.log("Unexpected case - No Layout Type selected");
             return;
         }
-    })
+    }) End Layout-Switcher */
 
 
 // Search-Function on Main
