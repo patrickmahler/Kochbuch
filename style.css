@@ -226,7 +226,7 @@ nav > div > img {
 }
 
 /* Author: Patrick Mahler */
-
+/* Carousel images, !!Haben teilweiße Klasse .picCar*/
 #carousel img{
     max-width: 50em;
     max-height: 25em;
@@ -307,7 +307,7 @@ hr{
 }
 
 #button_close span:after {
-  content: url("img/exit_symbol.png");
+  content: url("img/exit_symbol.png");                             /*Hier wird das Symbol vom Button eingeflogen*/
   position: absolute;
   opacity: 0;
   top: 0;
@@ -349,7 +349,7 @@ hr{
 }
 
 #button_save span:after {
-  content: url("img/save_symbol.png");
+  content: url("img/save_symbol.png");                          /*Hier wird das Symbol vom Button eingeflogen*/
   position: absolute;
   opacity: 0;
   top: 0;
@@ -392,7 +392,7 @@ hr{
 }
 
 .button2 span:after {
-  content: url("img/drucken_symbol2.png");
+  content: url("img/drucken_symbol2.png");                          /*Hier wird das Symbol vom Button eingeflogen*/
   position: absolute;
   opacity: 0;
   top: 0;
@@ -425,12 +425,11 @@ hr{
 /* Div-Editable Styling */
 [contenteditable=true]:empty:before{
   content: attr(placeholder);
-  display: block; /* For Firefox */
+  display: block;                     /* For Firefox */
 }
 
 [contenteditable=false]{
     display: block;
-
 }
 
 div[contenteditable=true] {
