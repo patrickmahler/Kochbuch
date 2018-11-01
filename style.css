@@ -10,6 +10,7 @@ body {
     background-repeat: no-repeat;
 }
 
+
 /* Set specific width for modal elements */
 .modal-lg {
     width: 60% !important;
@@ -261,13 +262,14 @@ nav > div > img {
 /* Author: Patrick Mahler */
 /* Carousel images, !!Haben teilweiße Klasse .picCar*/
 #carousel img{
-    max-width: 50em;
-    max-height: 25em;
-    min-width: 50em;
-    min-height: 25em;
+    max-width: 80%;
+    max-height: 450px;
+    min-height: 20%;
     margin: auto;
     margin-top: 20px;
+    width: auto !important;
 }
+
 .carousel {
     overflow: hidden;
   }
