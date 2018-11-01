@@ -108,7 +108,7 @@ for ( var i = 0, len = localStorage.length; i < len; ++i ) {
 // Search-Function on Main
 // Author: Luca Marmonti
       $(document).ready(function(){
-      $("#searchInput").on("keyup", function() {
+          $("#searchInput").on("keyup", function() {
         var value = $(this).val().toLowerCase();
         $("div[class='card']").filter(function() {
           $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
