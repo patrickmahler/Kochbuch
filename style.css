@@ -22,6 +22,12 @@ body {
     margin: auto;
 }
 
+#carouselLimiter img {
+    height: 300px;
+    width: auto;
+}
+
+
 /* Close Button for top right corner of the modal */
 .modal-top-bar-close-button {
     float: right;
@@ -115,6 +121,15 @@ body {
 /*Header-Navbar-Logo */
 nav > div > img {
     width: 180px;
+}
+
+#AddModalHeader {
+    display: block;
+}
+
+#selectFiles {
+    margin-top: 1em;
+    text-align: center;
 }
 
 /*addModal Scrollabel*/
@@ -266,6 +281,7 @@ nav > div > img {
     max-height: 450px;
     min-height: 20%;
     margin: auto;
+    overflow: none;
     margin-top: 20px;
     width: auto !important;
 }
@@ -275,6 +291,11 @@ nav > div > img {
   }
 
 .PopUp_Text{
+    margin: 20px;
+    font-size: 2.5vmax;
+    text-align: center;
+}
+.PopUp_TextPM{
     margin: 20px;
     font-size: 2.5vmax;
     text-align: center;
@@ -329,7 +350,7 @@ hr{
   text-align: center;
   font-size: 28px;
   padding: 10px;
-  width: 250px;
+  width: auto;
   transition: all 0.5s;
   cursor: pointer;
   margin: 5px;
@@ -349,8 +370,8 @@ hr{
   text-align: center;
   font-size: 28px;
   padding: 10px;
-  width: 250px;
-  transition: all 0.5s;
+  width: auto;
+  transition: all 0.2s;
   cursor: pointer;
   margin: 5px;
 }
@@ -360,7 +381,7 @@ hr{
   cursor: pointer;
   display: inline-block;
   position: relative;
-  transition: 0.5s;
+  transition: 0.2s;
 }
 
 #button_close span:after {
@@ -416,7 +437,7 @@ hr{
   text-align: center;
   font-size: 28px;
   padding: 10px;
-  width: 400px;
+  width: auto;
   transition: all 0.5s;
   cursor: pointer;
   margin: 5px;
@@ -445,7 +466,7 @@ hr{
   opacity: 1;
   right: 0;
 }
-.button2 {
+#button_druck {
   display: inline-block;
   border-radius: 4px;
   background-color: transparent;
@@ -460,19 +481,19 @@ hr{
   text-align: center;
   font-size: 28px;
   padding: 10px;
-  width: 400px;
+  width: auto;
   transition: all 0.5s;
   cursor: pointer;
 }
 
-.button2 span {
+#button_druck span {
   cursor: pointer;
   display: inline-block;
   position: relative;
   transition: 0.5s;
 }
 
-.button2 span:after {
+#button_druck span:after {
   content: url("img/drucken_symbol2.png");                          /*Hier wird das Symbol vom Button eingeflogen*/
   position: absolute;
   opacity: 0;
@@ -481,11 +502,11 @@ hr{
   transition: 0.5s;
 }
 
-.button2:hover span {
+#button_druck:hover span {
   padding-right: 40px;
 }
 
-.button2:hover span:after {
+#button_druck:hover span:after {
   opacity: 1;
   right: 0;
 }
@@ -518,6 +539,26 @@ div[contenteditable=true] {
     color: #777;
     width: 290px;
     padding: 5px;
+}
+
+#rezeptEingebenBox {
+    border: .25px solid black;
+    color: #777;
+    padding: 5px;
+    width: auto;
+    margin: 15px;
+}
+
+.Menge {
+    float: right;
+}
+
+#AddModalFooter {
+    display: block;
+}
+
+#ShowModalFooter {
+    display: block;
 }
 
 pre {

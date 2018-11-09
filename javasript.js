@@ -217,10 +217,10 @@ function addTableRow(){
 function addNewElement(){
 
     //get Elements
-    var titel = $("#inputRezeptTitel").html();
+    var titel = $("#rezeptEingebenBox").html();
     var rezeptZubereitung = $('#rezeptAnleitung').val();
     var zutaten = $('#zutatentabelle').html();
-    var imageCar = $('#carouselInner');
+    var imageCar = $('#carouselInner').html();
     var imagePfad = $('#carouselInner').first().children().first().children().attr("src");
     var dropdown = $('#DropDown').val();
 
@@ -229,8 +229,9 @@ function addNewElement(){
     $('#addModal').modal('toggle');
 
     //to local storage - create new object for local storage
-    var newObject = { 'Titel': titel, 'Zubereitung': rezeptZubereitung, 'ImagePfad': imagePfad, 'Zutatenliste': zutaten, 'imgeCar': imageCar, 'AnzahlPersonen' : dropdown };
+    var newObject = { 'Titel': titel, 'Zubereitung': rezeptZubereitung, 'ImagePfad': imagePfad, 'Zutatenliste': zutaten, 'imageCar': imageCar, 'AnzahlPersonen' : dropdown };
     //set item to local storage
+    console.log("Das ist das Objekt: " + newObject);
     localStorage.setItem(titel, JSON.stringify(newObject));
     //add object as new recepie
     rezeptHinzufuegen(newObject);
@@ -238,7 +239,7 @@ function addNewElement(){
     setTableID(this);
 
     // perform reset of values to start without values when creating new card item in modal
-    $("#inputRezeptTitel").val(""); // title reset
+    //$("#inputRezeptTitel").val(""); // title reset
     $('#rezeptAnleitung').val("");  // description reset
     $('#carouselInner').remove(); // remove image item
 
@@ -334,9 +335,8 @@ function rezeptHinzufuegen(newObject) {
       var objJSON = localStorage.getItem(titel);
       obj = JSON.parse(objJSON);
 
-      $(".PopUp_Text").text(obj.Titel);
-      $("#carouselInner").html(obj.imageCar);
-      $('#carouselInnerTarget').html("<div class = 'carousel-item active'><img class='d-block w-100' src='"+obj.ImagePfad+"' alt='First slide'/></div>");
+      $(".PopUp_TextPM").text(obj.Titel);
+      $("#carouselInnerTarget").html(obj.imageCar);
       $(".Zub_Text").text(obj.Zubereitung);
       $(".tableBody").html(obj.Zutatenliste);
       $('#modalShow').modal('toggle');
@@ -410,7 +410,7 @@ function rezeptHinzufuegen(newObject) {
       console.log("weg mit Patricks Modal- her mit Lucas Modal");
       var localObject = obj;
 
-      var titelFeld =   $('#inputRezeptTitel');
+      var titelFeld =   $('#rezeptEingebenBox');
       titelFeld.html(localObject.Titel)
 
       //set data from current object in editable fields

@@ -145,23 +145,17 @@
                       <span aria-hidden="true">&times;</span>
                     </button>
                     <!-- Carousel structure -->
-                    <div id="carousel" class="carousel slide" data-ride="carousel">
-                        <div id = "carouselInnerTarget" class="carousel-inner">
-                            <div class="carousel-item active">
-                                <img class="d-block w-100" src="img/Dampfnudel_4.jpg" alt="First slide">
-                            </div>
-                            <div class="carousel-item">
-                                <img class="d-block w-100" src="img/Dampfnudel_5.jpg" alt="Second slide">
-                            </div>
-                            <div class="carousel-item">
-                                <img class="d-block w-100" src="img/Dampfnudel_3.jpg" alt="Third slide">
+                    <div id="carouselLimiter">
+                        <div id="carousel" class="carousel slide" data-ride="carousel">
+                            <div id="carouselInnerTarget" class="carousel-inner">
                             </div>
                         </div>
                     </div>
-                    <div class="PopUp_Text">
+                    <div class="PopUp_TextPM">
                         <h1></h1>
-                        <hr>
-                    </div>
+                        <hr />
+                  </div>
+
                     <div class="PopUp_Zutaten">
 
                         <div class="Zutaten_Überschrift">
@@ -201,8 +195,8 @@
                         </p>
                     </div>
 
-                    <div class="modal-footer">
-                        <button type="button" class="button2 modal-footer-button " id="DruckButton" onclick="window.print()" style="vertical-align:middle"><span>Rezept drucken </span></button>
+                    <div id="ShowModalFooter"class="modal-footer">
+                        <button type="button" class="button2 modal-footer-button " id="button_druck" onclick="window.print()" style="vertical-align:middle"><span>Rezept drucken </span></button>
                         <button type="button" class="btn btn-seconda modal-footer-button" data-dismiss="modal" id="button_change" onclick="changeElement()" style="vertical-align:middle"><span>Change</span></button>
                         <button type="button" class="btn btn-seconda modal-footer-button" data-dismiss="modal" id="button_close" style="vertical-align:middle"><span>Close</span></button>
                   </div>
@@ -217,14 +211,13 @@
             <div class="modal fade bd-newItem-modal-lg" id="addModal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
               <div class="modal-dialog modal-lg">
                 <div class="modal-content">
-                  <div class="modal-header">
-                    <div class="PopUp_Text">
-                    <input type="rezeptTitel" class="form-control" id="inputRezeptTitel" aria-describedby="rezeptHelp" placeholder="Rezept Titel eingeben">
-
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                      <span aria-hidden="true">&times;</span>
-                    </button>
-                  </div>
+                  <div id="AddModalHeader" class="modal-header">
+                      <button type="button" class="close modal-top-bar-close-button" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                      <div class="PopUp_Text">
+                        <div id="rezeptEingebenBox" contenteditable="true" placeholder="Rezept Titel eingeben"></div>
+                    </div>
                   <div class="modal-body">
                     <section class="container">
                       <div id="carousel" class="carousel slide" data-ride="carousel">
@@ -242,10 +235,11 @@
                         </div>
                     </section>
                     <article>
-            <label for="files">Select multiple files: </label>
-            <input id="files" type="file" multiple/>
-            </article>
-
+                        <div id="selectFiles">
+                            <label for="files">Select multiple files: </label>
+                            <input id="files" type="file" multiple/>
+                        </div>
+                    </article>
                     <section class="details container">
                       <hr>
 
@@ -289,9 +283,9 @@
                         </div>
                     </section>
                   </div>
-                  <div class="modal-footer">
+                  <div id="AddModalFooter" class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal" id="button_close" style="vertical-align:middle"><span>Close</span></button>
-                    <button type="button" class="btn btn-primary"id="button_save" style="vertical-align:middle"><span>Save</span></button>
+                    <button type="button" class="btn btn-primary" id="button_save" style="vertical-align:middle"><span>Save</span></button>
 
                   </div>
                 </div>
