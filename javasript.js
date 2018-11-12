@@ -360,10 +360,13 @@ function rezeptHinzufuegen(newObject) {
         var array = [];
         var tableInner;
         var j = 1;
-        for(i=0; i<=3; i++){
+        var childCount = temp.childElementCount;
+        console.log(childCount);
+
+        for(i=0; i < (childCount/2); i++){
         // das j von childNodes muss immer ein ungerader Wert sein. (1,3,5,7)
         //Hier muss die maximale Anzahl an Tabellenreihen stehen
-            if(i == 3){
+            if(i == ((childCount/2) -1)){
                 tableInner = temp.childNodes[j+1].nextSibling.innerHTML;
                 array[i] = tableInner;
                 j++;
@@ -372,16 +375,16 @@ function rezeptHinzufuegen(newObject) {
             else{
                     if ( j%2 == 0){
                         j++;
-                        tableInner = temp.childNodes[j].innerHTML;
+                        tableInner = temp.childNodes[j].nextSibling.innerHTML;
                         array[i] = tableInner;
                         j++;
-                        //console.log("gerade");
+                        console.log("gerade");
                     }
                     else if(j%2 != 0){
                         tableInner = temp.childNodes[j].innerHTML;
                         j++;
                         array[i] = tableInner;
-                        //console.log("ungerade");
+                        console.log("ungerade");
                     }
                 }
         }
