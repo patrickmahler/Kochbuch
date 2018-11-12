@@ -555,6 +555,7 @@ div[contenteditable=true] {
 
 #AddModalFooter {
     display: block;
+    text-align: center;
 }
 
 #ShowModalFooter {

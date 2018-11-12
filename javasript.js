@@ -354,34 +354,36 @@ function rezeptHinzufuegen(newObject) {
     function aendern(){
         var objtemp = obj;
         let temp = document.createElement("div");
+        console.log(temp);
         temp.innerHTML = objtemp.Zutatenliste;
+        console.log(temp);
         var array = [];
         var tableInner;
         var j = 1;
         for(i=0; i<=3; i++){
         // das j von childNodes muss immer ein ungerader Wert sein. (1,3,5,7)
         //Hier muss die maximale Anzahl an Tabellenreihen stehen
-        if(i == 3){
-            tableInner = temp.childNodes[j+1].nextSibling.innerHTML;
-            array[i] = tableInner;
-            j++;
-            console.log("letztes Element");
-        }
-        else{
-                if ( j%2 == 0){
-                    j++;
-                    tableInner = temp.childNodes[j].innerHTML;
-                    array[i] = tableInner;
-                    j++;
-                    //console.log("gerade");
-                }
-                else if(j%2 != 0){
-                    tableInner = temp.childNodes[j].innerHTML;
-                    j++;
-                    array[i] = tableInner;
-                    //console.log("ungerade");
-                }
+            if(i == 3){
+                tableInner = temp.childNodes[j+1].nextSibling.innerHTML;
+                array[i] = tableInner;
+                j++;
+                console.log("letztes Element");
             }
+            else{
+                    if ( j%2 == 0){
+                        j++;
+                        tableInner = temp.childNodes[j].innerHTML;
+                        array[i] = tableInner;
+                        j++;
+                        //console.log("gerade");
+                    }
+                    else if(j%2 != 0){
+                        tableInner = temp.childNodes[j].innerHTML;
+                        j++;
+                        array[i] = tableInner;
+                        //console.log("ungerade");
+                    }
+                }
         }
         console.log(array);
         var aktDropDown = objtemp.AnzahlPersonen;
