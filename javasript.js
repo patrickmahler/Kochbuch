@@ -375,7 +375,7 @@ function rezeptHinzufuegen(newObject) {
             else{
                     if ( j%2 == 0){
                         j++;
-                        tableInner = temp.childNodes[j].nextSibling.innerHTML;
+                        tableInner = temp.childNodes[j].innerHTML;
                         array[i] = tableInner;
                         j++;
                         console.log("gerade");
