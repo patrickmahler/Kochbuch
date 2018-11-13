@@ -402,9 +402,34 @@ function rezeptHinzufuegen(newObject) {
             neuZutatenWert = ((aktZutatenWert/aktDropDown)* neuDropDown);                   // neuer Zutatenwert wird berechnet
             temp.children[index].innerHTML= neuZutatenWert;                                 //Tabellenwerte der temp Struktur werden überschrieben
             index++;
+
+        /*    if(i == array.length-1){
+                objtemp.Zutatenliste.childNodes[index+1].nextSibling.innerHTML = neuZutatenWert;
+                index++;
+                console.log("Das ist der Index" + index);
+                console.log("letztes Element für Table")
+            }
+            else{
+                if (index%2 == 0){
+                    index++;
+                    objtemp.Zutatenliste.childNodes[index].innerHTML = neuZutatenWert;
+                    index++;
+                    console.log("Das ist der Index" + index);
+                    console.log("gerades Element für Table");
+                }
+                else if (index%2 != 0){
+                    objtemp.Zutatenliste.childNodes[index].innerHTML  = neuZutatenWert;
+                    index++;
+                    console.log("Das ist der Index" + index);
+                    console.log("ungerades Element für Table");
+                }
+            }*/
         }
-        console.log(temp);
-        $(".tableBody").html(temp.innerHTML);                                               //temp Struktur als neue Tabellen Struktur übernehmen
+        //console.log(temp);
+        let tableBody = document.querySelector('#zutatentabelle');
+        $(".tableBody").html(temp.innerHTML);
+        tableBody.classList.add("neueTabelle");
+        console.log("Klasse neue Tabelle hinzugefügt");                                             //temp Struktur als neue Tabellen Struktur übernehmen
     }
 
 
