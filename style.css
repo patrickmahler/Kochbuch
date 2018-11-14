@@ -22,11 +22,17 @@ body {
     margin: auto;
 }
 
+/* For Show Modal Image Carousel Functionality */
 #carouselLimiter img {
     height: 300px;
     width: auto;
 }
 
+/* For Add Modal Image Carousel Functionality */
+#AddModalCarouselLimiter img {
+    height: 300px;
+    width: auto;
+}
 
 /* Close Button for top right corner of the modal */
 .modal-top-bar-close-button {
@@ -53,20 +59,36 @@ body {
     max-width: 60%;
 }
 
-
 @media (min-width: 600px)
 .modal-lg {
     max-width: 80%;
 }
+
+/* Print Layout for Modal */
+@media screen {
+  #printSection {
+      display: none;
+  }
+}
+
+@media print {
+  body * {
+    visibility:hidden;
+  }
+  #printSection, #printSection * {
+    visibility:visible;
+  }
+  #printSection {
+    position:absolute;
+    left:0;
+    top:0;
+  }
+}
+
 /* End-media-query */
 
-@media print {                            /* Für das Druckerlayout --> Muss noch ausgelagert werden */
-    main {
-        display: block;
-        background: none;
-        color: black;
-    }
-}
+
+
 
 .modal-dialog{
     width: 80%;
@@ -527,9 +549,9 @@ hr{
     margin-top: 20px;
 }
 
-/* Hide-Class for Modal */
+/* Hide-Class */
 .hidden {
-    display: hidden;
+    display: none;
 }
 
 /* Div-Editable Styling */
@@ -574,4 +596,22 @@ pre {
   background:#EEE;
   padding:5px;
   width: 290px;
+}
+
+#UmrechnenModalTableErsatz {
+    display: inline;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: right;
+}
+
+#UmrechnenModalTableErsatz div[contenteditable=false]:nth-child(even) {
+    text-align: left;
+    padding-left: 10%;
+    margin-bottom: 2%;
+}
+
+#UmrechnenModalTableErsatz div[contenteditable=false]  {
+    float: left;
+    width: 50%;
 }

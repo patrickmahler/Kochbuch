@@ -32,6 +32,27 @@ window.onload = function(){     // Wait for page to finish loading before runnin
     // get addModal to insert items
     let addModal = document.querySelector("#addModal");
 
+    // Printview for Modal Element //
+    document.getElementById("button_druck").onclick = function () {
+        printElement(document.getElementById("modalShow"));
+    }
+
+    function printElement(elem) {
+        var domClone = elem.cloneNode(true);
+
+        var $printSection = document.getElementById("printSection");
+
+        if (!$printSection) {
+            var $printSection = document.createElement("div");
+            $printSection.id = "printSection";
+            document.body.appendChild($printSection);
+        }
+
+        $printSection.innerHTML = "";
+        $printSection.appendChild(domClone);
+        window.print();
+    }
+
     //Navbar alle Rezepte Löschen
     deleteAllButton.addEventListener("click", () => {
         console.log("DeleteAll-Method initiated");
@@ -66,6 +87,12 @@ for ( var i = 0, len = localStorage.length; i < len; ++i ) {
   console.log("pass an phillip " + objfürPhillip);
   rezeptHinzufuegen(JSON.parse(objfürPhillip));
 }
+
+// Reload modal when closed
+$('#addModal').on('hidden.bs.modal', function(){
+    console.log("Hide Modal performed!");
+    location.reload();
+});
 
 // Experimental Layout-Switch
 // Author: Philip Mayer
@@ -219,10 +246,11 @@ function addNewElement(){
     //get Elements
     var titel = $("#rezeptEingebenBox").html();
     var rezeptZubereitung = $('#rezeptAnleitung').val();
+    console.log("Test ob Text augegeben wird" +rezeptZubereitung);
     var zutaten = $('#zutatentabelle').html();
     var imageCar = $('#carouselInner').html();
     var imagePfad = $('#carouselInner').first().children().first().children().attr("src");
-    var dropdown = $('#DropDown').val();
+    var dropdown = $('#AddModalDropDown').val();
 
 
     //close Modal
@@ -240,8 +268,8 @@ function addNewElement(){
 
     // perform reset of values to start without values when creating new card item in modal
     //$("#inputRezeptTitel").val(""); // title reset
-    $('#rezeptAnleitung').val("");  // description reset
-    $('#carouselInner').remove(); // remove image item
+    // $('#rezeptAnleitung').val("");  // description reset
+    // $('#carouselInner').remove(); // remove image item
 
     // Temp-Reload um das Modal zu resetten
     location.reload();
@@ -337,10 +365,11 @@ function rezeptHinzufuegen(newObject) {
 
       $(".PopUp_TextPM").text(obj.Titel);
       $("#carouselInnerTarget").html(obj.imageCar);
-      $(".Zub_Text").text(obj.Zubereitung);
+      $(".Zub_Text").html(obj.Zubereitung);
       $(".tableBody").html(obj.Zutatenliste);
       $('#modalShow').modal('toggle');
-
+      $('#DropDown').val(obj.AnzahlPersonen);       // set value of dropdown when created
+      console.log("Anz Personen: " +obj.AnzahlPersonen);
      // $("dropdown").on("change", "select", aendern(obj));
      console.log(obj);
 
@@ -427,8 +456,11 @@ function rezeptHinzufuegen(newObject) {
         }
         //console.log(temp);
         let tableBody = document.querySelector('.anzeigenModalTableBody');
-        $(".anzeigenModalTableBody").html(temp.innerHTML);
+        $("#UmrechnenModalTableErsatz").html(temp.innerHTML);
         tableBody.setAttribute("id", "neueTabelle");
+        tableBody.setAttribute("class" , "hidden");
+        $("#UmrechnenModalTableErsatz").removeAttr("class");
+        console.
         console.log("Klasse neue Tabelle hinzugefügt" + tableBody);                                             //temp Struktur als neue Tabellen Struktur übernehmen
     }
 
