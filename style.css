@@ -86,6 +86,14 @@ body {
                 0 6px 6px rgba(0,0,0,0.23);       /* X-Richtung/Y-Richtung/Weichzeichnung/Farbe */
 }
 
+/* Tabelle new Styling */
+
+
+#neueTabelle > div {
+    display: flex;
+    margin: 10px;
+    width: 50%;
+}
 
 /* Navbar-Logo  - Firmenlogo*/
 .logo {

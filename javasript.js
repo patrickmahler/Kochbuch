@@ -426,10 +426,10 @@ function rezeptHinzufuegen(newObject) {
             }*/
         }
         //console.log(temp);
-        let tableBody = document.querySelector('#zutatentabelle');
-        $(".tableBody").html(temp.innerHTML);
-        tableBody.classList.add("neueTabelle");
-        console.log("Klasse neue Tabelle hinzugefügt");                                             //temp Struktur als neue Tabellen Struktur übernehmen
+        let tableBody = document.querySelector('.anzeigenModalTableBody');
+        $(".anzeigenModalTableBody").html(temp.innerHTML);
+        tableBody.setAttribute("id", "neueTabelle");
+        console.log("Klasse neue Tabelle hinzugefügt" + tableBody);                                             //temp Struktur als neue Tabellen Struktur übernehmen
     }
 
 
