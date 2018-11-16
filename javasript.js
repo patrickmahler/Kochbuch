@@ -108,7 +108,7 @@ window.onload = function(){     // Wait for page to finish loading before runnin
             }
             stopOverlapOfElements(event);
     })
-    
+
 
     // Lucas Modal Safebutton bei Save Changes klick
     safeButton.addEventListener("click", () => {
