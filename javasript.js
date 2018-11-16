@@ -127,7 +127,11 @@ for ( var i = 0, len = localStorage.length; i < len; ++i ) {
 
 // Reload modal when closed
 $('#addModal').on('hidden.bs.modal', function(){
-    console.log("Hide Modal performed!");
+    console.log("Hide addModal performed!");
+    location.reload();
+});
+$('#modalShow').on('hidden.bs.modal', function(){
+    console.log("Hide showModal performed!");
     location.reload();
 });
 
