@@ -139,17 +139,3 @@
         $("div[contenteditable=false]").attr('contenteditable', 'true');
         console.log("Removed Editable");
     }
-
-    //removeTableRow of last Row
-    function removeTableRow(){
-  // Get Zutatentabelle from HTML(DOM)
-    var table = document.getElementById("zutatentabelle");
-    var rowCount = (table.rows.length);
-        if( rowCount > 1){
-            table.deleteRow(0);
-        }
-        else{
-            console.log("Keine Zeile zum löschen verfügbar");
-        }
-
-}

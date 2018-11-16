@@ -372,6 +372,10 @@ td {
     width: 50%;
 }
 
+th {
+    width: 50%;
+}
+
 .table table-borderless{
     width: 100% !important;
     table-layout: 20px !important;
@@ -564,6 +568,49 @@ hr {
   right: 0;
 }
 
+
+#zutatLöschen  {
+  display: inline-block;
+  border-radius: 4px;
+  background-color: transparent;
+  margin-left: 5px;
+  border: solid;
+  border-color: black;
+  border-radius: 30px;
+  color: black;
+  text-align: center;
+  font-size: 28px;
+  padding: 10px;
+  width: auto;
+  transition: all 0.5s;
+  cursor: pointer;
+}
+
+#zutatLöschen span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+#zutatLöschen span:after {
+  content: url("src/img/delete.png");                          /*Hier wird das Symbol vom Button eingeflogen*/
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -40px;
+  transition: 0.5s;
+}
+
+#zutatLöschen:hover span {
+  padding-right: 40px;
+}
+
+#zutatLöschen:hover span:after {
+  opacity: 1;
+  right: 0;
+}
+
 .vorgehenZubereitung {
     width: 100%;
 }
@@ -577,8 +624,7 @@ hr {
     display: flex;
     border-radius: 4px;
     background-color: transparent;
-    margin-left: auto;
-    margin-right: auto;
+    margin-right: 5px;
     border: solid;
     border-color: black;
     border-radius: 30px;
@@ -616,6 +662,11 @@ hr {
   opacity: 1;
   right: 0;
 }
+
+.buttons {
+    display: flex;
+}
+
 .Zubereitung .Zub_Text{
     text-align: center;
     margin: 30px;
