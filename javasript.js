@@ -106,6 +106,7 @@ window.onload = function(){     // Wait for page to finish loading before runnin
             else {
                 console.log("All Card-Elements canceled - Not deleted.");
             }
+            stopOverlapOfElements(event);
     })
 
     // Lucas Modal Safebutton bei Save Changes klick

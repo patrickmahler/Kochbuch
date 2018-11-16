@@ -83,7 +83,7 @@
         cardElement.appendChild(rezeptBild);
 
         // action click for the close element
-        cardCloseButton.addEventListener("click", () => {
+        cardCloseButton.onclick = function(event) {
             console.log("DeleteAll-Method initiated");
             // User input dialog to make sure user really wants to delete the selected item
             var dialog = confirm("Wollen Sie das Rezept wirklich löschen?");
@@ -98,11 +98,14 @@
             }
             // For close-button functionality - needs to be at the end of the method
             // ensures that onclick on this item does not open the modal for onclick on card-image
-            stopOverlapOfElements(this.event);
-        });
+
+            event.stopPropagation();          // internet explorer v9 and other browsers
+            event.cancelBubble = true;        // for ie8 or lower
+            event.preventDefault();
+        };
 
 
-        cardElement.onclick = function(){
+        cardElement.onclick = function(event){
           //patricksModalAufruf()
           var titel = $(this).first().text();
           var objJSON = localStorage.getItem(titel);
@@ -117,7 +120,11 @@
 
          // For close-button functionality - needs to be at the end of the method
          // ensures that onclick on this item does not open the modal for onclick on card-image
-          stopOverlapOfElements(this.event);
+
+          event.stopPropagation();          // internet explorer v9 and other browsers
+          event.cancelBubble = true;        // for ie8 or lower
+          event.preventDefault();
+
       }
     };
 
