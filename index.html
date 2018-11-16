@@ -273,7 +273,7 @@
                           <tr>
                             <th class="Menge" scope="col">Menge</th>
                             <th class="Zutat" scope="col">Zutat</th>
-                            <button class="button button5" onclick="addTableRow()">+ Zutat hinzufügen</button>
+                            <button id="zutatHinzufuegen" class="button button5" onclick="addTableRow()"><span>Zutat hinzufügen</span></button>
                           </tr>
                         </thead>
                         <tbody id="zutatentabelle" class="tableBody">
@@ -294,8 +294,8 @@
                     </section>
                   </div>
                   <div id="AddModalFooter" class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal" id="button_close" style="vertical-align:middle"><span>Close</span></button>
-                    <button type="button" class="btn btn-primary" id="button_save" style="vertical-align:middle"><span>Save</span></button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal" id="button_close"><span>Close</span></button>
+                    <button type="button" class="btn btn-primary" id="button_save"><span>Save</span></button>
 
                   </div>
                 </div>
