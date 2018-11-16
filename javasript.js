@@ -15,6 +15,9 @@ window.onload = function(){     // Wait for page to finish loading before runnin
     // Delete all button in navbar
     let deleteAllButton = document.querySelector(".deleteAll");
 
+    //zutatentabelle
+    let zutatenTabelle = document.querySelector("#zutatentabelle");
+
     // Add-Card-Plus-Icon-Element
     let hinzufuegenCard = document.querySelector("#hinzufuegenButton");
 
@@ -41,7 +44,14 @@ window.onload = function(){     // Wait for page to finish loading before runnin
     buttonDruck.onclick = function () {
         printElement(document.getElementById("modalShow"));
     }
-
+    //Eventlistener für hinzufügen Pluskarte
+    hinzufuegenCard.addEventListener('click', () =>{
+        tableClear();
+    });
+    //Eventlistener für hinzufügen für navBar
+    hinzufuegen.addEventListener('click', () =>{
+        tableClear();
+    });
     // funcitonality carousel befüllen
     //bootstrap image picker
          if(window.File && window.FileList && window.FileReader) {
@@ -133,7 +143,7 @@ $('#addModal').on('hidden.bs.modal', function(){
 });
 $('#modalShow').on('hidden.bs.modal', function(){
     console.log("Hide showModal performed!");
-    location.reload();
+
 });
 
 // Search-Function on Main
@@ -171,6 +181,22 @@ function search() {
 function stopOverlapOfElements(evt) {
     evt.stopPropagation();          // internet explorer v9 and other browsers
     evt.cancelBubble = true;        // for ie8 or lower
+}
+
+function tableClear(){
+    let inhalt =
+    '<tr>'+
+        '<td class="Menge">' +
+            '<div contenteditable="true" placeholder="Bitte geben Sie die Menge ein">'+
+            '</div>' +
+        '</td>'+
+        '<td class="Zutat">' +
+            '<div contenteditable="true" placeholder="Bitte geben Sie die Zutat ein">'+
+            '</div>'  +
+        '</td>'+
+    '</tr>';
+    document.querySelector("#zutatentabelle").innerHTML= inhalt;
+    console.log(document.querySelector("#zutatentabelle"));
 }
 
 
