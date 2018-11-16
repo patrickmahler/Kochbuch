@@ -1,6 +1,5 @@
-/* Author: Philip Mayer | Date: 03.10.2018 */
 body {
-    background-image: url("img/Background_2.png");
+    background-image: url("src/img/Background_2.png");
     background-attachment: fixed;
     background-color: black;
     font-family: 'Pacifico', cursive !important;            /* globale Schriftart */
@@ -441,7 +440,7 @@ hr {
 }
 
 #button_close span:after {
-  content: url("img/exit_symbol.png");                             /*Hier wird das Symbol vom Button eingeflogen*/
+  content: url("src/img/exit_symbol.png");                             /*Hier wird das Symbol vom Button eingeflogen*/
   position: absolute;
   opacity: 0;
   top: 0;
@@ -507,7 +506,7 @@ hr {
 }
 
 #button_save span:after {
-  content: url("img/save_symbol.png");                          /*Hier wird das Symbol vom Button eingeflogen*/
+  content: url("src/img/save_symbol.png");                          /*Hier wird das Symbol vom Button eingeflogen*/
   position: absolute;
   opacity: 0;
   top: 0;
@@ -548,7 +547,7 @@ hr {
 }
 
 #button_druck span:after {
-  content: url("img/drucken_symbol2.png");                          /*Hier wird das Symbol vom Button eingeflogen*/
+  content: url("src/img/drucken_symbol2.png");                          /*Hier wird das Symbol vom Button eingeflogen*/
   position: absolute;
   opacity: 0;
   top: 0;
