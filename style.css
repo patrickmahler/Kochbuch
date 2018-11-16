@@ -10,38 +10,6 @@ body {
     background-repeat: no-repeat;
 }
 
-
-/* Set specific width for modal elements */
-.modal-lg {
-    width: 60% !important;
-    max-width: 60% !important;
-}
-
-/* Centers the modal footer */
-.modal-footer {
-    margin: auto;
-}
-
-/* For Show Modal Image Carousel Functionality */
-#carouselLimiter img {
-    height: 300px;
-    width: auto;
-}
-
-/* For Add Modal Image Carousel Functionality */
-#AddModalCarouselLimiter img {
-    height: 300px;
-    width: auto;
-}
-
-
-/* Close Button for top right corner of the modal */
-.modal-top-bar-close-button {
-    float: right;
-    text-align: right;
-    margin-right: 5px;
-}
-
 /* Start Media-Queries */
 /* Für das mobile Layout angepasste Abfrage für Display mit 40em */
 @media (min-width: 40em) {
@@ -86,15 +54,49 @@ body {
   }
 }
 
-/* End-media-query */
+/* --------------- End of media-queries ---------------------- */
 
 
+.modal-content {
+    border: 5px solid black;
+    border-radius: 20px;
+}
+/* Set specific width for modal elements */
+.modal-lg {
+    width: 60% !important;
+    max-width: 60% !important;
+}
 
+/* Centers the modal footer */
+.modal-footer {
+    margin: auto;
+}
+
+/* For Show Modal Image Carousel Functionality */
+#carouselLimiter img {
+    height: 300px;
+    width: auto;
+}
+
+/* For Add Modal Image Carousel Functionality */
+#AddModalCarouselLimiter img {
+    height: 300px;
+    width: auto;
+}
+
+/* Close Button for top right corner of the modal */
+.modal-top-bar-close-button {
+    float: right;
+    text-align: right;
+    margin-right: 5px;
+}
 
 .modal-dialog{
     width: 80%;
     margin: auto;
 }
+
+
 /*Header-Navbar-Hintergrund */
 .navbar {
     background-image: url("src/img/wood_optics1.jpg");
@@ -384,12 +386,11 @@ td {
     color: black;
 }
 
-hr{
+hr {
     height: 2px;
-    color: red;
     background-color: black;
     border: 2px;
-    border-radius: 5px;
+    border-radius: 20px !important;
     width: 60%;
 }
 #button_close {
@@ -564,6 +565,13 @@ hr{
   right: 0;
 }
 
+.vorgehenZubereitung {
+    width: 100%;
+}
+
+#rezeptAnleitung {
+    min-height: 200px;
+}
 
 /* AddModal addIngredientButton */
 #zutatHinzufuegen {
